@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:49 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 20:32:32 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 21:12:37 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@ void	parse(PhoneBook book[8], std::string str, int *i)
 		exit(0);
 	else if (str.compare("ADD") == 0)
 	{
-		add_phonenb1(book, *i);
-		add_phonenb2(book, *i);
-		*i += 1;
+		if (*i < 8)
+		{
+			add_phonenb1(book, *i);
+			add_phonenb2(book, *i);
+			book[*i].empty = 1;
+			*i += 1;
+		}
+		else
+			std::cout << "Can't Add more than 8 phone sorry" << '\n';
 	}
 	else if (str.compare("SEARCH") == 0)
 		search_in_phonebook(book);
@@ -33,6 +39,9 @@ int main()
 	PhoneBook book[8];
 	std::string str;
 	int i = 0;
+
+	for (int j = 0; j < 8; j++)
+		book[j].empty = 0;
 	while(1)
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";

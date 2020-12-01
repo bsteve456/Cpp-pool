@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 20:53:37 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:59:42 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PhoneBook
 		std::string	underwear_color;
 		std::string	darkest_secret;
 	public:
+		int	empty;
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;

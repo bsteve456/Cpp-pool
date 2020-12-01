@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 20:54:18 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 21:04:54 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	search_in_phonebook(PhoneBook book[8])
 	std::cout << "index" << '|' << "first name" << '|' << "last name" << '|' << "nickname" << '\n';
 	for (int i = 0; i < 8; i++)
 	{
-		std::cout << i << '|' << check_str(book[i].first_name) << '|' << check_str(book[i].last_name) << '|' << check_str(book[i].nickname) << '\n';
+		if (book[i].empty != 0)
+			std::cout << i << '|' << check_str(book[i].first_name) << '|' << check_str(book[i].last_name) << '|' << check_str(book[i].nickname) << '\n';
 	}
 	std::cout << "enter which index you want : ";
 	std::getline(std::cin, src);
