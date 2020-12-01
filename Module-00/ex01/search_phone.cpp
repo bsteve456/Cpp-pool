@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:31:46 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:41:32 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	search_in_phonebook(PhoneBook book[8])
 	}
 	std::cout << "enter which index you want : ";
 	std::cin >> j;
+	std::cin.ignore();
 	show_info(book[j]);
 }
