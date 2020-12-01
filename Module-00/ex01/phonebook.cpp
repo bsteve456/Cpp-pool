@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:49 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:30:51 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:32:32 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 	while(1)
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";
-		getline(std::cin, str);
+		std::getline(std::cin, str);
 		parse(book, str ,&i);
 	}
 }

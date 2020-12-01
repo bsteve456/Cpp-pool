@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 18:47:30 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:53:37 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <iomanip>
+# include <climits>
+# include <cctype>
 
 class PhoneBook
 {

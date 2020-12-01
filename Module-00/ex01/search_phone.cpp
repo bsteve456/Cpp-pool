@@ -6,11 +6,21 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:41:32 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:54:18 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+int		check_number(std::string str)
+{
+	for (std::string::size_type i = 0; i < str.length(); i++)
+	{
+		if(isdigit(str[i]) == 0)
+			return (0);
+	}
+	return (1);
+}
 
 std::string	check_str(std::string str)
 {
@@ -42,14 +52,21 @@ void	show_info(PhoneBook book)
 
 void	search_in_phonebook(PhoneBook book[8])
 {
-	int j;
+	std::string src;
+	int j = 0;
 	std::cout << "index" << '|' << "first name" << '|' << "last name" << '|' << "nickname" << '\n';
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << i << '|' << check_str(book[i].first_name) << '|' << check_str(book[i].last_name) << '|' << check_str(book[i].nickname) << '\n';
 	}
 	std::cout << "enter which index you want : ";
-	std::cin >> j;
-	std::cin.ignore();
-	show_info(book[j]);
+	std::getline(std::cin, src);
+	if (check_number(src) == 1)
+	{
+		j = std::stoi(src);
+		if (j >= 0 && j < 8)
+			show_info(book[j]);
+	}
+	else
+		std::cout << "Index not between 0 and 8" << '\n';
 }
