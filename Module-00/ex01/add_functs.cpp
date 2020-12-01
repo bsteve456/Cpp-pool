@@ -6,41 +6,57 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:10:03 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 17:21:11 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 18:45:17 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	PhoneBook::login_field(std::string log)
+#include "phonebook.hpp"
+
+std::string	PhoneBook::login_field(std::string log, int n)
 {
-	login = log;
+	if (n == 1)
+		login = log;
+	return (login);
 }
 
-void	PhoneBook::postal_field(std::string address)
+std::string	PhoneBook::postal_field(std::string address)
 {
-	postal_address = address;
+	if (n == 1)
+		postal_address = address;
+	return (postal_address);
 }
 
-void	PhoneBook::phone_field(std::string phone)
+std::string	PhoneBook::phone_field(std::string phone)
 {
-	phone_number = phone;
+	if (n == 1)
+		phone_number = phone;
+	return (phone_number)
 }
 
-void	PhoneBook::birthday_field(std::string birthday)
+std::string	PhoneBook::birthday_field(std::string birthday)
 {
-	birthday_rate = birthday;
+	if (n == 1)
+		birthday_rate = birthday;
+	return (birthday_rate);
 }
 
-void	PhoneBook::meal_field(std::string meal)
+std::string	PhoneBook::meal_field(std::string meal)
 {
-	favorite_meal = meal;
+	if (n == 1)
+		favorite_meal = meal;
+	return (favorite_meal);
 }
 
-void	PhoneBook::underc_field(std::string underc)
+std::string	PhoneBook::underc_field(std::string underc)
 {
-	underwear_color = underc;
+	if (n == 1)
+		underwear_color = underc;
+	return (underwear_color);
 }
 
-void	PhoneBook::secret_field(std::string secret)
+std::string	PhoneBook::secret_field(std::string secret)
 {
-	darkest_secret = secret;
+	if (n == 1)
+		darkest_secret = secret;
+	return (darkest_secret);
 }

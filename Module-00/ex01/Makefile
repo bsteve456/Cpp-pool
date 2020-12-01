@@ -6,7 +6,7 @@
 #    By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 20:16:11 by stbaleba          #+#    #+#              #
-#    Updated: 2020/12/01 16:31:31 by stbaleba         ###   ########.fr        #
+#    Updated: 2020/12/01 18:43:11 by stbaleba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CFLAGS=-Wall -Werror -Wextra
 
 NAME=phonebook
 INC=-I
-FILES=phonebook.cpp \
+FILES=phonebook.cpp add_functs.cpp  \
+	 search_phone.cpp \
 	add_phone.cpp
 OBJ=$(FILES:.c=.o)
 
