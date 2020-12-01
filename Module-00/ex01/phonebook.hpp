@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 16:55:59 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:19:46 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ class PhoneBook
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
-		void login_field(std::string login);
+		void login_field(std::string log);
 		void postal_field(std::string address);
 		void phone_field(std::string phone);
 		void birthday_field(std::string birthday);
 		void meal_field(std::string meal);
-		void underw_field(std::string underw);
+		void underc_field(std::string underc);
 		void secret_field(std::string secret);
 }
 

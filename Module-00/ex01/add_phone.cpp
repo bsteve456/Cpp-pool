@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:30:47 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 16:55:57 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:19:33 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	add_phonenbr2(PhoneBook Book[8], int i)
 	std::cout << '\n';
 	std::cout << "enter : prefer underwear color: ";
 	getline(cin, str);
-	book[i].underw_field(str) = str;
+	book[i].underc_field(str) = str;
 	std::cout << '\n';
 	std::cout << "enter : darkest secret  : ";
 	getline(cin, str);
