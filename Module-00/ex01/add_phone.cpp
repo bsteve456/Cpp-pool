@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:30:47 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:13:41 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 21:58:55 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	add_phonenb2(PhoneBook book[8], int i)
 	std::cout << "enter : darkest secret  : ";
 	getline(std::cin, str);
 	book[i].secret_field(str, 1) = str;
+}
+
+void	perfect_width(std::string::size_type length, std::string src)
+{
+	length = (length > 10) ? 10 : length;
+	std::cout << check_str(src);
+	std::cout << std::setw(10 - length);
 }

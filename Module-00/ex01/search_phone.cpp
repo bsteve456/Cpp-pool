@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 21:04:54 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 22:02:58 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,43 @@ void	show_info(PhoneBook book)
 	std::cout << "darkest secret : " << book.secret_field("", 0) << "\n";
 }
 
+void	display(PhoneBook book[8])
+{
+	std::string str;
+
+	str = "index";
+	perfect_width(str.length(), str);
+	std::cout << '|';
+	str = "first name";
+	perfect_width(str.length(), str);
+	std::cout << '|';
+	str = "last name";
+
+	perfect_width(str.length(), str);
+	std::cout << '|';
+	str = "nickname";
+	perfect_width(str.length(), str);
+	std::cout << '\n';
+	for (int i = 0; i < 8; i++)
+	{
+		if (book[i].empty != 0)
+		{
+			std::cout << i << std::setw(9) << '|';
+			perfect_width(book[i].first_name.length() - 1, book[i].first_name);
+			std::cout << '|';
+			perfect_width(book[i].last_name.length(), book[i].last_name);
+			std::cout << '|';
+			perfect_width(book[i].nickname.length(), book[i].nickname);
+			std::cout << '\n';
+		}
+	}
+}
+
 void	search_in_phonebook(PhoneBook book[8])
 {
 	std::string src;
 	int j = 0;
-	std::cout << "index" << '|' << "first name" << '|' << "last name" << '|' << "nickname" << '\n';
-	for (int i = 0; i < 8; i++)
-	{
-		if (book[i].empty != 0)
-			std::cout << i << '|' << check_str(book[i].first_name) << '|' << check_str(book[i].last_name) << '|' << check_str(book[i].nickname) << '\n';
-	}
+	display(book);
 	std::cout << "enter which index you want : ";
 	std::getline(std::cin, src);
 	if (check_number(src) == 1)

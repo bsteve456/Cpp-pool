@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 20:59:42 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 21:42:17 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ class PhoneBook
 void	search_in_phonebook(PhoneBook book[8]);
 void	add_phonenb1(PhoneBook book[8], int i);
 void	add_phonenb2(PhoneBook book[8], int i);
+void	perfect_width(std::string::size_type length, std::string src);
+ std::string	check_str(std::string str);
 #endif
