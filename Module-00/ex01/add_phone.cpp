@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:30:47 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 21:58:55 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 22:21:25 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ void	add_phonenb2(PhoneBook book[8], int i)
 void	perfect_width(std::string::size_type length, std::string src)
 {
 	length = (length > 10) ? 10 : length;
-	std::cout << check_str(src);
-	std::cout << std::setw(10 - length);
+	std::cout << std::setw(10) << check_str(src);
 }

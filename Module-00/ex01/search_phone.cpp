@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 22:02:58 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 22:24:06 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	display(PhoneBook book[8])
 	{
 		if (book[i].empty != 0)
 		{
-			std::cout << i << std::setw(9) << '|';
-			perfect_width(book[i].first_name.length() - 1, book[i].first_name);
+			std::cout << std::setw(10) << i << '|';
+			perfect_width(book[i].first_name.length(), book[i].first_name);
 			std::cout << '|';
 			perfect_width(book[i].last_name.length(), book[i].last_name);
 			std::cout << '|';
