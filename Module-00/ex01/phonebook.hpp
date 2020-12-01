@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 18:41:04 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 18:47:30 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class PhoneBook
 		std::string meal_field(std::string meal, int n);
 		std::string underc_field(std::string underc, int n);
 		std::string secret_field(std::string secret, int n);
-}
+};
 void	search_in_phonebook(PhoneBook book[8]);
 void	add_phonenb1(PhoneBook book[8], int i);
 void	add_phonenb2(PhoneBook book[8], int i);
