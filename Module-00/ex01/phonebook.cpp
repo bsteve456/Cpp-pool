@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:49 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:12:37 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:30:51 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	parse(PhoneBook book[8], std::string str, int *i)
 	else if (str.compare("SEARCH") == 0)
 		search_in_phonebook(book);
 	else
-		std::cout << "Error: String name";
+		std::cout << "Error: String name" << "\n";
 }
 
 int main()
@@ -33,7 +33,6 @@ int main()
 	PhoneBook book[8];
 	std::string str;
 	int i = 0;
-
 	while(1)
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";

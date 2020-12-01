@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 19:01:27 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:31:46 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	show_info(PhoneBook book)
 	std::cout << "first name : " << book.first_name << "\n";
 	std::cout << "last name : " << book.last_name << "\n";
 	std::cout << "nickname : " << book.nickname << "\n";
-	std::cout << "login : " << book.login_field(0, 0) << "\n";
-	std::cout << "postal address : " << book.postal_field(0, 0) << "\n";
-	std::cout << "phone number : " << book.phone_field(0, 0) << "\n";
-	std::cout << "birthday date : " << book.birthday_field(0, 0) << "\n";
-	std::cout << "favorite meal : " << book.meal_field(0, 0) << "\n";
-	std::cout << "underwear color : " << book.underc_field(0, 0) << "\n";
-	std::cout << "darkest secret : " << book.secret_field(0, 0) << "\n";
+	std::cout << "login : " << book.login_field("", 0) << "\n";
+	std::cout << "postal address : " << book.postal_field("", 0) << "\n";
+	std::cout << "phone number : " << book.phone_field("", 0) << "\n";
+	std::cout << "birthday date : " << book.birthday_field("", 0) << "\n";
+	std::cout << "favorite meal : " << book.meal_field("", 0) << "\n";
+	std::cout << "underwear color : " << book.underc_field("", 0) << "\n";
+	std::cout << "darkest secret : " << book.secret_field("", 0) << "\n";
 }
 
 void	search_in_phonebook(PhoneBook book[8])
