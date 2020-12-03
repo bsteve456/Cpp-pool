@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:58:46 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/03 00:37:01 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/03 10:35:44 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 Human::Human() : brain()
 {}
 
-void	addr(long hside, long *bside)
-{
-	static long n = 0;
-	
-	if (bside == 0)
-		n = hside;
-	else
-		*bside = n;
-}
-
 std::string	Human::identify()
 {
-	addr((long)&brain, 0);
-	return (brain.identify());
+	return (getBrain().identify());
 }
 
 Brain	Human::getBrain()
 {
-	return (brain);
+	Brain cool;
+
+	cool.setAddr((long)&brain);
+	return (cool);
 }
