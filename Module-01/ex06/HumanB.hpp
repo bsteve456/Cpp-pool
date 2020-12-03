@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 11:33:59 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/03 11:43:22 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/03 12:42:25 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class HumanB
 		Weapon *weapon;
 	public:
 		HumanB(std::string name1);
-		void	setWeapon(Weapon wep);
+		void	setWeapon(Weapon &wep);
 		void	attack();
 };
 

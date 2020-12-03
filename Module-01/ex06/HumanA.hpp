@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 11:23:23 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/03 11:43:33 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/03 12:06:49 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanA
 		std::string name;
 		Weapon &weapon;
 	public:
-		HumanA(std::string name1, Weapon wep);
+		HumanA(std::string name1, Weapon &wep);
 		void	attack();
 };
 
