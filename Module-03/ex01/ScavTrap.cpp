@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 16:03:54 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 16:58:41 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 17:25:15 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cerr << "Default Constructor called\n";
+	std::cerr << "ScavTrap Default Constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string const name)
 {
-	std::cerr << "String Constructor called\n";
+	std::cerr << "ScavTrap String Constructor called\n";
 	Name = name;
 	HPoint = 100;
 	MHPoint = 100;
@@ -117,5 +117,5 @@ void	ScavTrap::challengeNewcomer(int nb_challenge)
 
 ScavTrap::~ScavTrap()
 {
-	std::cerr << "Destructor called\n";
+	std::cerr << "ScavTrap Destructor called\n";
 }

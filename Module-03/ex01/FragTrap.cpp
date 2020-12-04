@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:44 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 15:31:17 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 17:26:09 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << "Default Constructor called\n";
+	std::cout << "FragTrap Default Constructor called\n";
 }
 
 FragTrap::FragTrap(std::string const name)
 {
-	std::cout << "String Constructor called\n";
+	std::cout << "FrapTrap String Constructor called\n";
 	Name = name;
 	HPoint = 100;
 	MHPoint = 100;
@@ -94,5 +94,5 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Destructor called\n";
+	std::cout << "FrapTrap Destructor called\n";
 }
