@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:44 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 14:48:58 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 14:55:22 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,20 @@ void	FragTrap::beRepaired(unsigned int amount)
 	std::cout << "FR4G-TP Hit Point are at : " << HPoint << '\n';
 }
 
-void	vaulthunter_dot_exe(std::string const & target)
+void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	static const  char* const type[5] = {"UnderWater", "Air", "Punch", "Attack", "Forest"};
+	std::string result;
 
+	result = type[rand() % 5];
+	if (EPoint - 25 >= 0)
+	{
+		Epoint -= 25;
+		std::cout << "FR4G-TP " << name << " did a(n) " << result << " attack on " << target << "!\n";
+	}
+}
+
+FragTrap::~FragTrap()
+{
+	std::cout << "Destructor called\n";
 }
