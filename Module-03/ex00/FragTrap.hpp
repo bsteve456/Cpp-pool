@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:05 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 14:14:15 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:06:04 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class FragTrap
 		int EPoint;
 		int MEPoint;
 		int level;
-		std::string name;
+		std::string Name;
 		int MDmg;
 		int RDmg;
 		int Adr;

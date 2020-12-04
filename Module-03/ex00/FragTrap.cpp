@@ -6,9 +6,11 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:44 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 14:55:22 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:31:17 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "FragTrap.hpp"
 
 FragTrap::FragTrap()
 {
@@ -18,7 +20,7 @@ FragTrap::FragTrap()
 FragTrap::FragTrap(std::string const name)
 {
 	std::cout << "String Constructor called\n";
-	name = name;
+	Name = name;
 	HPoint = 100;
 	MHPoint = 100;
 	EPoint = 100;
@@ -29,14 +31,14 @@ FragTrap::FragTrap(std::string const name)
 	Adr = 5;
 }
 
-void	FragTrap::rangedAttack(std:: const & target)
+void	FragTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP "<< name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";
+	std::cout << "FR4G-TP "<< Name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";
 }
 
-void	FragTrap::meleeAttack(std:: const & target)
+void	FragTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP " << name << " attacks " << target << " with a melee attack, causing " << MDmg << " points of damage!\n";
+	std::cout << "FR4G-TP " << Name << " attacks " << target << " with a melee attack, causing " << MDmg << " points of damage!\n";
 }
 
 void	FragTrap::takeDamage(unsigned int amount)
@@ -48,11 +50,11 @@ void	FragTrap::takeDamage(unsigned int amount)
 		HPoint = 0;
 	else
 		HPoint -= (int)result;
-	std::cout << "FR4G-TP " << name << " did take " << (int)result << " of damage!\n";
+	std::cout << "FR4G-TP " << Name << " did take " << (int)result << " of damage!\n";
 	if (HPoint > 0)
-		std::cout << "FR4G-TP "<< "Hit point left : " << Hpoint << '\n';
+		std::cout << "FR4G-TP "<< "Hit point left : " << HPoint << '\n';
 	else
-		std::cout << "FR4G-TP " << name << " is dead\n";
+		std::cout << "FR4G-TP " << Name << " is dead\n";
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
@@ -71,7 +73,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 		HPoint += amount;
 		heal = amount;
 	}
-	std::cout << "FR4G-TP " << name << " healed " << heal << "HP\n";
+	std::cout << "FR4G-TP " << Name << " healed " << heal << "HP\n";
 	std::cout << "FR4G-TP Hit Point are at : " << HPoint << '\n';
 }
 
@@ -83,9 +85,11 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 	result = type[rand() % 5];
 	if (EPoint - 25 >= 0)
 	{
-		Epoint -= 25;
-		std::cout << "FR4G-TP " << name << " did a(n) " << result << " attack on " << target << "!\n";
+		EPoint -= 25;
+		std::cout << "FR4G-TP " << Name << " did a(n) " << result << " attack on " << target << ", causing 50 points of damage!\n";
 	}
+	else
+		std::cout << "FR4G-TP " << Name <<" have " << EPoint << " Energy Point left, need 25\n";
 }
 
 FragTrap::~FragTrap()
