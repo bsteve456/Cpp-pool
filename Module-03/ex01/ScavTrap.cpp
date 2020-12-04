@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 16:03:54 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 16:34:41 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/04 16:58:41 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ void	ScavTrap::beRepaired(unsigned int amount)
 	std::cout << "SC4V-TP Hit Point are at : " << HPoint << '\n';
 }
 
-void	ScavFrag::challengeNewcomer(int nb_challenge)
+void	ScavTrap::challengeNewcomer(int nb_challenge)
 {
 	if(nb_challenge == 0)
 	{
-		std::cout << "Challenge : Attack Two time the golden ship.\nTake one hit by its canons.\nHeal one time.\n";
-		rangedAttack(target);
-		rangedAttack(target);
-		takeDamage(90);
-		if (HPoint < 0)
+		std::cout << "-- Challenge : Attack Two time the Golden ship. Take one hit by its cannons. Heal one time. --\n";
+		rangedAttack("Golden Ship");
+		rangedAttack("Golden Ship");
+		takeDamage(rand() % 101);
+		if (HPoint <= 0)
 		{
 			std::cout << "Challenge : failed retry later.\n";
 			return ;
@@ -97,7 +97,7 @@ void	ScavFrag::challengeNewcomer(int nb_challenge)
 	}
 	else
 	{
-		std::cout << "Challenge : Your Hits point need to be lower than 50.\nHeal 1 times with a random value.\nAnd take a direct hit by a dragon's(lvl 5) blast.\n And Survive.\n";
+		std::cout << "-- Challenge : Your Hits point need to be lower than 50. Heal 1 time with a random value. And take a direct hit by a dragon's(lvl 5) blast.  And Survive. --\n";
 		if (HPoint >= 50)
 		{
 			std::cout << "Challenge fail to much HP.\n";
