@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   TacticalMarine.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 23:36:02 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 23:41:08 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 23:42:04 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/10 00:00:09 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISPACE_MARINE_HPP
-# define ISPACE_MARINE_HPP
+#include "TacticalMarine.hpp"
 
-# include <iostream>
-
-class ISpaceMarine()
+void TacticalMarine::battleCry()
 {
-	public:
-		virtual ~ISpaceMarine() {}
-		virtual ISpaceMarine* clone() const = 0;
-		virtual void battleCry() const = 0;
-		virtual void rangedAttack() const = 0;
-		virtual void meleeAttack() const = 0;
-};
+	std::cout << "For the holy PLOT!\n";
+}
 
-#endif
+void TacticalMarine::rangedAttack()
+{
+	std::cout << "* attacks with a bolter *\n";
+}
+
+void TacticalMarine::meleeAttack()
+{
+	std::cout << "* attacks with a chainsword *\n";
+}
+
+ISpaceMarine * TacticalMarine::clone()
+{
+	TacticalMarine *copy = new TacticalMarine;
+	return (copy);
+}
