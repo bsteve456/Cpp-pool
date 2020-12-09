@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 16:49:10 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:52:42 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 17:45:21 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 17:55:19 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SUPER_MUTANT_HPP
+# define SUPER_MUTANT_HPP
+
 #include "Enemy.hpp"
 
-std::string Enemy::getType() const
+class SuperMutant : public Enemy
 {
-	return (Type);
-}
+	public:
+		SuperMutant() : Enemy()
+		{
+			setType("SuperMutant");
+			setHP(170);
+			std::cout << "Gaaah. Me want smash heads!\n";
+		}
+		~SuperMutant()
+		{
+			std::cout << "Aaargh...\n";
+		}
+		void takeDamage(int n);
+};
 
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::setType(std::string type)
-{
-	Type = type;
-}
-
-void Enemy::setHP(int hp)
-{
-	HP = hp;
-}
-
-void Enemy::takeDamage(int n)
-{
-	if (HP - n <= 0)
-		HP = 0;
-	else
-		HP -= n;
-}
+#endif

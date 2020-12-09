@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 16:49:10 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:52:42 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 17:45:43 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 17:59:27 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include "SuperMutant.hpp"
 
-std::string Enemy::getType() const
+void SuperMutant::takeDamage(int n)
 {
-	return (Type);
-}
-
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::setType(std::string type)
-{
-	Type = type;
-}
-
-void Enemy::setHP(int hp)
-{
-	HP = hp;
-}
-
-void Enemy::takeDamage(int n)
-{
-	if (HP - n <= 0)
-		HP = 0;
+	int hp = getHP();
+	int result = hp - (n - 3);
+	if(result <= 0)
+		hp = 0;
 	else
-		HP -= n;
+		setHP(result);
 }

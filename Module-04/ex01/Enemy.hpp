@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:48:53 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:42:09 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:50:05 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Enemy
 		Enemy(const Enemy &E) {Type = E.getType(); HP = E.getHP();}
 		std::string getType() const;
 		int getHP() const;
+		void setType(std::string Type);
+		void setHP(int HP);
 		virtual void takeDamage(int n);
 		Enemy &operator=(const Enemy &e)
 		{
