@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 16:15:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 16:27:57 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 16:15:36 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 16:26:22 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMA_RIFLE_HPP
-# define PLASMA_RIFLE_HPP
+#include "PowerFist.hpp"
 
-# include "AWeapon.hpp"
+PowerFist::~PowerFist()
+{}
 
-class PlasmaRifle : public AWeapon
+PowerFist::attack() const
 {
-	public:
-		PlasmaRifle(std::string const & name, int apcost, int damage) : AWeapon(name, apcost, damage)
-		{}
-		~PlasmaRifle();
-		void attack() const;
+	std::cout << "* pschhh... SBAM! *\n";
 }
-
-
-#endif
