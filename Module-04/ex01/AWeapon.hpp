@@ -6,12 +6,12 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 15:58:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:32:34 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 18:55:26 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AWEAPON_HPP
-# define AWEAPON_CPP
+# define AWEAPON_HPP
 
 #include <iostream>
 

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:36 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 16:26:22 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 19:13:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 PowerFist::~PowerFist()
 {}
 
-PowerFist::attack() const
+void PowerFist::attack() const
 {
 	std::cout << "* pschhh... SBAM! *\n";
 }

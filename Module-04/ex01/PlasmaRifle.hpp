@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:31:46 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 19:29:20 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ class PlasmaRifle : public AWeapon
 	public:
 		PlasmaRifle() : AWeapon()
 		{
-			setName("PlasmaRifle");
-			setAPCost(21);
-			setDamage(5);
+			setName("Plasma Rifle");
+			setAPCost(5);
+			setDamage(21);
 		}
 		~PlasmaRifle();
 		void attack() const;
-}
+};
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:15:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:35:45 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 19:12:28 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ class PowerFist : public AWeapon
 	public:
 		PowerFist() : AWeapon()
 		{
-			setName(Power Fist);
+			setName("Power Fist");
 			setAPCost(8);
 			setDamage(50);
-	
+		}
 		~PowerFist();
 		void attack() const;
-}
+};
 
 
 #endif

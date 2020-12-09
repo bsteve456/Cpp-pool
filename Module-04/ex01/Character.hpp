@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 18:09:37 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 18:47:52 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 19:00:49 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ class Character
 		AWeapon *weapon;
 		int AP;
 	public:
-		Character(string const & name)
+		Character(std::string const & name)
 		{
 			Name = name;
 			AP = 40;
 			weapon = 0;
 		}
 		~Character()
-		{
-			delete(weapon);
-		}
-		Character(const Character &C) { Name = C.getName(); AP = C.getAP(); weapon = equip(C.getWeapon());}
+		{}
+		Character(const Character &C) { Name = C.getName(); AP = C.getAP(); equip(C.getWeapon());}
 		void recoverAP();
 		void equip(AWeapon *wep);
 		void attack(Enemy *enemy);
 		std::string getName() const;
 		int getAP() const;
-		AWeapon *getWeapon();
+		AWeapon *getWeapon() const;
 		Character &operator=(const Character &c)
 		{
 			Name = c.getName();
 			AP = c.getAP();
-			weapon = equip(c.getWeapon());
+			equip(c.getWeapon());
 			return *this;
 		}
 };

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:48:53 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:50:05 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 19:05:34 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Enemy
 			HP = 0;
 			Type = "NULL";
 		}
-		~Enemy(){}
+		virtual ~Enemy(){}
 		Enemy(const Enemy &E) {Type = E.getType(); HP = E.getHP();}
 		std::string getType() const;
 		int getHP() const;

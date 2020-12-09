@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 18:29:11 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 18:48:04 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:01:31 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,18 @@ void Character::equip(AWeapon *wep)
 
 void Character::attack(Enemy *enemy)
 {
-	std::cout << Name << " attacks " << enemy.getType() << " with a " << (*weapon).Name << '\n';
-	if(weapon != 0)
+	Enemy rival = *enemy;
+	std::cout << Name << " attacks " << rival.getType() << " with a " << (*weapon).getName() << '\n';
+	if(weapon != 0 && AP - (*weapon).getAPCost() >= 0)
 	{
 		(*weapon).attack();
 		AP -= (*weapon).getAPCost();
+		rival.takeDamage((*weapon).getDamage());
 	}
-	enemy.takeDamage((*weapon).getDamage());
-	if(enemy.getHP() == 0)
+	else
+		std::cout << "Don't have enought AP or is unarmed.\n";
+	*enemy = rival;
+	if(rival.getHP() == 0)
 		delete(enemy);
 }
 
@@ -45,18 +49,18 @@ int		Character::getAP() const
 	return AP;
 }
 
-AWeapon* Character::getWeapon()
+AWeapon* Character::getWeapon() const
 {
 	return weapon;
 }
 
 std::ostream& operator<<(std::ostream& os, const Character &c)
 {
-	Weapon = c.getWeapon();
+	AWeapon *Weapon = c.getWeapon();
 	if (Weapon == 0)
-		os << Name << " has " << AP << " AP and is unarmed\n';
+		os << c.getName() << " has " << c.getAP() << " AP and is unarmed\n";
 	else
-		os << Name << " has " << AP << " AP and wields a " << (*Weapon).getName() << '\n';
+		os << c.getName() << " has " << c.getAP() << " AP and wields a " << (*Weapon).getName() << '\n';
 	return os;
 }
 

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 15:57:56 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:33:13 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 18:56:20 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AWeapon::AWeapon()
 AWeapon::~AWeapon()
 {}
 
-int AWeapon::getName() const
+std::string AWeapon::getName() const
 {
 	return (Name);
 }
