@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:36:02 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 23:41:08 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 00:09:44 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-class ISpaceMarine()
+class ISpaceMarine
 {
 	public:
 		virtual ~ISpaceMarine() {}

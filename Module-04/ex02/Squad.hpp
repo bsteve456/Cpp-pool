@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 21:55:52 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 23:21:42 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 00:14:33 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <iostream>
 # include "ISquad.hpp"
+# include "ISpaceMarine.hpp"
 
 struct squade
 {
 	ISpaceMarine *marine;
 	struct squade *next;
-}
+};
 
 squade	*new_member(ISpaceMarine *new1);
 void	add_member(squade **lst, squade *new1);
@@ -58,7 +59,7 @@ class Squad : public ISquad
 		{
 			squade *clean;
 			squade *mem;
-			clean = s.getSquade();
+			clean = S.getSquade();
 			if (clean != 0)
 			{
 				while(clean)
@@ -69,8 +70,8 @@ class Squad : public ISquad
 					clean = mem;
 				}
 			}
-			squad = s.getSquade();
+			squad = S.getSquade();
+			return (*this);
 		}
-		return (*this);
 };
 #endif

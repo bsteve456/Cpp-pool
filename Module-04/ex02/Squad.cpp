@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:19:41 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 23:21:40 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 00:19:35 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	add_member(squade **lst, squade *new1)
 
 	list = *lst;
 	if (!list)
-		lst = new1;
+		*lst = new1;
 	else
 	{
 		while(list->next)
-			list = list-next;
+			list = list->next;
 		list->next = new1;
 	}
 }
@@ -43,11 +43,14 @@ squade * Squad::getSquade() const
 int Squad::getCount() const
 {
 	int count = 0;
+	squade *lst;
+
+	lst = squad;
 	if(squad == 0)
 		return (0);
-	while(squad)
+	while(lst)
 	{
-		squad = squad->next;
+		lst = lst->next;
 		count++;
 	}
 	return (count);
@@ -56,16 +59,18 @@ int Squad::getCount() const
 ISpaceMarine * Squad::getUnit(int i) const
 {
 	int j = 0;
+	squade *lst;
 
+	lst = squad;
 	if(squad == 0)
 		return (0);
-	while(squad->next && j < i)
+	while(lst->next && j < i)
 	{
-		squad = squad->next;
+		lst = lst->next;
 		j++;
 	}
 	if (i == j)
-		return (squad->marine);
+		return (lst->marine);
 	return (0);
 }
 
