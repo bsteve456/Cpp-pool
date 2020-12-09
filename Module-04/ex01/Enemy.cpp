@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 16:15:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 17:31:46 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 16:49:10 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 17:43:55 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMA_RIFLE_HPP
-# define PLASMA_RIFLE_HPP
+#include "Enemy.hpp"
 
-# include "AWeapon.hpp"
-
-class PlasmaRifle : public AWeapon
+std::string Enemy::getType() const
 {
-	public:
-		PlasmaRifle() : AWeapon()
-		{
-			setName("PlasmaRifle");
-			setAPCost(21);
-			setDamage(5);
-		}
-		~PlasmaRifle();
-		void attack() const;
+	return (Type);
 }
 
+int Enemy::getHP() const
+{
+	return (HP);
+}
 
-#endif
+void takeDamage(int n)
+{
+	if (HP - n <= 0)
+		HP = 0;
+	else
+		HP -= n;
+}

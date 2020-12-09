@@ -6,17 +6,17 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 15:57:56 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 16:11:36 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:33:13 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon(std::string & name, int apcost, int damage)
+AWeapon::AWeapon()
 {
-	Name = name;
-	APcost = apcost;
-	Damage = damage;
+	Name = "NULL";
+	APcost = 0;
+	Damage = 0;
 }
 
 AWeapon::~AWeapon()
@@ -37,6 +37,20 @@ int AWeapon::getDamage() const
 	return (Damage);
 }
 
+void	AWeapon::setName(std::string name)
+{
+	Name = name;
+}
+
+void	AWeapon::setAPCost(int apcost)
+{
+	APcost = apcost;
+}
+
+void	AWeapon::setDamage(int damage)
+{
+	Damage = damage;
+}
 void AWeapon::attack() const
 {
 	std::cout << "sounds effect\n";
