@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 15:58:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 16:23:50 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 16:15:42 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 16:23:35 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-# define AWEAPON_CPP
+#ifndef PLASMARIFLE_HPP
+# define PLASMARIFLE_HPP
 
-#include <iostream>
+# include "AWeapon.hpp"
 
-class AWeapon
+class PlasmaRifle : public AWeapon
 {
-	private:
-		std::string Name;
-		int APcost;
-		int Damage;
 	public:
-		AWeapon(std::string & name, int apcost, int damage);
-		~AWeapon();
-		std::string getName() const;
-		int getAPCost() const;
-		int getDamage() const;
-		void virtual attack() const = 0;
-};
+		PlasmaRifle(std::string const & name, int apcost, int damage) : AWeapon(name, apcost, damage)
+		{}
+		~PlasmaRifle();
+		void attack() const;
+}
+
 
 #endif

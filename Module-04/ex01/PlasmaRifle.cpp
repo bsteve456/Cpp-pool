@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 15:58:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/09 16:23:50 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/09 16:15:36 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/09 16:23:33 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-# define AWEAPON_CPP
+#include "PlasmaRifle.hpp"
 
-#include <iostream>
+PlasmaRifle::~PlasmaRifle()
+{}
 
-class AWeapon
+PlasmaRifle::attack() const
 {
-	private:
-		std::string Name;
-		int APcost;
-		int Damage;
-	public:
-		AWeapon(std::string & name, int apcost, int damage);
-		~AWeapon();
-		std::string getName() const;
-		int getAPCost() const;
-		int getDamage() const;
-		void virtual attack() const = 0;
-};
-
-#endif
+	std::cout << "* piouu piouuu piouuu *\n";
+}
