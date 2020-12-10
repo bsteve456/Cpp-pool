@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 18:13:03 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 18:46:55 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 19:11:40 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ int			Form::getEGrade() const
 	return (EGrade);
 }
 
+int			Form::getSigned() const
+{
+	if(Signed == false)
+		return (0);
+	else
+		return (1);
+}
+
 void		Form::beSigned(Bureaucrat const &s)
 {
 	try
@@ -45,7 +53,11 @@ void		Form::beSigned(Bureaucrat const &s)
 
 std::ostream& operator<<(std::ostream& os, const Form &f)
 {
-	os << "Form : " << f.getName() << " SGrade : " << f.getSGrade() << " EGrade : " << f.getEGrade << std::endl;
+	if (f.getSigned() == 0)
+		os << "Form : " << f.getName() << " SGrade : " << f.getSGrade() << " EGrade : " << f.getEGrade() << " Signed : NO" << std::endl;
+	else
+		os << "Form : " << f.getName() << " SGrade : " << f.getSGrade() << " EGrade : " << f.getEGrade() << " Signed : YES" << std::endl;
+
 	return os;
 }
 

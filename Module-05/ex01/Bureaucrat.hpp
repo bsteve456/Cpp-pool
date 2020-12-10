@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:09 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 18:49:14 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 19:00:08 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 	private:
-		std::string const Name = "burea";
+		std::string const Name;
 		int Grade;
 	public:
 		Bureaucrat(std::string name, int grade) : Name(name)
@@ -41,7 +41,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		inc();
 		void		dec();
-		void		signForm(std::string Name, int b);
+		void		signForm(std::string Name, int b) const;
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &b);
 

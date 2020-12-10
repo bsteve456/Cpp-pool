@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:49:22 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 18:15:46 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 19:08:25 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form
 		int const	EGrade;
 		bool Signed = false;
 	public:
-		Form(std::string name, int sgrade, int egrade) : Name(name) : SGrade(sgrade) : EGrade(egrade)
+		Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrade) , EGrade(egrade)
 		{
 			try
 			{
@@ -42,6 +42,7 @@ class Form
 		std::string getName() const;
 		int			getSGrade() const;
 		int			getEGrade() const;
+		int			getSigned() const;
 		void		beSigned(Bureaucrat const &s);
 		~Form() {}
 };
