@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 10:46:00 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 13:37:18 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:23:48 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ unsigned int 	AMateria::getXP() const
 void	AMateria::incXP()
 {
 	_xp += 10;
+}
+
+void	AMateria::use(ICharacter & target)
+{
+	std::cout << "* Bad message for "  << target.getName() << " *\n";
+	incXP();
+
 }
 
 AMateria::~AMateria(){}

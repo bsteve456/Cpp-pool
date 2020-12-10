@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 13:07:39 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 13:10:47 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:03:58 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define IMATERIA_SOURCE_HPP
 
 # include "iostream"
+# include "AMateria.hpp"
 
 class IMateriaSource
 {

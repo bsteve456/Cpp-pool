@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:02:44 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 12:06:31 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:18:09 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
 
+class AMateria;
 class ICharacter
 {
 	public:

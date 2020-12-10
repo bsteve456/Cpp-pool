@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:08:26 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 12:50:29 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 13:57:35 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CHARACTER_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
@@ -44,7 +45,7 @@ class Character : public ICharacter
 			void unequip(int idx);
 			void use(int idx, ICharacter &target);
 			AMateria **getInventory() const;
-			Character &operator=(cont Character &C)
+			Character &operator=(const Character &C)
 			{
 				for (int i = 0; i < 4; i++)
 				{
@@ -52,9 +53,9 @@ class Character : public ICharacter
 					inventory[i] = 0;
 				}
 				delete(inventory);
-				inventory = c.getInventory();
+				inventory = C.getInventory();
 				return (*this);
 			}
-}
+};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:08:22 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 12:52:09 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:41:52 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,13 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter &target)
 {
-
-	AMateria *n;
-
 	if (idx > 3 || idx < 0)
 		return ;
 	if (inventory[idx] != 0)
-		inventory[idx].use(target.getName());
+		inventory[idx]->use(target);
 }
 
-AMateria **getInventory() const
+AMateria **Character::getInventory() const
 {
 	return (inventory);
 }
@@ -55,6 +52,9 @@ AMateria **getInventory() const
 Character::~Character()
 {
 	for(int i = 0; i < 4; i++)
+	{
 		delete(inventory[i]);
+		inventory[i] = 0;
+	}
 	delete(inventory);
 }
