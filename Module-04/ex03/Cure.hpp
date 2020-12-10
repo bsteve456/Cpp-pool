@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 11:25:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 11:50:19 by stbaleba         ###   ########.fr       */
+/*   Created: 2020/12/10 11:25:17 by stbaleba          #+#    #+#             */
+/*   Updated: 2020/12/10 11:50:46 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-AMateria *Ice::clone() const
+class Cure : public AMateria
 {
-	return (new Ice(*this));
-}
-
-void Ice::use(ICharacter &target)
-{
-	std::cout << "* shoots an ice bolt at "  << target.getName() << " *\n";
-}
+	public:
+		Cure() : AMateria("cure") {}
+		~Cure() {}
+		AMateria *clone() const;
+		void	use(ICharacter &target);
+};
