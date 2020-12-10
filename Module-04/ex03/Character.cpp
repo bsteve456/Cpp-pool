@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:08:22 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 12:44:30 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 12:52:09 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	Character::use(int idx, ICharacter &target)
 		return ;
 	if (inventory[idx] != 0)
 		inventory[idx].use(target.getName());
+}
+
+AMateria **getInventory() const
+{
+	return (inventory);
 }
 
 Character::~Character()

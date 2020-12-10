@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:08:26 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 12:32:59 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 12:50:29 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,30 @@ class Character : public ICharacter
 			~Character();
 			Character(const Character &c)
 			{
-				AMateria **test;
-				test = c.getInventory();
-				for(int i = 0; i < 4; i++)
+				for (int i = 0; i < 4; i++)
 				{
-					delete(test[i]);
-					test[i] = 0;
+					delete (inventory[i]);
+					inventory[i] = 0;
 				}
-				inventory = test;
+				delete(inventory);
+				inventory = c.getInventory();
 			}
 			std::string const & getName() const;
 			void equip(AMateria *m);
 			void unequip(int idx);
 			void use(int idx, ICharacter &target);
+			AMateria **getInventory() const;
+			Character &operator=(cont Character &C)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					delete(inventory[i]);
+					inventory[i] = 0;
+				}
+				delete(inventory);
+				inventory = c.getInventory();
+				return (*this);
+			}
 }
 
 #endif
