@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:09 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:22:40 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:26:39 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Bureaucrat
 			try
 			{
 				if(grade < 1)
-					throw "Bureaucrat::GradeTooLowException";
-				else if(grade > 150)
 					throw "Bureaucrat::GradeTooHighException";
+				else if(grade > 150)
+					throw "Bureaucrat::GradeTooLowException";
 				Grade = grade;
 			}
 			catch (char const *err)

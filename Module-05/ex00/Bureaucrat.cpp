@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:19:22 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:27:08 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Bureaucrat::inc()
 	{
 		Grade += 5;
 		if (Grade > 150)
-			throw "Bureaucrat::GradeTooHighException";
+			throw "Bureaucrat::GradeTooLowException";
 	}
 	catch (char const *err)
 	{
@@ -42,7 +42,7 @@ void	Bureaucrat::dec()
 	{
 		Grade -= 5;
 		if (Grade < 1)
-			throw "Bureaucrat::GradeTooLowException";
+			throw "Bureaucrat::GradeTooHighException";
 	}
 	catch (char const *err)
 	{
