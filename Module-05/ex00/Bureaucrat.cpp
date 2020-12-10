@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:08:11 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:19:22 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ void	Bureaucrat::dec()
 	{
 		std::cout << err << std::endl;
 	}
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &b)
+{
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
+	return (os);
 }

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:53:57 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:12:11 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:23:08 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 int main()
 {
 	Bureaucrat chief("chief", 150);
-	std::cout << "name : " << chief.getName() << std::endl;
+	std::cout << chief;
 	chief.inc();
 	Bureaucrat cool("cool guy", 6);
-	chief.dec();
-	std::cout << "name : " << chief.getName() << std::endl;
-	chief.dec();
+	cool.dec();
+	std::cout << cool;
+	cool.dec();
 	Bureaucrat ok("ok", 155);
-
+	chief.dec();
+	std::cout << chief;
 }

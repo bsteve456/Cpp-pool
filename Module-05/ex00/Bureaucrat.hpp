@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:09 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:07:37 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:22:40 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Bureaucrat
 			{
 				if(grade < 1)
 					throw "Bureaucrat::GradeTooLowException";
-				else
+				else if(grade > 150)
 					throw "Bureaucrat::GradeTooHighException";
 				Grade = grade;
 			}
@@ -42,4 +42,6 @@ class Bureaucrat
 		void		inc();
 		void		dec();
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &b);
+
 #endif
