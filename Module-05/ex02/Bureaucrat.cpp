@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 23:09:29 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 23:39:58 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	Bureaucrat::executeForm(Form const & form)
 			throw "Error: cannot exec form";
 		std::cout << Name << " executes " << form.getName() << std::endl;
 	}
-	catch[char const *err]
+	catch(char const *err)
 	{
 		std::cout << err << std::endl;
 	}

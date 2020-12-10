@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreation.cpp                              :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 21:35:11 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 23:01:00 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/11 00:10:39 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreation.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
-int	ShrubberyCreation::execute(Bureaucrat const & executor) const
+int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
@@ -20,29 +21,25 @@ int	ShrubberyCreation::execute(Bureaucrat const & executor) const
 			throw "Form not signed !";
 		else if(executor.getGrade() > getEGrade())
 			throw "GradeTooLow";
-		std::string **tab = new std::string *[9];
-		std::string tab[0] = "             *\n";
-		std::string tab[1] = "            *#*\n";
-		std::string tab[2] = "           *5***\n";
-		std::string tab[3] = "          ****#**\n";
-		std::string tab[4] = "         #########\n";
-		std::string tab[5] = "        #####0**#*#\n";
-		std::string tab[6] = "       #0##0##0**#*#\n";
-		std::string tab[7] = "            0#0\n";
-		std::string tab[8] = "            000\n";
+		std::string tab[9];
+		tab[0] = "             *\n";
+		tab[1] = "            *#*\n";
+		tab[2] = "           *5***\n";
+		tab[3] = "          ****#**\n";
+		tab[4] = "         #########\n";
+		tab[5] = "        #####0**#*#\n";
+		tab[6] = "       #0##0##0**#*#\n";
+		tab[7] = "            0#0\n";
+		tab[8] = "            000\n";
 		std::string str = std::string(target) + std::string("_shrubbery");
 		std::ofstream out(str);
 		for(int i = 0; i < 9; i++)
-		{
 			out << tab[i];
-			delete(tab[i]);
-		}
-		delete(tab);
 		return (1);
 	}
 	catch(char const *err)
 	{
-		std::cout << err << std::endl;
+		std::cout << executor.getName() << " " << err << std::endl;
 		return (0);
 	}
 }

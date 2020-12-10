@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 21:35:11 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 22:58:57 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/11 00:11:37 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	}
 	catch(char const *err)
 	{
-		std::cout << err << std::endl;
+		std::cout << executor.getName() << " " << err << std::endl;
 		return (0);
 	}
 }
