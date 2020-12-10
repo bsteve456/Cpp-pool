@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 13:12:08 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 14:41:58 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:59:13 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ class MateriaSource : public IMateriaSource
 		AMateria *createMateria(std::string const & type);
 		~MateriaSource()
 		{
+			for(int i = 0; i < 4; i++)
+			{
+				delete(Materia[i]);
+				Materia[i] = 0;
+			}
 			delete(Materia);
 		}
 };
