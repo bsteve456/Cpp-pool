@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:49:22 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 19:08:25 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 23:01:11 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Form
 		int			getEGrade() const;
 		int			getSigned() const;
 		void		beSigned(Bureaucrat const &s);
+		int		virtual execute(Bureaucrat const & executor) const = 0;
 		~Form() {}
 };
 std::ostream& operator<<(std::ostream& os, const Form &f);

@@ -6,13 +6,13 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 21:35:11 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 22:29:35 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 22:58:57 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+int	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
@@ -21,11 +21,11 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 		else if(executor.getGrade() > getEGrade())
 			throw "GradeTooLow";
 		std::cout << target << " has been pardoned by Zafod Beeblebrox\n";
-		executor.executeForm(*this);
+		return (1);
 	}
 	catch(char const *err)
 	{
 		std::cout << err << std::endl;
-		executor.executeForm(*this);
+		return (0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:09 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 19:00:08 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 22:49:26 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
+class Form;
 class Bureaucrat
 {
 	private:
@@ -42,6 +44,7 @@ class Bureaucrat
 		void		inc();
 		void		dec();
 		void		signForm(std::string Name, int b) const;
+		void		executeForm(Form const & form);
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &b);
 

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 21:34:24 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 22:28:06 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 23:01:55 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyRequestForm : public Form
 			target = Target;
 		}
 		~RobotomyRequestForm() {}
-		void	execute(Bureaucrat const & executor);
+		int	execute(Bureaucrat const & executor) const;
 };
 
 #endif
