@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:33:09 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 17:26:39 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:57:00 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 	private:
-		std::string const Name = "burea";
+		std::string const Name;
 		int Grade;
 	public:
 		Bureaucrat(std::string name, int grade) : Name(name)
