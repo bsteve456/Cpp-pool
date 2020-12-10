@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:42:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 00:11:23 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/10 10:20:41 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void TacticalMarine::meleeAttack() const
 
 ISpaceMarine * TacticalMarine::clone() const
 {
-	TacticalMarine *copy = new TacticalMarine;
+	TacticalMarine *copy = new TacticalMarine(*this);
 	return (copy);
 }
