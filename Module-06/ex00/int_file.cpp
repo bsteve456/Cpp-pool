@@ -6,11 +6,19 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 19:04:51 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 20:45:30 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:48:18 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
+
+int	isdigit(char c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
+}
+
 
 int	check_numeric(char *s)
 {
@@ -21,7 +29,7 @@ int	check_numeric(char *s)
 	{
 		if (*s == '.')
 			dot += 1;
-		if (dot > 1 || (std::isdigit(*s) == 0 && *s != '.'))
+		if (dot > 1 || (isdigit(*s) == 0 && *s != '.'))
 			return (0);
 		s++;
 	}
