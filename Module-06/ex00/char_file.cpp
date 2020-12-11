@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:33:00 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 18:40:00 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:57:16 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,12 @@ void	char_to_all(char c)
 	float f;
 	double d;
 
+	std::cout << std::setprecision(1) << std::fixed << std::endl;
 	std::cout << "char : " << c << std::endl;
 	i = (int)c;
 	std::cout << "int : " << i << std::endl;
 	f = (float)(c);
-	if (std::fmod(f, 1.0f) == 0)
-		std::cout << "float : " << f << ".0f" << std::endl;
-	else
-		std::cout << "float : " << f << "f" << std::endl;
+	std::cout << "float : " << f << "f" << std::endl;
 	d = (double)(c);
-	if (std::fmod(d, 1.0) == 0)
-		std::cout << "double : " << d << ".0" << std::endl;
-	else
-		std::cout << "double : " << d << std::endl;
+	std::cout << "double : " << d << std::endl;
 }
