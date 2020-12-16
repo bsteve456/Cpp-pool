@@ -15,8 +15,9 @@ CFLAGS=-Wall -Werror -Wextra
 
 NAME=convert
 INC=
-FILES=convert.cpp int_file.cpp float_file.cpp \
-	  char_file.cpp
+FILES=convert.cpp int_file.cpp \
+	  char_file.cpp float_file.cpp \
+	  double_file.cpp
 OBJ=$(FILES:.c=.o)
 
 all: $(NAME)

@@ -23,6 +23,8 @@ int main (int ac, char **av)
 			int_to_all(iconvert(av[1]));
 		else if (check_float(av[1]) == 1)
 			float_to_all(fconvert(av[1]), scalar);
+		else if (check_double(av[1]) == 1)
+			double_to_all(dconvert(av[1]), scalar);
 	}
 	else
 		std::cout << "2 arguments required" << std::endl;

@@ -31,6 +31,8 @@ int		isdigit(char c);
 float	fconvert(char *s);
 void	float_to_all(float n, std::string scala);
 int		check_float(char *s);
-
+int		check_double(char *s);
+double	dconvert(char *s);
+void	double_to_all(double n, std::string scala);
 
 # endif
