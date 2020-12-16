@@ -60,3 +60,24 @@ std::string	PhoneBook::secret_field(std::string secret, int n)
 		darkest_secret = secret;
 	return (darkest_secret);
 }
+
+std::string PhoneBook::first_name_field(std::string first, int n)
+{
+	if (n == 1)
+		first_name = first;
+	return (first_name);
+}
+
+std::string PhoneBook::last_name_field(std::string last, int n)
+{
+	if (n == 1)
+		last_name = last;
+	return (last_name);
+}
+
+std::string PhoneBook::nickname_field(std::string nick, int n)
+{
+	if (n == 1)
+		nickname = nick;
+	return (nickname);
+}

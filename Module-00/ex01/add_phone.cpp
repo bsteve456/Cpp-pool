@@ -18,13 +18,13 @@ void	add_phonenb1(PhoneBook book[8], int i)
 
 	std::cout << "enter : first_name : ";
 	getline(std::cin, str);
-	book[i].first_name = str;
+	book[i].first_name_field(str, 1);
 	std::cout << "enter : last_name : ";
 	getline(std::cin, str);
-	book[i].last_name = str;
+	book[i].last_name_field(str, 1);
 	std::cout << "enter : nickname : ";
 	getline(std::cin, str);
-	book[i].nickname = str;
+	book[i].nickname_field(str, 1);
 }
 
 void	add_phonenb2(PhoneBook book[8], int i)

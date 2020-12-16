@@ -26,7 +26,6 @@ std::string	check_str(std::string str)
 {
 	std::string src;
 	std::istringstream str1(str);
-
 	if (str.length() > 10)
 	{
 		str1 >> std::setw(9) >> src;
@@ -38,9 +37,9 @@ std::string	check_str(std::string str)
 
 void	show_info(PhoneBook book)
 {
-	std::cout << "first name : " << book.first_name << "\n";
-	std::cout << "last name : " << book.last_name << "\n";
-	std::cout << "nickname : " << book.nickname << "\n";
+	std::cout << "first name : " << book.first_name_field("", 0) << "\n";
+	std::cout << "last name : " << book.last_name_field("", 0) << "\n";
+	std::cout << "nickname : " << book.nickname_field("", 0) << "\n";
 	std::cout << "login : " << book.login_field("", 0) << "\n";
 	std::cout << "postal address : " << book.postal_field("", 0) << "\n";
 	std::cout << "phone number : " << book.phone_field("", 0) << "\n";
@@ -61,7 +60,6 @@ void	display(PhoneBook book[8])
 	perfect_width(str.length(), str);
 	std::cout << '|';
 	str = "last name";
-
 	perfect_width(str.length(), str);
 	std::cout << '|';
 	str = "nickname";
@@ -72,11 +70,11 @@ void	display(PhoneBook book[8])
 		if (book[i].empty != 0)
 		{
 			std::cout << std::setw(10) << i << '|';
-			perfect_width(book[i].first_name.length(), book[i].first_name);
+			perfect_width(book[i].first_name_field("", 0).length(), book[i].first_name_field("", 0));
 			std::cout << '|';
-			perfect_width(book[i].last_name.length(), book[i].last_name);
+			perfect_width(book[i].last_name_field("", 0).length(), book[i].last_name_field("", 0));
 			std::cout << '|';
-			perfect_width(book[i].nickname.length(), book[i].nickname);
+			perfect_width(book[i].nickname_field("", 0).length(), book[i].nickname_field("", 0));
 			std::cout << '\n';
 		}
 	}
