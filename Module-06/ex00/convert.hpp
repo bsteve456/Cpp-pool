@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:35 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 20:27:17 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/11 22:33:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		check_numeric(char *s);
 int		check_int(char *scalar);
 int		iconvert(char *s);
 void	int_to_all(int n);
+int		isdigit(char c);
 
 # endif

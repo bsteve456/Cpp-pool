@@ -6,7 +6,7 @@
 #    By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 20:16:11 by stbaleba          #+#    #+#              #
-#    Updated: 2020/12/11 20:22:18 by stbaleba         ###   ########.fr        #
+#    Updated: 2020/12/11 22:01:23 by stbaleba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CFLAGS=-Wall -Werror -Wextra
 
 NAME=convert
 INC=
-FILES=convert.cpp int_file.cpp\
-	  char_file.cpp
+FILES=convert.cpp int_file.cpp \
+	  char_file.cpp float_file \
 OBJ=$(FILES:.c=.o)
 
 all: $(NAME)
