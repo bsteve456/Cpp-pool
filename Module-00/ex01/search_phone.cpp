@@ -84,14 +84,21 @@ void	search_in_phonebook(PhoneBook book[8])
 {
 	std::string src;
 	int j = 0;
+	if (book[0].empty == 0)
+	{
+		std::cout << "Register is empty !" << std::endl;
+		return ;
+	}
 	display(book);
 	std::cout << "enter which index you want : ";
 	std::getline(std::cin, src);
 	if (check_number(src) == 1)
 	{
 		j = std::stoi(src);
-		if (j >= 0 && j < 8)
+		if (j >= 0 && j < 8 && book[j].empty != 0)
 			show_info(book[j]);
+		else
+			std::cout << "index not between 0 and 8 or there is no number in this index !" << std::endl;
 	}
 	else
 		std::cout << "Index not between 0 and 8" << '\n';
