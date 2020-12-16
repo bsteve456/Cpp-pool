@@ -36,3 +36,23 @@ void	ponyOnTheHeap(Pony *serge)
 	std::cout << "Heap Function end" << '\n';
 	delete(serge);
 }
+
+void	Pony::set_height(std::string ht)
+{
+	height = ht;
+}
+
+void	Pony::set_color(std::string clr)
+{
+	color = clr;
+}
+
+std::string Pony::get_color()
+{
+	return color;
+}
+
+std::string Pony::get_height()
+{
+	return height;
+}

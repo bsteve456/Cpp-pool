@@ -12,26 +12,6 @@
 
 #include "Pony.hpp"
 
-void	Pony::set_height(std::string ht)
-{
-	height = ht;
-}
-
-void	Pony::set_color(std::string clr)
-{
-	color = clr;
-}
-
-std::string Pony::get_color()
-{
-	return color;
-}
-
-std::string Pony::get_height()
-{
-	return height;
-}
-
 int main()
 {
 	Pony one;
