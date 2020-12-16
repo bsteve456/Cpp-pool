@@ -15,8 +15,8 @@ CFLAGS=-Wall -Werror -Wextra
 
 NAME=convert
 INC=
-FILES=convert.cpp int_file.cpp \
-	  char_file.cpp float_file \
+FILES=convert.cpp int_file.cpp float_file.cpp \
+	  char_file.cpp
 OBJ=$(FILES:.c=.o)
 
 all: $(NAME)
@@ -25,4 +25,4 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -I. -o $(NAME)
 fclean:
 	rm -rf $(NAME)
-re: clean all
+re: fclean all

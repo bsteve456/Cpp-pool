@@ -19,7 +19,6 @@ int	isdigit(char c)
 	return (0);
 }
 
-
 int	check_numeric(char *s)
 {
 	int dot = 0;
@@ -41,7 +40,7 @@ int	check_numeric(char *s)
 int	iconvert(char *s)
 {
 	double n = std::atof(s);
-	int res = n;
+	int res = static_cast<int>(n);
 	return (res);
 }
 
@@ -58,21 +57,20 @@ int	check_int(char *scalar)
 void	int_to_all(int n)
 {
 	char c;
-	float f = n;
-	double d = n;
-
-
+	float f = 0;
+	double d = 0;
+	d = static_cast<double>(n);
+	f = static_cast<float>(n);
 	if (n < 32)
 		std::cout << "char: non displayable" << std::endl;
 	else if (n > 128)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
-		c = n;
+		c = static_cast<char>(n);
 		std::cout << "char: " << c << std::endl;
 	}
 	std::cout << "int: " << n << std::endl;
-	std::cout << std::setprecision(1) << std::fixed;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
+	std::cout << "double: " << d << ".0" << std::endl;
 }

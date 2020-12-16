@@ -32,6 +32,45 @@ int	check_fnumeric(char *s)
 int	check_float(char *s)
 {
 	std::string scale = std::string(s);
-	if (check_fnumeric(s) != 1 && scale.compare(""))
+	if (scale.compare("f") == 0)
 		return (0);
+	else if(scale.compare("nanf") == 0 ||
+		scale.compare("+inff") == 0 ||
+		scale.compare("-inff") == 0)
+		return (1);
+	if (check_fnumeric(s) != 1)
+		return (0);
+	return (1);
+}
+
+float	fconvert(char *s)
+{
+	double n = std::atof(s);
+	float res = static_cast<float>(n);
+	return (res);
+}
+
+void	float_to_all(float n, std::string scala)
+{
+	char c;
+	int i = 0;
+	double d = 0;
+
+	d = static_cast<double>(n);
+	i = static_cast<int>(n);
+	if (n < 32 && n > -128)
+		std::cout << "char: non displayable" << std::endl;
+	else if (n > 128 || scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
+		std::cout << "char: impossible" << std::endl;
+	else
+	{
+		c = static_cast<char>(n);
+		std::cout << "char: " << c << std::endl;
+	}
+	if (scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << n << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
 }

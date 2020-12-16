@@ -22,8 +22,8 @@ int main (int ac, char **av)
 		else if (check_int(av[1]) == 1)
 			int_to_all(iconvert(av[1]));
 		else if (check_float(av[1]) == 1)
-			float_to_all(fconvert(av[1]));
+			float_to_all(fconvert(av[1]), scalar);
 	}
 	else
-		std::cout << "Too much argument." << std::endl;
+		std::cout << "2 arguments required" << std::endl;
 }

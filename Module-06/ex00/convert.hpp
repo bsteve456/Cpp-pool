@@ -18,6 +18,7 @@
 # include <limits.h>
 # include <float.h>
 # include <cstdlib>
+# include <cmath>
 
 
 int		check_char(std::string scalar);
@@ -27,5 +28,9 @@ int		check_int(char *scalar);
 int		iconvert(char *s);
 void	int_to_all(int n);
 int		isdigit(char c);
+float	fconvert(char *s);
+void	float_to_all(float n, std::string scala);
+int		check_float(char *s);
+
 
 # endif
