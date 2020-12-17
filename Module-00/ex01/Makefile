@@ -26,4 +26,4 @@ $(NAME): $(OBJ) phonebook.hpp
 	$(CC) $(CFLAGS) $(INC) $(OBJ) -o $(NAME)
 fclean:
 	rm -rf $(NAME)
-re: clean all
+re: fclean all

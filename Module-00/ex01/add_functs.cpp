@@ -81,3 +81,10 @@ std::string PhoneBook::nickname_field(std::string nick, int n)
 		nickname = nick;
 	return (nickname);
 }
+
+int			PhoneBook::Empty_field(int Empty, int n)
+{
+	if (n == 1)
+		empty = Empty;
+	return (empty);
+}

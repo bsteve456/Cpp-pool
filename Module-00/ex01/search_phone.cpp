@@ -67,7 +67,7 @@ void	display(PhoneBook book[8])
 	std::cout << '\n';
 	for (int i = 0; i < 8; i++)
 	{
-		if (book[i].empty != 0)
+		if (book[i].Empty_field(0, 0) != 0)
 		{
 			std::cout << std::setw(10) << i << '|';
 			perfect_width(book[i].first_name_field("", 0).length(), book[i].first_name_field("", 0));
@@ -84,7 +84,7 @@ void	search_in_phonebook(PhoneBook book[8])
 {
 	std::string src;
 	int j = 0;
-	if (book[0].empty == 0)
+	if (book[0].Empty_field(0, 0) == 0)
 	{
 		std::cout << "Register is empty !" << std::endl;
 		return ;
@@ -95,7 +95,7 @@ void	search_in_phonebook(PhoneBook book[8])
 	if (check_number(src) == 1)
 	{
 		j = std::stoi(src);
-		if (j >= 0 && j < 8 && book[j].empty != 0)
+		if (j >= 0 && j < 8 && book[j].Empty_field(0, 0) != 0)
 			show_info(book[j]);
 		else
 			std::cout << "index not between 0 and 8 or there is no number in this index !" << std::endl;

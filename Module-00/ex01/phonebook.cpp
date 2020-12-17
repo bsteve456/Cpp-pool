@@ -22,7 +22,7 @@ void	parse(PhoneBook book[8], std::string str, int *i)
 		{
 			add_phonenb1(book, *i);
 			add_phonenb2(book, *i);
-			book[*i].empty = 1;
+			book[*i].Empty_field(1, 1);
 			*i += 1;
 		}
 		else
@@ -41,7 +41,7 @@ int main()
 	int i = 0;
 
 	for (int j = 0; j < 8; j++)
-		book[j].empty = 0;
+		book[j].Empty_field(0, 1);
 	while(1)
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";

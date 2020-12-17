@@ -31,8 +31,9 @@ class PhoneBook
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
+		int			empty;
+
 	public:
-		int	empty;
 		std::string first_name_field(std::string first, int n);
 		std::string last_name_field(std::string last, int n);
 		std::string nickname_field(std::string nick, int n);
@@ -43,6 +44,7 @@ class PhoneBook
 		std::string meal_field(std::string meal, int n);
 		std::string underc_field(std::string underc, int n);
 		std::string secret_field(std::string secret, int n);
+		int			Empty_field(int Empty, int n);
 };
 void	search_in_phonebook(PhoneBook book[8]);
 void	add_phonenb1(PhoneBook book[8], int i);
