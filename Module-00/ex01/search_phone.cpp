@@ -14,6 +14,8 @@
 
 int		check_number(std::string str)
 {
+	if(str.compare("") == 0)
+		return (0);
 	for (std::string::size_type i = 0; i < str.length(); i++)
 	{
 		if(isdigit(str[i]) == 0)

@@ -37,6 +37,9 @@ void	add_phonenb2(PhoneBook book[8], int i)
 	std::cout << "enter : address : ";
 	getline(std::cin, str);
 	book[i].postal_field(str, 1) = str;
+	std::cout << "enter : phone number : ";
+	getline(std::cin, str);
+	book[i].phone_field(str, 1) = str;
 	std::cout << "enter : birthday : ";
 	getline(std::cin, str);
 	book[i].birthday_field(str, 1) = str;
