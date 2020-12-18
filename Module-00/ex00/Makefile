@@ -14,7 +14,6 @@ CC=clang++
 CFLAGS=-Wall -Werror -Wextra
 
 NAME=megaphone
-INC=
 FILES=megaphone.cpp
 OBJ=$(FILES:.c=.o)
 
@@ -24,4 +23,4 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 fclean:
 	rm -rf $(NAME)
-re: clean all
+re: fclean all
