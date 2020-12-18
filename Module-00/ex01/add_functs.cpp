@@ -12,79 +12,112 @@
 
 #include "phonebook.hpp"
 
-std::string	PhoneBook::login_field(std::string log, int n)
+void	PhoneBook::setLogin(std::string log)
 {
-	if (n == 1)
-		login = log;
-	return (login);
+	login = log;
 }
 
-std::string	PhoneBook::postal_field(std::string address, int n)
+void	PhoneBook::setPostal(std::string address)
 {
-	if (n == 1)
-		postal_address = address;
-	return (postal_address);
+	postal_address = address;
 }
 
-std::string	PhoneBook::phone_field(std::string phone, int n)
+void	PhoneBook::setPhone(std::string phone)
 {
-	if (n == 1)
-		phone_number = phone;
-	return (phone_number);
+	phone_number = phone;
 }
 
-std::string	PhoneBook::birthday_field(std::string birthday, int n)
+void	PhoneBook::setBirthday(std::string birthday)
 {
-	if (n == 1)
-		birthday_date = birthday;
-	return (birthday_date);
+	birthday_date = birthday;
 }
 
-std::string	PhoneBook::meal_field(std::string meal, int n)
+void	PhoneBook::setMeal(std::string meal)
 {
-	if (n == 1)
-		favorite_meal = meal;
-	return (favorite_meal);
+	favorite_meal = meal;
 }
 
-std::string	PhoneBook::underc_field(std::string underc, int n)
+void	PhoneBook::setUnderc(std::string underc)
 {
-	if (n == 1)
-		underwear_color = underc;
-	return (underwear_color);
+	underwear_color = underc;
 }
 
-std::string	PhoneBook::secret_field(std::string secret, int n)
+void	PhoneBook::setSecret(std::string secret)
 {
-	if (n == 1)
-		darkest_secret = secret;
-	return (darkest_secret);
+	darkest_secret = secret;
 }
 
-std::string PhoneBook::first_name_field(std::string first, int n)
+void PhoneBook::setFirst_name(std::string first)
 {
-	if (n == 1)
-		first_name = first;
+	first_name = first;
+}
+
+void PhoneBook::setLast_name(std::string last)
+{
+	last_name = last;
+}
+
+void PhoneBook::setNickname(std::string nick)
+{
+	nickname = nick;
+}
+
+void	PhoneBook::setEmpty(int Empty)
+{
+	empty = Empty;
+}
+
+std::string		PhoneBook::getFirst_name(void)
+{
 	return (first_name);
 }
 
-std::string PhoneBook::last_name_field(std::string last, int n)
+std::string		PhoneBook::getLast_name(void)
 {
-	if (n == 1)
-		last_name = last;
 	return (last_name);
 }
 
-std::string PhoneBook::nickname_field(std::string nick, int n)
+std::string		PhoneBook::getNickname(void)
 {
-	if (n == 1)
-		nickname = nick;
 	return (nickname);
 }
 
-int			PhoneBook::Empty_field(int Empty, int n)
+std::string		PhoneBook::getLogin(void)
 {
-	if (n == 1)
-		empty = Empty;
+	return (login);
+}
+
+std::string		PhoneBook::getPostal(void)
+{
+	return (postal_address);
+}
+
+std::string		PhoneBook::getPhone(void)
+{
+	return (phone_number);
+}
+
+std::string	PhoneBook::getBirthday(void)
+{
+	return (birthday_date);
+}
+
+std::string		PhoneBook::getMeal(void)
+{
+	return (favorite_meal);
+}
+
+std::string		PhoneBook::getUnderc(void)
+{
+	return (underwear_color);
+}
+
+std::string		PhoneBook::getSecret(void)
+{
+	return (darkest_secret);
+}
+
+int			PhoneBook::getEmpty(void)
+{
 	return (empty);
 }

@@ -18,13 +18,13 @@ void	add_phonenb1(PhoneBook book[8], int i)
 
 	std::cout << "enter : first_name : ";
 	getline(std::cin, str);
-	book[i].first_name_field(str, 1);
+	book[i].setFirst_name(str);
 	std::cout << "enter : last_name : ";
 	getline(std::cin, str);
-	book[i].last_name_field(str, 1);
+	book[i].setLast_name(str);
 	std::cout << "enter : nickname : ";
 	getline(std::cin, str);
-	book[i].nickname_field(str, 1);
+	book[i].setNickname(str);
 }
 
 void	add_phonenb2(PhoneBook book[8], int i)
@@ -33,25 +33,25 @@ void	add_phonenb2(PhoneBook book[8], int i)
 
 	std::cout << "enter : login : ";
 	getline(std::cin, str);
-	book[i].login_field(str, 1);
+	book[i].setLogin(str);
 	std::cout << "enter : address : ";
 	getline(std::cin, str);
-	book[i].postal_field(str, 1) = str;
+	book[i].setPostal(str);
 	std::cout << "enter : phone number : ";
 	getline(std::cin, str);
-	book[i].phone_field(str, 1) = str;
+	book[i].setPhone(str);
 	std::cout << "enter : birthday : ";
 	getline(std::cin, str);
-	book[i].birthday_field(str, 1) = str;
+	book[i].setBirthday(str);
 	std::cout << "enter : prefer meal : ";
 	getline(std::cin, str);
-	book[i].meal_field(str, 1) = str;
+	book[i].setMeal(str);
 	std::cout << "enter : prefer underwear color: ";
 	getline(std::cin, str);
-	book[i].underc_field(str, 1) = str;
+	book[i].setUnderc(str);
 	std::cout << "enter : darkest secret  : ";
 	getline(std::cin, str);
-	book[i].secret_field(str, 1) = str;
+	book[i].setSecret(str);
 }
 
 void	perfect_width(std::string::size_type length, std::string src)

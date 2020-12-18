@@ -22,16 +22,16 @@ void	parse(PhoneBook book[8], std::string str, int *i)
 		{
 			add_phonenb1(book, *i);
 			add_phonenb2(book, *i);
-			book[*i].Empty_field(1, 1);
+			book[*i].setEmpty(1);
 			*i += 1;
 		}
 		else
-			std::cout << "Can't Add more than 8 phones sorry." << '\n';
+			std::cout << "Can't Add more than 8 phones sorry." << std::endl;
 	}
 	else if (str.compare("SEARCH") == 0)
 		search_in_phonebook(book);
 	else
-		std::cout << "Error: String name." << "\n";
+		std::cout << "Error: String name." << std::endl;
 }
 
 int main()
@@ -41,7 +41,7 @@ int main()
 	int i = 0;
 
 	for (int j = 0; j < 8; j++)
-		book[j].Empty_field(0, 1);
+		book[j].setEmpty(0);
 	while(1)
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";

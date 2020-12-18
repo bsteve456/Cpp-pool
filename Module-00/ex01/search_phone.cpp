@@ -39,16 +39,16 @@ std::string	check_str(std::string str)
 
 void	show_info(PhoneBook book)
 {
-	std::cout << "first name : " << book.first_name_field("", 0) << "\n";
-	std::cout << "last name : " << book.last_name_field("", 0) << "\n";
-	std::cout << "nickname : " << book.nickname_field("", 0) << "\n";
-	std::cout << "login : " << book.login_field("", 0) << "\n";
-	std::cout << "postal address : " << book.postal_field("", 0) << "\n";
-	std::cout << "phone number : " << book.phone_field("", 0) << "\n";
-	std::cout << "birthday date : " << book.birthday_field("", 0) << "\n";
-	std::cout << "favorite meal : " << book.meal_field("", 0) << "\n";
-	std::cout << "underwear color : " << book.underc_field("", 0) << "\n";
-	std::cout << "darkest secret : " << book.secret_field("", 0) << "\n";
+	std::cout << "first name : " << book.getFirst_name() << std::endl;
+	std::cout << "last name : " << book.getLast_name() << std::endl;
+	std::cout << "nickname : " << book.getNickname() << std::endl;
+	std::cout << "login : " << book.getLogin() << std::endl;
+	std::cout << "postal address : " << book.getPostal() << std::endl;
+	std::cout << "phone number : " << book.getPhone() << std::endl;
+	std::cout << "birthday date : " << book.getBirthday() << std::endl;
+	std::cout << "favorite meal : " << book.getMeal() << std::endl;
+	std::cout << "underwear color : " << book.getUnderc() << std::endl;
+	std::cout << "darkest secret : " << book.getSecret() << std::endl;
 }
 
 void	display(PhoneBook book[8])
@@ -69,14 +69,14 @@ void	display(PhoneBook book[8])
 	std::cout << '\n';
 	for (int i = 0; i < 8; i++)
 	{
-		if (book[i].Empty_field(0, 0) != 0)
+		if (book[i].getEmpty() != 0)
 		{
 			std::cout << std::setw(10) << i << '|';
-			perfect_width(book[i].first_name_field("", 0).length(), book[i].first_name_field("", 0));
+			perfect_width(book[i].getFirst_name().length(), book[i].getFirst_name());
 			std::cout << '|';
-			perfect_width(book[i].last_name_field("", 0).length(), book[i].last_name_field("", 0));
+			perfect_width(book[i].getLast_name().length(), book[i].getLast_name());
 			std::cout << '|';
-			perfect_width(book[i].nickname_field("", 0).length(), book[i].nickname_field("", 0));
+			perfect_width(book[i].getNickname().length(), book[i].getNickname());
 			std::cout << '\n';
 		}
 	}
@@ -86,7 +86,7 @@ void	search_in_phonebook(PhoneBook book[8])
 {
 	std::string src;
 	int j = 0;
-	if (book[0].Empty_field(0, 0) == 0)
+	if (book[0].getEmpty() == 0)
 	{
 		std::cout << "Register is empty !" << std::endl;
 		return ;
@@ -97,11 +97,11 @@ void	search_in_phonebook(PhoneBook book[8])
 	if (check_number(src) == 1)
 	{
 		j = std::stoi(src);
-		if (j >= 0 && j < 8 && book[j].Empty_field(0, 0) != 0)
+		if (j >= 0 && j < 8 && book[j].getEmpty() != 0)
 			show_info(book[j]);
 		else
 			std::cout << "index not between 0 and 8 or there is no number in this index !" << std::endl;
 	}
 	else
-		std::cout << "Index not between 0 and 8" << '\n';
+		std::cout << "Index not between 0 and 8" << std::endl;
 }
