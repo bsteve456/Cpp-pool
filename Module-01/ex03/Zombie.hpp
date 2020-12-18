@@ -25,6 +25,7 @@ class Zombie
 		std::string	get_name();
 		std::string	get_type();
 		void	announce();
+		~Zombie();
 };
 std::string random_type();
 std::string random_name();

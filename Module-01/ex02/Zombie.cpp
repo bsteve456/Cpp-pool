@@ -36,3 +36,8 @@ void	Zombie::announce()
 {
 	std::cout << "<" << name << " (" << type << ")> Braiiiiiiinnnssss...\n";
 }
+
+Zombie::~Zombie()
+{
+	std::cout << "Zombie died" << std::endl;
+}

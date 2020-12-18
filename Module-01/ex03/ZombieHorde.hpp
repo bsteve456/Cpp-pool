@@ -24,6 +24,9 @@ class ZombieHorde
 		ZombieHorde(int N);
 		void announce();
 		void delete_horde();
+		~ZombieHorde();
 };
+std::string random_type();
+std::string random_name();
 
 #endif

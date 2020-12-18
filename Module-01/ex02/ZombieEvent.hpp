@@ -20,9 +20,13 @@ class ZombieEvent
 	private:
 		std::string mem;
 	public:
-		void	setZombieType(std::string mem_type);
+		void		setZombieType(std::string mem_type);
 		std::string	getZombieType();
-		Zombie*	newZombie(std::string name);
+		Zombie*		newZombie(std::string name);
 };
+std::string	random_type();
+std::string	random_name();
+void		randomChump();
+
 
 #endif
