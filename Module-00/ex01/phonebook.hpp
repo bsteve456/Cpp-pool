@@ -60,6 +60,5 @@ class PhoneBook
 void	search_in_phonebook(PhoneBook book[8]);
 void	add_phonenb1(PhoneBook book[8], int i);
 void	add_phonenb2(PhoneBook book[8], int i);
-void	perfect_width(std::string::size_type length, std::string src);
-std::string	check_str(std::string str);
+void	check_str(std::string str);
 #endif

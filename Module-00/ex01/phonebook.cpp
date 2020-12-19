@@ -46,6 +46,8 @@ int main()
 	{
 		std::cout << "ADD, SEARCH or EXIT the PhoneBook : ";
 		std::getline(std::cin, str);
+		if(std::cin.eof())
+			return (0);
 		parse(book, str ,&i);
 	}
 }

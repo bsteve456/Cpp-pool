@@ -23,6 +23,21 @@ void	NinjaTrap::ninjaShoebox(NinjaTrap &s)
 	s.beRepaired(20);
 }
 
+NinjaTrap::NinjaTrap(std::string const name) :
+	ClapTrap(name)
+{
+	std::cout << "NinjaTrap String Constructor called\n";
+	Name = name;
+	HPoint = 60;
+	MHPoint = 60;
+	EPoint = 120;
+	MEPoint = 120;
+	level = 1;
+	MDmg = 60;
+	RDmg = 5;
+	Adr = 0;
+}
+
 void	NinjaTrap::ninjaShoebox(ScavTrap &s)
 {
 	std::cout << Name << " secretly attack " << s.Name << '\n';

@@ -24,17 +24,24 @@ int		check_number(std::string str)
 	return (1);
 }
 
-std::string	check_str(std::string str)
+void	check_str(std::string str)
 {
 	std::string src;
-	std::istringstream str1(str);
 	if (str.length() > 10)
 	{
-		str1 >> std::setw(9) >> src;
-		return src + ".";
+		for (int i = 0; i < 9; i++)
+			std::cout << str[i];
+		std::cout << ".";
 	}
 	else
-		return str;
+	{
+		if (str.length() == 9)
+			std::cout.width(11 - str.length());
+		else
+			std::cout.width(10 - str.length());
+		for (std::string::size_type j = 0; j < str.length(); j++)
+			std::cout << str[j];
+	}
 }
 
 void	show_info(PhoneBook book)
@@ -56,27 +63,28 @@ void	display(PhoneBook book[8])
 	std::string str;
 
 	str = "index";
-	perfect_width(str.length(), str);
+	check_str(str);
 	std::cout << '|';
 	str = "first name";
-	perfect_width(str.length(), str);
+	check_str(str);
 	std::cout << '|';
 	str = "last name";
-	perfect_width(str.length(), str);
+	check_str(str);
 	std::cout << '|';
 	str = "nickname";
-	perfect_width(str.length(), str);
+	check_str(str);
 	std::cout << '\n';
 	for (int i = 0; i < 8; i++)
 	{
 		if (book[i].getEmpty() != 0)
 		{
-			std::cout << std::setw(10) << i << '|';
-			perfect_width(book[i].getFirst_name().length(), book[i].getFirst_name());
+			check_str(std::to_string(i));
 			std::cout << '|';
-			perfect_width(book[i].getLast_name().length(), book[i].getLast_name());
+			check_str(book[i].getFirst_name());
 			std::cout << '|';
-			perfect_width(book[i].getNickname().length(), book[i].getNickname());
+			check_str(book[i].getLast_name());
+			std::cout << '|';
+			check_str(book[i].getNickname());
 			std::cout << '\n';
 		}
 	}

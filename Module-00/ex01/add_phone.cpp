@@ -53,9 +53,3 @@ void	add_phonenb2(PhoneBook book[8], int i)
 	getline(std::cin, str);
 	book[i].setSecret(str);
 }
-
-void	perfect_width(std::string::size_type length, std::string src)
-{
-	length = (length > 10) ? 10 : length;
-	std::cout << std::setw(10) << check_str(src);
-}
