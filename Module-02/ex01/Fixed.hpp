@@ -30,7 +30,7 @@ class Fixed
 		Fixed(int const n);
 		Fixed(float const f);
 		float toFloat( void ) const;
-		float toInt( void ) const;
+		int toInt( void ) const;
 };
 std::ostream& operator<<(std::ostream& os, const Fixed &f);
 

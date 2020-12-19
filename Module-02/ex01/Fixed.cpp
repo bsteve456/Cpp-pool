@@ -66,7 +66,7 @@ float Fixed::toFloat(void) const
 	return ((float)fp_value / (float) (1 << bits));
 }
 
-float Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
 	return (fp_value / (int) (1 << bits));
 }
