@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 15:32:49 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 22:28:14 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/21 09:34:00 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ int main()
 		if(std::cin.eof())
 			return (0);
 		parse(book, str ,&i);
+		if(std::cin.eof())
+			return (0);
 	}
 }

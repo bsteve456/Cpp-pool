@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 17:23:04 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/01 22:24:06 by stbaleba         ###   ########.fr       */
+/*   Updated: 2020/12/21 09:37:46 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ void	check_str(std::string str)
 	}
 	else
 	{
-		if (str.length() == 9)
-			std::cout.width(11 - str.length());
-		else
-			std::cout.width(10 - str.length());
+		std::cout.width(11 - str.length());
 		for (std::string::size_type j = 0; j < str.length(); j++)
 			std::cout << str[j];
 	}
@@ -102,6 +99,8 @@ void	search_in_phonebook(PhoneBook book[8])
 	display(book);
 	std::cout << "enter which index you want : ";
 	std::getline(std::cin, src);
+	if(std::cin.eof())
+		return ;
 	if (check_number(src) == 1)
 	{
 		j = std::stoi(src);
