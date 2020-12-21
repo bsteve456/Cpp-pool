@@ -16,7 +16,8 @@
 int main()
 {
 	std::srand(time(0));
-	FragTrap player("A Man");
+	FragTrap player1("A Man");
+	FragTrap player = player1;
 	player.rangedAttack("Ancalagon");
 	player.meleeAttack("Ancalagon");
 	player.takeDamage(50);
@@ -28,7 +29,9 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
-	ScavTrap robot("unknown");
+	ScavTrap robot1("unknown");
+	ScavTrap robot;
+	robot = robot1;
 	ScavTrap human("Dragon slayer");
 	robot.rangedAttack("Ship");
 	robot.rangedAttack("Ship");
