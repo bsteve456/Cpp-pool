@@ -15,7 +15,9 @@
 int main()
 {
 	std::srand(time(0));
-	FragTrap player("A Man");
+	FragTrap player1("A Man");
+	FragTrap player;
+	player = player1;
 	player.rangedAttack("Ancalagon");
 	player.meleeAttack("Ancalagon");
 	player.takeDamage(50);

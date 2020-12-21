@@ -17,6 +17,83 @@ FragTrap::FragTrap()
 	std::cout << "Default Constructor called\n";
 }
 
+FragTrap::FragTrap(const FragTrap &F)
+{
+	std::cout << "Copy Constructor called" << std::endl;
+	this->HPoint = F.getHPoint();
+	this->MHPoint = F.getMHPoint();
+	this->EPoint = F.getEPoint();
+	this->MEPoint = F.getMEPoint();
+	this->level = F.getLevel();
+	this->Name = F.getName();
+	this->MDmg = F.getMDmg();
+	this->RDmg = F.getRDmg();
+	this->Adr = F.getAdr();
+}
+
+FragTrap & FragTrap::operator = (const FragTrap &F)
+{
+	std::cout << "Assignment operator called" << std::endl;
+	if (this != &F)
+	{
+		this->HPoint = F.getHPoint();
+		this->MHPoint = F.getMHPoint();
+		this->EPoint = F.getEPoint();
+		this->MEPoint = F.getMEPoint();
+		this->level = F.getLevel();
+		this->Name = F.getName();
+		this->MDmg = F.getMDmg();
+		this->RDmg = F.getRDmg();
+		this->Adr = F.getAdr();
+	}
+	return (*this);
+}
+
+int FragTrap::getHPoint(void) const
+{
+	return (this->HPoint);
+}
+
+int FragTrap::getMHPoint(void) const
+{
+	return (this->MHPoint);
+}
+
+int FragTrap::getEPoint(void) const
+{
+	return (this->EPoint);
+}
+
+int	FragTrap::getMEPoint(void) const
+{
+	return (this->MEPoint);
+}
+
+std::string FragTrap::getName(void) const
+{
+	return (this->Name);
+}
+
+int	FragTrap::getLevel(void) const
+{
+	return (this->level);
+}
+
+int FragTrap::getMDmg(void) const
+{
+	return (this->MDmg);
+}
+
+int	FragTrap::getRDmg(void) const
+{
+	return (this->RDmg);
+}
+
+int FragTrap::getAdr(void) const
+{
+	return (this->Adr);
+}
+
 FragTrap::FragTrap(std::string const name)
 {
 	std::cout << "String Constructor called\n";
