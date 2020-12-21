@@ -28,8 +28,11 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
-	ScavTrap robot("unknown");
-	ScavTrap human("Dragon slayer");
+	ScavTrap robot1("unknown");
+	ScavTrap robot = robot1;
+	ScavTrap human1("Dragon slayer");
+	ScavTrap human;
+	human = human1;
 	robot.rangedAttack("Ship");
 	robot.rangedAttack("Ship");
 	robot.takeDamage(rand() % 25);

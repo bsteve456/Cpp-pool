@@ -32,6 +32,83 @@ ScavTrap::ScavTrap(std::string const name)
 	Adr = 3;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &S)
+{
+	std::cout << "ScavTrap Copy Constructor called" << std::endl;
+	this->HPoint = S.getHPoint();
+	this->MHPoint = S.getMHPoint();
+	this->EPoint = S.getEPoint();
+	this->MEPoint = S.getMEPoint();
+	this->level = S.getLevel();
+	this->Name = S.getName();
+	this->MDmg = S.getMDmg();
+	this->RDmg = S.getRDmg();
+	this->Adr = S.getAdr();
+}
+
+ScavTrap & ScavTrap::operator = (const ScavTrap &S)
+{
+	std::cout << "ScavTrap Assignment operator called" << std::endl;
+	if (this != &S)
+	{
+		this->HPoint = S.getHPoint();
+		this->MHPoint = S.getMHPoint();
+		this->EPoint = S.getEPoint();
+		this->MEPoint = S.getMEPoint();
+		this->level = S.getLevel();
+		this->Name = S.getName();
+		this->MDmg = S.getMDmg();
+		this->RDmg = S.getRDmg();
+		this->Adr = S.getAdr();
+	}
+	return (*this);
+}
+
+int ScavTrap::getHPoint(void) const
+{
+	return (this->HPoint);
+}
+
+int ScavTrap::getMHPoint(void) const
+{
+	return (this->MHPoint);
+}
+
+int ScavTrap::getEPoint(void) const
+{
+	return (this->EPoint);
+}
+
+int	ScavTrap::getMEPoint(void) const
+{
+	return (this->MEPoint);
+}
+
+std::string ScavTrap::getName(void) const
+{
+	return (this->Name);
+}
+
+int	ScavTrap::getLevel(void) const
+{
+	return (this->level);
+}
+
+int ScavTrap::getMDmg(void) const
+{
+	return (this->MDmg);
+}
+
+int	ScavTrap::getRDmg(void) const
+{
+	return (this->RDmg);
+}
+
+int ScavTrap::getAdr(void) const
+{
+	return (this->Adr);
+}
+
 void	ScavTrap::rangedAttack(std::string const & target)
 {
 	std::cerr << "SC4V-TP "<< Name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";
