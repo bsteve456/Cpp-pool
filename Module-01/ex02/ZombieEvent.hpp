@@ -23,6 +23,7 @@ class ZombieEvent
 		void		setZombieType(std::string mem_type);
 		std::string	getZombieType();
 		Zombie*		newZombie(std::string name);
+		~ZombieEvent();
 };
 std::string	random_type();
 std::string	random_name();

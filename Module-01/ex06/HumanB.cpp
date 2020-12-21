@@ -26,3 +26,6 @@ void	HumanB::attack()
 {
 	std::cout << name << " attacks with his " << (*weapon).getType() << '\n';
 }
+
+HumanB::~HumanB()
+{}

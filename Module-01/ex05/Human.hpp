@@ -23,6 +23,7 @@ class Human
 		Human();
 		Brain	getBrain();
 		std::string identify();
+		~Human();
 };
 
 #endif

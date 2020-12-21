@@ -24,5 +24,6 @@ class Brain
 	public:
 		std::string identify() const;
 		void	setAddr(long address);
+		~Brain();
 };
 #endif

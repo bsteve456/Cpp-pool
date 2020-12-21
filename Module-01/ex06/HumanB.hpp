@@ -24,6 +24,7 @@ class HumanB
 		HumanB(std::string name1);
 		void	setWeapon(Weapon &wep);
 		void	attack();
+		~HumanB();
 };
 
 #endif

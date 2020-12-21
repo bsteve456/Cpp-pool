@@ -27,3 +27,6 @@ void Weapon::setType(std::string type1)
 {
 	type = type1;
 }
+
+Weapon::~Weapon()
+{}

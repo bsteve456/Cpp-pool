@@ -25,3 +25,6 @@ std::string	Brain::identify() const
 	result = ss.str();
 	return ("0x" + result);
 }
+
+Brain::~Brain()
+{}

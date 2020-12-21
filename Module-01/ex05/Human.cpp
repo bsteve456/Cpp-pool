@@ -27,3 +27,6 @@ Brain	Human::getBrain()
 	cool.setAddr((long)&brain);
 	return (cool);
 }
+
+Human::~Human()
+{}

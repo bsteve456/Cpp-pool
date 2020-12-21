@@ -31,6 +31,9 @@ Zombie* ZombieEvent::newZombie(std::string name)
 	return (new1);
 }
 
+ZombieEvent::~ZombieEvent()
+{}
+
 std::string random_type()
 {
 	static const  char* const type[4] = {"Warrior", "Mage", "Archer", "Healer"};

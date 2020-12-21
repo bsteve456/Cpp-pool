@@ -21,6 +21,7 @@ class HumanA
 	public:
 		HumanA(std::string name1, Weapon &wep);
 		void	attack();
+		~HumanA();
 };
 
 #endif
