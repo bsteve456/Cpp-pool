@@ -17,6 +17,20 @@ NinjaTrap::NinjaTrap()
 	std::cout << "NinjaTrap Default Constructor called\n";
 }
 
+NinjaTrap::	NinjaTrap(std::string const name) : ClapTrap()
+{
+	std::cout << "NinjaTrap String Constructor called\n";
+	Name = name;
+	HPoint = 60;
+	MHPoint = 60;
+	EPoint = 120;
+	MEPoint = 120;
+	level = 1;
+	MDmg = 60;
+	RDmg = 5;
+	Adr = 0;
+}
+
 void	NinjaTrap::ninjaShoebox(NinjaTrap &s)
 {
 	std::cout << Name << " heals " << s.Name << '\n';
@@ -31,6 +45,7 @@ void	NinjaTrap::ninjaShoebox(ScavTrap &s)
 	meleeAttack(s.Name);
 	s.takeDamage(MDmg);
 }
+
 void	NinjaTrap::ninjaShoebox(FragTrap &s)
 {
 	std::cout << Name << " and " << s.Name << " attack each other at range\n";
@@ -40,6 +55,7 @@ void	NinjaTrap::ninjaShoebox(FragTrap &s)
 	takeDamage(s.RDmg);
 	std::cout << "The battle stop\n";
 }
+
 NinjaTrap::~NinjaTrap()
 {
 	std::cout << "NinjaTrap Destructor called\n";

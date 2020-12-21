@@ -18,6 +18,21 @@ ScavTrap::ScavTrap()
 	std::cerr << "ScavTrap Default Constructor called\n";
 }
 
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
+{
+	std::cerr << "ScavTrap String Constructor called\n";
+	Name = name;
+	HPoint = 100;
+	MHPoint = 100;
+	EPoint = 50;
+	MEPoint = 50;
+	level = 1;
+	MDmg = 20;
+	RDmg = 15;
+	Adr = 3;
+}
+
+
 void	ScavTrap::challengeNewcomer(int nb_challenge)
 {
 	if(nb_challenge == 0)

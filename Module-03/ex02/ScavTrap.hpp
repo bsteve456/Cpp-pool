@@ -20,18 +20,7 @@ class ScavTrap: public ClapTrap
 {
 	public:
 		ScavTrap();
-		ScavTrap(std::string const name) : ClapTrap(name){
-	std::cerr << "ScavTrap String Constructor called\n";
-	Name = name;
-	HPoint = 100;
-	MHPoint = 100;
-	EPoint = 50;
-	MEPoint = 50;
-	level = 1;
-	MDmg = 20;
-	RDmg = 15;
-	Adr = 3;
-}
+		ScavTrap(std::string const name);
 		void challengeNewcomer(int nb_challenge);
 		~ScavTrap();
 };

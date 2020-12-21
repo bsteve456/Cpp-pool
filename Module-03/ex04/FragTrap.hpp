@@ -20,21 +20,7 @@ class FragTrap: virtual public ClapTrap
 {
 	public:
 		FragTrap();
-		FragTrap(std::string const name) : ClapTrap(){
-			std::cout << "FragTrap String Constructor called\n";
-			Name = name;
-			HPoint = 100;
-			MHPoint = 100;
-			if (EPoint == 0)
-			{
-				EPoint = 100;
-				MEPoint = 100;
-				MDmg = 30;
-			}
-			level = 1;
-			RDmg = 20;
-			Adr = 5;
-		}
+		FragTrap(std::string const name);
 		void vaulthunter_dot_exe(std::string const & target);
 		~FragTrap();
 };

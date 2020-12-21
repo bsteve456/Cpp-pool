@@ -27,6 +27,4 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
-
-
 }

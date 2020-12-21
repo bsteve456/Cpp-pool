@@ -21,18 +21,7 @@ class NinjaTrap: virtual public ClapTrap
 {
 	public:
 		NinjaTrap();
-		NinjaTrap(std::string const name) : ClapTrap() {
-			std::cout << "NinjaTrap String Constructor called\n";
-			Name = name;
-			HPoint = 60;
-			MHPoint = 60;
-			EPoint = 120;
-			MEPoint = 120;
-			level = 1;
-			MDmg = 60;
-			RDmg = 5;
-			Adr = 0;
-		}
+		NinjaTrap(std::string const name);
 		void	ninjaShoebox(NinjaTrap &s);
 		void	ninjaShoebox(ScavTrap &s);
 		void	ninjaShoebox(FragTrap &s);
