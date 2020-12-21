@@ -18,7 +18,6 @@ FragTrap::FragTrap()
 }
 
 FragTrap::FragTrap(const FragTrap &F)
-{
 	std::cout << "Copy Constructor called" << std::endl;
 	this->HPoint = F.getHPoint();
 	this->MHPoint = F.getMHPoint();
