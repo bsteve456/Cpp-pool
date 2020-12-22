@@ -20,15 +20,15 @@ SuperTrap::SuperTrap()
 SuperTrap::SuperTrap(std::string const name) : NinjaTrap(name), FragTrap(name)
 {
 	std::cout << "SuperTrap String Constructor called\n";
-	Name = name;
-	HPoint = FragTrap::HPoint;
-	MHPoint = FragTrap::MHPoint;
-	EPoint = NinjaTrap::EPoint;
-	MEPoint = NinjaTrap::MEPoint;
-	level = 1;
-	MDmg = NinjaTrap::MDmg;
-	RDmg = FragTrap::RDmg;
-	Adr = FragTrap::Adr;
+	this->Name = name;
+	this->HPoint = FragTrap::HPoint;
+	this->MHPoint = FragTrap::MHPoint;
+	this->EPoint = NinjaTrap::EPoint;
+	this->MEPoint = NinjaTrap::MEPoint;
+	this->level = 1;
+	this->MDmg = NinjaTrap::MDmg;
+	this->RDmg = FragTrap::RDmg;
+	this->Adr = FragTrap::Adr;
 }
 
 SuperTrap::SuperTrap(const SuperTrap &S)

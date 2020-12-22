@@ -20,15 +20,15 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string const name)
 {
 	std::cout << "ClapTrap String Constructor called\n";
-	Name = name;
-	HPoint = 100;
-	MHPoint = 100;
-	EPoint = 100;
-	MEPoint = 100;
-	level = 1;
-	MDmg = 30;
-	RDmg = 20;
-	Adr = 5;
+	this->Name = name;
+	this->HPoint = 100;
+	this->MHPoint = 100;
+	this->EPoint = 100;
+	this->MEPoint = 100;
+	this->level = 1;
+	this->MDmg = 30;
+	this->RDmg = 20;
+	this->Adr = 5;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &C)
@@ -110,28 +110,28 @@ int ClapTrap::getAdr(void) const
 
 void	ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "CL4G-TP "<< Name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";
+	std::cout << "CL4G-TP "<< this->Name << " attacks " << target << " at range, causing " << this->RDmg << " points of damage!\n";
 }
 
 void	ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "CL4G-TP " << Name << " attacks " << target << " with a melee attack, causing " << MDmg << " points of damage!\n";
+	std::cout << "CL4G-TP " << this->Name << " attacks " << target << " with a melee attack, causing " << this->MDmg << " points of damage!\n";
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	float result;
 
-	result = amount - (amount * Adr / 100);
-	if (HPoint - (int)result <= 0)
-		HPoint = 0;
+	result = amount - (amount * this->Adr / 100);
+	if (this->HPoint - (int)result <= 0)
+		this->HPoint = 0;
 	else
-		HPoint -= (int)result;
-	std::cout << "CL4G-TP " << Name << " did take " << (int)result << " of damage!\n";
-	if (HPoint > 0)
-		std::cout << "CL4G-TP "<< "Hit point left : " << HPoint << '\n';
+		this->HPoint -= (int)result;
+	std::cout << "CL4G-TP " << this->Name << " did take " << (int)result << " of damage!\n";
+	if (this->HPoint > 0)
+		std::cout << "CL4G-TP "<< "Hit point left : " << this->HPoint << '\n';
 	else
-		std::cout << "CL4G-TP " << Name << " is dead\n";
+		std::cout << "CL4G-TP " << this->Name << " is dead\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -139,19 +139,19 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	int heal;
 	int mem;
 
-	mem = HPoint + amount;
-	if (mem > MHPoint)
+	mem = this->HPoint + amount;
+	if (mem > this->MHPoint)
 	{
-		HPoint = MHPoint;
-		heal = amount - (MHPoint - mem);
+		this->HPoint = this->MHPoint;
+		heal = amount - (this->MHPoint - mem);
 	}
 	else
 	{
-		HPoint += amount;
+		this->HPoint += amount;
 		heal = amount;
 	}
-	std::cout << "CL4G-TP " << Name << " healed " << heal << "HP\n";
-	std::cout << "CL4G-TP Hit Point are at : " << HPoint << '\n';
+	std::cout << "CL4G-TP " << this->Name << " healed " << heal << "HP\n";
+	std::cout << "CL4G-TP Hit Point are at : " << this->HPoint << '\n';
 }
 
 ClapTrap::~ClapTrap()

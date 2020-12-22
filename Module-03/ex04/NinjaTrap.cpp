@@ -20,15 +20,15 @@ NinjaTrap::NinjaTrap()
 NinjaTrap::	NinjaTrap(std::string const name) : ClapTrap()
 {
 	std::cout << "NinjaTrap String Constructor called\n";
-	Name = name;
-	HPoint = 60;
-	MHPoint = 60;
-	EPoint = 120;
-	MEPoint = 120;
-	level = 1;
-	MDmg = 60;
-	RDmg = 5;
-	Adr = 0;
+	this->Name = name;
+	this->HPoint = 60;
+	this->MHPoint = 60;
+	this->EPoint = 120;
+	this->MEPoint = 120;
+	this->level = 1;
+	this->MDmg = 60;
+	this->RDmg = 5;
+	this->Adr = 0;
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap &G)
@@ -57,26 +57,26 @@ NinjaTrap & NinjaTrap::operator = (const NinjaTrap &G)
 
 void	NinjaTrap::ninjaShoebox(NinjaTrap &s)
 {
-	std::cout << Name << " heals " << s.Name << '\n';
+	std::cout << this->Name << " heals " << s.Name << '\n';
 	s.beRepaired(20);
 }
 
 void	NinjaTrap::ninjaShoebox(ScavTrap &s)
 {
-	std::cout << Name << " secretly attack " << s.Name << '\n';
-	meleeAttack(s.Name);
-	s.takeDamage(MDmg);
-	meleeAttack(s.Name);
-	s.takeDamage(MDmg);
+	std::cout << this->Name << " secretly attack " << s.Name << '\n';
+	this->meleeAttack(s.Name);
+	s.takeDamage(this->MDmg);
+	this->meleeAttack(s.Name);
+	s.takeDamage(this->MDmg);
 }
 
 void	NinjaTrap::ninjaShoebox(FragTrap &s)
 {
-	std::cout << Name << " and " << s.Name << " attack each other at range\n";
-	rangedAttack(s.Name);
-	s.takeDamage(RDmg);
-	s.rangedAttack(Name);
-	takeDamage(s.RDmg);
+	std::cout << this->Name << " and " << s.Name << " attack each other at range\n";
+	this->rangedAttack(s.Name);
+	s.takeDamage(this->RDmg);
+	s.rangedAttack(this->Name);
+	this->takeDamage(s.RDmg);
 	std::cout << "The battle stop\n";
 }
 

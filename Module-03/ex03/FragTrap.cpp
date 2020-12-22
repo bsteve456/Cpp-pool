@@ -20,15 +20,15 @@ FragTrap::FragTrap()
 FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
 	std::cout << "FragTrap String Constructor called\n";
-	Name = name;
-	HPoint = 100;
-	MHPoint = 100;
-	EPoint = 100;
-	MEPoint = 100;
-	level = 1;
-	MDmg = 30;
-	RDmg = 20;
-	Adr = 5;
+	this->Name = name;
+	this->HPoint = 100;
+	this->MHPoint = 100;
+	this->EPoint = 100;
+	this->MEPoint = 100;
+	this->level = 1;
+	this->MDmg = 30;
+	this->RDmg = 20;
+	this->Adr = 5;
 }
 
 FragTrap::FragTrap(const FragTrap &F)
@@ -61,13 +61,13 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 	std::string result;
 
 	result = type[rand() % 5];
-	if (EPoint - 25 >= 0)
+	if (this->EPoint - 25 >= 0)
 	{
-		EPoint -= 25;
-		std::cout << "FR4G-TP " << Name << " did a(n) " << result << " attack on " << target << ", causing 50 points of damage!\n";
+		this->EPoint -= 25;
+		std::cout << "FR4G-TP " << this->Name << " did a(n) " << result << " attack on " << target << ", causing 50 points of damage!\n";
 	}
 	else
-		std::cout << "FR4G-TP " << Name <<" have " << EPoint << " Energy Point left, need 25\n";
+		std::cout << "FR4G-TP " << this->Name <<" have " << this->EPoint << " Energy Point left, need 25\n";
 }
 
 FragTrap::~FragTrap()

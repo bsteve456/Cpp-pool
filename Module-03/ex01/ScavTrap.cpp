@@ -21,15 +21,15 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap(std::string const name)
 {
 	std::cerr << "ScavTrap String Constructor called\n";
-	Name = name;
-	HPoint = 100;
-	MHPoint = 100;
-	EPoint = 50;
-	MEPoint = 50;
-	level = 1;
-	MDmg = 20;
-	RDmg = 15;
-	Adr = 3;
+	this->Name = name;
+	this->HPoint = 100;
+	this->MHPoint = 100;
+	this->EPoint = 50;
+	this->MEPoint = 50;
+	this->level = 1;
+	this->MDmg = 20;
+	this->RDmg = 15;
+	this->Adr = 3;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &S)
@@ -111,28 +111,28 @@ int ScavTrap::getAdr(void) const
 
 void	ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cerr << "SC4V-TP "<< Name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";
+	std::cerr << "SC4V-TP "<< this->Name << " attacks " << target << " at range, causing " << this->RDmg << " points of damage!\n";
 }
 
 void	ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cerr << "SC4V-TP " << Name << " attacks " << target << " with a melee attack, causing " << MDmg << " points of damage!\n";
+	std::cerr << "SC4V-TP " << this->Name << " attacks " << target << " with a melee attack, causing " << this->MDmg << " points of damage!\n";
 }
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
 	float result;
 
-	result = amount - (amount * Adr / 100);
-	if (HPoint - (int)result <= 0)
-		HPoint = 0;
+	result = amount - (amount * this->Adr / 100);
+	if (this->HPoint - (int)result <= 0)
+		this->HPoint = 0;
 	else
-		HPoint -= (int)result;
-	std::cout << "SC4V-TP " << Name << " did take " << (int)result << " of damage!\n";
-	if (HPoint > 0)
-		std::cout << "SC4V-TP "<< "Hit point left : " << HPoint << '\n';
+		this->HPoint -= (int)result;
+	std::cout << "SC4V-TP " << this->Name << " did take " << (int)result << " of damage!\n";
+	if (this->HPoint > 0)
+		std::cout << "SC4V-TP "<< "Hit point left : " << this->HPoint << '\n';
 	else
-		std::cout << "SC4V-TP " << Name << " is dead\n";
+		std::cout << "SC4V-TP " << this->Name << " is dead\n";
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
@@ -140,19 +140,19 @@ void	ScavTrap::beRepaired(unsigned int amount)
 	int heal;
 	int mem;
 
-	mem = HPoint + amount;
-	if (mem > MHPoint)
+	mem = this->HPoint + amount;
+	if (mem > this->MHPoint)
 	{
-		HPoint = MHPoint;
-		heal = amount - (MHPoint - mem);
+		this->HPoint = this->MHPoint;
+		heal = amount - (this->MHPoint - mem);
 	}
 	else
 	{
-		HPoint += amount;
+		this->HPoint += amount;
 		heal = amount;
 	}
-	std::cout << "SC4V-TP " << Name << " healed " << heal << "HP\n";
-	std::cout << "SC4V-TP Hit Point are at : " << HPoint << '\n';
+	std::cout << "SC4V-TP " << this->Name << " healed " << heal << "HP\n";
+	std::cout << "SC4V-TP Hit Point are at : " << this->HPoint << '\n';
 }
 
 void	ScavTrap::challengeNewcomer(int nb_challenge)
@@ -160,32 +160,32 @@ void	ScavTrap::challengeNewcomer(int nb_challenge)
 	if(nb_challenge == 0)
 	{
 		std::cout << "-- Challenge : Attack Two time the Golden ship. Take one hit by its cannons. Heal one time. --\n";
-		rangedAttack("Golden Ship");
-		rangedAttack("Golden Ship");
-		takeDamage(rand() % 101);
-		if (HPoint <= 0)
+		this->rangedAttack("Golden Ship");
+		this->rangedAttack("Golden Ship");
+		this->takeDamage(rand() % 101);
+		if (this->HPoint <= 0)
 		{
 			std::cout << "Challenge : failed retry later.\n";
 			return ;
 		}
-		beRepaired(25);
+		this->beRepaired(25);
 		std::cout << "Challenge : success. Level up!\n";
 		level += 1;
 	}
 	else
 	{
 		std::cout << "-- Challenge : Your Hits point need to be lower than 50. Heal 1 time with a random value. And take a direct hit by a dragon's(lvl 5) blast.  And Survive. --\n";
-		if (HPoint >= 50)
+		if (this->HPoint >= 50)
 		{
 			std::cout << "Challenge fail to much HP.\n";
 			return ;
 		}
-		beRepaired(rand() % 101);
-		takeDamage(100);
-		if (HPoint > 0)
+		this->beRepaired(rand() % 101);
+		this->takeDamage(100);
+		if (this->HPoint > 0)
 		{
 			std::cout << "Challenge : success. Level up two times!\n";
-			level += 2;
+			this->level += 2;
 		}
 		else
 			std::cout << "Challenge failed retry later.\n";

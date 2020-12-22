@@ -21,15 +21,15 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap(std::string const name) : ClapTrap()
 {
 	std::cerr << "ScavTrap String Constructor called\n";
-	Name = name;
-	HPoint = 100;
-	MHPoint = 100;
-	EPoint = 50;
-	MEPoint = 50;
-	level = 1;
-	MDmg = 20;
-	RDmg = 15;
-	Adr = 3;
+	this->Name = name;
+	this->HPoint = 100;
+	this->MHPoint = 100;
+	this->EPoint = 50;
+	this->MEPoint = 50;
+	this->level = 1;
+	this->MDmg = 20;
+	this->RDmg = 15;
+	this->Adr = 3;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &S)
@@ -60,32 +60,32 @@ void	ScavTrap::challengeNewcomer(int nb_challenge)
 	if(nb_challenge == 0)
 	{
 		std::cout << "-- Challenge : Attack Two time the Golden ship. Take one hit by its cannons. Heal one time. --\n";
-		rangedAttack("Golden Ship");
-		rangedAttack("Golden Ship");
-		takeDamage(rand() % 101);
-		if (HPoint <= 0)
+		this->rangedAttack("Golden Ship");
+		this->rangedAttack("Golden Ship");
+		this->takeDamage(rand() % 101);
+		if (this->HPoint <= 0)
 		{
 			std::cout << "Challenge : failed retry later.\n";
 			return ;
 		}
-		beRepaired(25);
+		this->beRepaired(25);
 		std::cout << "Challenge : success. Level up!\n";
-		level += 1;
+		this->level += 1;
 	}
 	else
 	{
 		std::cout << "-- Challenge : Your Hits point need to be lower than 50. Heal 1 time with a random value. And take a direct hit by a dragon's(lvl 5) blast.  And Survive. --\n";
-		if (HPoint >= 50)
+		if (this->HPoint >= 50)
 		{
 			std::cout << "Challenge fail to much HP.\n";
 			return ;
 		}
-		beRepaired(rand() % 101);
-		takeDamage(100);
-		if (HPoint > 0)
+		this->beRepaired(rand() % 101);
+		this->takeDamage(100);
+		if (this->HPoint > 0)
 		{
 			std::cout << "Challenge : success. Level up two times!\n";
-			level += 2;
+			this->level += 2;
 		}
 		else
 			std::cout << "Challenge failed retry later.\n";
