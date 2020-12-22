@@ -17,7 +17,9 @@
 int main()
 {
 	std::srand(time(0));
-	FragTrap player("A Man");
+	std::cout << "\n         -----FIRST PART-----\n" << std::endl;
+	FragTrap player1("A Man");
+	FragTrap player = player1;
 	player.rangedAttack("Ancalagon");
 	player.meleeAttack("Ancalagon");
 	player.takeDamage(50);
@@ -29,8 +31,11 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
+	std::cout << "\n         -----SECOND PART-----\n" << std::endl;
 	ScavTrap robot("unknown");
-	ScavTrap human("Dragon slayer");
+	ScavTrap human;
+	ScavTrap human1("Dragon slayer");
+	human = human1;
 	robot.rangedAttack("Ship");
 	robot.rangedAttack("Ship");
 	robot.takeDamage(rand() % 25);
@@ -38,7 +43,9 @@ int main()
 	human.meleeAttack("Dragon");
 	human.takeDamage(10 + rand() % 70);
 	human.challengeNewcomer(rand() % 2);
-	NinjaTrap ninja("ninja");
+	std::cout << "\n         -----THIRD PART-----\n" << std::endl;
+	NinjaTrap ninja1("ninja");
+	NinjaTrap ninja = ninja1;
 	NinjaTrap ninja2("ninja2");
 	ninja2.takeDamage(20);
 	FragTrap frag("robot");
@@ -46,6 +53,4 @@ int main()
 	ninja.ninjaShoebox(ninja2);
 	ninja.ninjaShoebox(scav);
 	ninja.ninjaShoebox(frag);
-
-
 }

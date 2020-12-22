@@ -16,8 +16,9 @@
 int main()
 {
 	std::srand(time(0));
-	std::cout << "          ---- PART 1 ----\n";
-	FragTrap player("A Man");
+	std::cout << "\n         -----FIRST PART-----\n" << std::endl;
+	FragTrap player1("A Man");
+	FragTrap player = player1;
 	player.rangedAttack("Ancalagon");
 	player.meleeAttack("Ancalagon");
 	player.takeDamage(50);
@@ -29,8 +30,10 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
-	std::cout << "          ---- PART 2 ----\n";
-	ScavTrap robot("unknown");
+	std::cout << "\n         -----SECOND PART-----\n" << std::endl;
+	ScavTrap robot;
+	ScavTrap robot1("unknown");
+	robot = robot1;
 	ScavTrap human("Dragon slayer");
 	robot.rangedAttack("Ship");
 	robot.rangedAttack("Ship");
@@ -39,8 +42,10 @@ int main()
 	human.meleeAttack("Dragon");
 	human.takeDamage(10 + rand() % 70);
 	human.challengeNewcomer(rand() % 2);
-	std::cout << "          ---- PART 3 ----\n";
-	NinjaTrap ninja("ninja");
+	std::cout << "\n         -----THIRD PART-----\n" << std::endl;
+	NinjaTrap ninja;
+	NinjaTrap ninja1("ninja");
+	ninja = ninja1;
 	NinjaTrap ninja2("ninja2");
 	ninja2.takeDamage(20);
 	ninja2.takeDamage(20);
@@ -49,8 +54,11 @@ int main()
 	ninja.ninjaShoebox(ninja2);
 	ninja.ninjaShoebox(scav);
 	ninja.ninjaShoebox(frag);
-	std::cout << "          ---- PART 4 ----\n";
-	SuperTrap super("Super");
+	std::cout << "\n         -----FOURTH PART-----\n" << std::endl;
+	SuperTrap super;
+	SuperTrap super1("Super");
+	SuperTrap super2 = super1;
+	super = super2;
 	super.meleeAttack("cool");
 	super.rangedAttack("cool");
 	super.vaulthunter_dot_exe("Ancalagon");

@@ -16,6 +16,7 @@
 int main()
 {
 	std::srand(time(0));
+	std::cout << "\n         -----FIRST PART-----\n" << std::endl;
 	FragTrap player("A Man");
 	player.rangedAttack("Ancalagon");
 	player.meleeAttack("Ancalagon");
@@ -28,6 +29,7 @@ int main()
 	player.vaulthunter_dot_exe("Ancalagon");
 	player.takeDamage(50);
 	player.takeDamage(35);
+	std::cout << "\n         -----SECOND PART-----\n" << std::endl;
 	ScavTrap robot1("unknown");
 	ScavTrap robot = robot1;
 	ScavTrap human1("Dragon slayer");
