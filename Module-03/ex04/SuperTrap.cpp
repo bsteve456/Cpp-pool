@@ -31,6 +31,29 @@ SuperTrap::SuperTrap(std::string const name) : NinjaTrap(name), FragTrap(name)
 	Adr = FragTrap::Adr;
 }
 
+SuperTrap::SuperTrap(const SuperTrap &S)
+{
+	std::cout << "SuperTrap Copy Constructor called" << std::endl;
+	*this = S;
+}
+
+SuperTrap & SuperTrap::operator = (const SuperTrap &S)
+{
+	std::cout << "SuperTrap Assignment operator called" << std::endl;
+	if (this != &S)
+	{
+		this->HPoint = S.getHPoint();
+		this->MHPoint = S.getMHPoint();
+		this->EPoint = S.getEPoint();
+		this->MEPoint = S.getMEPoint();
+		this->level = S.getLevel();
+		this->Name = S.getName();
+		this->MDmg = S.getMDmg();
+		this->RDmg = S.getRDmg();
+		this->Adr = S.getAdr();
+	}
+	return (*this);
+}
 
 SuperTrap::~SuperTrap()
 {

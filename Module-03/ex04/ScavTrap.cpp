@@ -32,6 +32,29 @@ ScavTrap::ScavTrap(std::string const name) : ClapTrap()
 	Adr = 3;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &S)
+{
+	std::cout << "ScavTrap Copy Constructor called" << std::endl;
+	*this = S;
+}
+
+ScavTrap & ScavTrap::operator = (const ScavTrap &S)
+{
+	std::cout << "ScavTrap Assignment operator called" << std::endl;
+	if (this != &S)
+	{
+		this->HPoint = S.getHPoint();
+		this->MHPoint = S.getMHPoint();
+		this->EPoint = S.getEPoint();
+		this->MEPoint = S.getMEPoint();
+		this->level = S.getLevel();
+		this->Name = S.getName();
+		this->MDmg = S.getMDmg();
+		this->RDmg = S.getRDmg();
+		this->Adr = S.getAdr();
+	}
+	return (*this);
+}
 void	ScavTrap::challengeNewcomer(int nb_challenge)
 {
 	if(nb_challenge == 0)

@@ -29,8 +29,8 @@ class ClapTrap
 		int Adr;
 		ClapTrap();
 		ClapTrap(std::string const name);
+		ClapTrap(const ClapTrap &C);
 		ClapTrap & operator = (const ClapTrap &C);
-		ClapTrap(std::string const name);
 		int getHPoint(void) const;
 		int getMHPoint(void) const;
 		int getEPoint(void) const;
