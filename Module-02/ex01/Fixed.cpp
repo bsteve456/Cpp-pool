@@ -56,7 +56,7 @@ Fixed::Fixed(int const n)
 Fixed::Fixed(float const f)
 {
 	std::cout << "Float constructor called\n";
-	this->fp_value = (f) * (1 << this->bits);
+	this->fp_value = roundf((f) * (1 << this->bits));
 }
 
 float Fixed::toFloat(void) const
