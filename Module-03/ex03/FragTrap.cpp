@@ -31,6 +31,29 @@ FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 	Adr = 5;
 }
 
+FragTrap::FragTrap(const FragTrap &F)
+{
+	std::cout << "FragTrap Copy Constructor called" << std::endl;
+	*this = F;
+}
+
+FragTrap & FragTrap::operator = (const FragTrap &F)
+{
+	std::cout << "FragTrap Assignment operator called" << std::endl;
+	if (this != &F)
+	{
+		this->HPoint = F.getHPoint();
+		this->MHPoint = F.getMHPoint();
+		this->EPoint = F.getEPoint();
+		this->MEPoint = F.getMEPoint();
+		this->level = F.getLevel();
+		this->Name = F.getName();
+		this->MDmg = F.getMDmg();
+		this->RDmg = F.getRDmg();
+		this->Adr = F.getAdr();
+	}
+	return (*this);
+}
 
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {

@@ -29,6 +29,17 @@ class ClapTrap
 		int Adr;
 		ClapTrap();
 		ClapTrap(std::string const name);
+		ClapTrap & operator = (const ClapTrap &C);
+		ClapTrap(std::string const name);
+		int getHPoint(void) const;
+		int getMHPoint(void) const;
+		int getEPoint(void) const;
+		int getMEPoint(void) const;
+		int getLevel(void) const;
+		std::string getName(void) const;
+		int getMDmg(void) const;
+		int getRDmg(void) const;
+		int getAdr(void) const;
 		void rangedAttack(std::string const & target);
 		void meleeAttack(std::string const & target);
 		void takeDamage(unsigned int amount);

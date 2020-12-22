@@ -22,6 +22,8 @@ class NinjaTrap: public ClapTrap
 	public:
 		NinjaTrap();
 		NinjaTrap(std::string const name);
+		NinjaTrap(const NinjaTrap &N);
+		NinjaTrap& operator = (const NinjaTrap &N);
 		void	ninjaShoebox(NinjaTrap &s);
 		void	ninjaShoebox(ScavTrap &s);
 		void	ninjaShoebox(FragTrap &s);

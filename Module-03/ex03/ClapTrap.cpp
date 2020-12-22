@@ -31,6 +31,75 @@ ClapTrap::ClapTrap(std::string const name)
 	Adr = 5;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &C)
+{
+	std::cout << "ClapTrap Copy Constructor called" << std::endl;
+	*this = C;
+}
+
+ClapTrap & ClapTrap::operator = (const ClapTrap &C)
+{
+	std::cout << "ClapTrap Assignment operator called" << std::endl;
+	if (this != &C)
+	{
+		this->HPoint = C.getHPoint();
+		this->MHPoint = C.getMHPoint();
+		this->EPoint = C.getEPoint();
+		this->MEPoint = C.getMEPoint();
+		this->level = C.getLevel();
+		this->Name = C.getName();
+		this->MDmg = C.getMDmg();
+		this->RDmg = C.getRDmg();
+		this->Adr = C.getAdr();
+	}
+	return (*this);
+}
+
+int ClapTrap::getHPoint(void) const
+{
+	return (this->HPoint);
+}
+
+int ClapTrap::getMHPoint(void) const
+{
+	return (this->MHPoint);
+}
+
+int ClapTrap::getEPoint(void) const
+{
+	return (this->EPoint);
+}
+
+int	ClapTrap::getMEPoint(void) const
+{
+	return (this->MEPoint);
+}
+
+std::string ClapTrap::getName(void) const
+{
+	return (this->Name);
+}
+
+int	ClapTrap::getLevel(void) const
+{
+	return (this->level);
+}
+
+int ClapTrap::getMDmg(void) const
+{
+	return (this->MDmg);
+}
+
+int	ClapTrap::getRDmg(void) const
+{
+	return (this->RDmg);
+}
+
+int ClapTrap::getAdr(void) const
+{
+	return (this->Adr);
+}
+
 void	ClapTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "CL4G-TP "<< Name << " attacks " << target << " at range, causing " << RDmg << " points of damage!\n";

@@ -38,6 +38,30 @@ NinjaTrap::NinjaTrap(std::string const name) :
 	Adr = 0;
 }
 
+NinjaTrap::NinjaTrap(const NinjaTrap &G)
+{
+	std::cout << "NinjaTrap Copy Constructor called" << std::endl;
+	*this = G;
+}
+
+NinjaTrap & NinjaTrap::operator = (const NinjaTrap &G)
+{
+	std::cout << "NinjaTrap Assignment operator called" << std::endl;
+	if (this != &G)
+	{
+		this->HPoint = G.getHPoint();
+		this->MHPoint = G.getMHPoint();
+		this->EPoint = G.getEPoint();
+		this->MEPoint = G.getMEPoint();
+		this->level = G.getLevel();
+		this->Name = G.getName();
+		this->MDmg = G.getMDmg();
+		this->RDmg = G.getRDmg();
+		this->Adr = G.getAdr();
+	}
+	return (*this);
+}
+
 void	NinjaTrap::ninjaShoebox(ScavTrap &s)
 {
 	std::cout << Name << " secretly attack " << s.Name << '\n';
