@@ -12,25 +12,60 @@
 
 #include "Character.hpp"
 
+Character::Character()
+{}
+
+Character::Character(std::string const & name)
+{
+	this->Name = name;
+	this->AP = 40;
+	this->weapon = 0;
+}
+
+Character::Character(const Character &C)
+{
+	*this = C;
+}
+
+Character & Character::operator = (const Character &C)
+{
+	if(this != &C)
+	{
+		this->Name = C.getName();
+		this->AP = C.getAP();
+		this->equip(C.getWeapon());
+	}
+	return *this;
+}
+
 void	Character::recoverAP()
 {
-	AP = 40;
+	if(this->AP + 10 >= 40)
+	{
+		std::cout << this->Name << " recover " <<  (40 - this->AP) << " AP." << std::endl;
+		this->AP += 40 - this->AP;
+	}
+	else
+	{
+		std::cout << this->Name << " recover 10 AP."  << std::endl;
+		this->AP += 10;
+	}
 }
 
 void Character::equip(AWeapon *wep)
 {
-	weapon = wep;
+	this->weapon = wep;
 }
 
 void Character::attack(Enemy *enemy)
 {
 	Enemy rival = *enemy;
-	std::cout << Name << " attacks " << rival.getType() << " with a " << (*weapon).getName() << '\n';
-	if(weapon != 0 && AP - (*weapon).getAPCost() >= 0)
+	std::cout << this->Name << " attacks " << rival.getType() << " with a " << this->weapon->getName() << '\n';
+	if(this->weapon != 0 && AP - this->weapon->getAPCost() >= 0)
 	{
-		(*weapon).attack();
-		AP -= (*weapon).getAPCost();
-		rival.takeDamage((*weapon).getDamage());
+		this->weapon->attack();
+		this->AP -= (this->weapon->getAPCost());
+		rival.takeDamage((this->weapon->getDamage()));
 	}
 	else
 		std::cout << "Don't have enought AP or is unarmed.\n";
@@ -41,17 +76,17 @@ void Character::attack(Enemy *enemy)
 
 std::string Character::getName() const
 {
-	return Name;
+	return this->Name;
 }
 
 int		Character::getAP() const
 {
-	return AP;
+	return this->AP;
 }
 
 AWeapon* Character::getWeapon() const
 {
-	return weapon;
+	return this->weapon;
 }
 
 std::ostream& operator<<(std::ostream& os, const Character &c)
@@ -63,4 +98,7 @@ std::ostream& operator<<(std::ostream& os, const Character &c)
 		os << c.getName() << " has " << c.getAP() << " AP and wields a " << (*Weapon).getName() << '\n';
 	return os;
 }
+
+Character::~Character()
+{}
 

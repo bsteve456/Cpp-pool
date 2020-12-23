@@ -24,7 +24,7 @@ class AWeapon
 	public:
 		AWeapon();
 		~AWeapon();
-		AWeapon(const AWeapon &W) {Name = W.getName(); APcost = W.getAPCost(); Damage = W.getDamage();}
+		AWeapon(const AWeapon &W);
 		std::string getName() const;
 		int getAPCost() const;
 		int getDamage() const;
@@ -32,13 +32,7 @@ class AWeapon
 		void setAPCost(int apcost);
 		void setDamage(int damage);
 		void virtual attack() const = 0;
-		AWeapon &operator=(const AWeapon &w)
-		{
-			Name = w.getName();
-			APcost = w.getAPCost();
-			Damage = w.getDamage();
-			return *this;
-		}
+		AWeapon & operator = (const AWeapon &W);
 };
 
 #endif

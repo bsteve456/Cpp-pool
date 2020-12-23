@@ -12,11 +12,23 @@
 
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon()
+AWeapon::AWeapon() : Name("NULL"), APcost(0), Damage(0)
+{}
+
+AWeapon::AWeapon(const AWeapon &W)
 {
-	Name = "NULL";
-	APcost = 0;
-	Damage = 0;
+	*this = W;
+}
+
+AWeapon & AWeapon::operator = (const AWeapon &W)
+{
+	if (this != &W)
+	{
+		this->Name = W.getName();
+		this->APcost = W.getAPCost();
+		this->Damage = W.getDamage();
+	}
+	return (*this);
 }
 
 AWeapon::~AWeapon()
@@ -24,32 +36,32 @@ AWeapon::~AWeapon()
 
 std::string AWeapon::getName() const
 {
-	return (Name);
+	return (this->Name);
 }
 
 int AWeapon::getAPCost() const
 {
-	return (APcost);
+	return (this->APcost);
 }
 
 int AWeapon::getDamage() const
 {
-	return (Damage);
+	return (this->Damage);
 }
 
 void	AWeapon::setName(std::string name)
 {
-	Name = name;
+	this->Name = name;
 }
 
 void	AWeapon::setAPCost(int apcost)
 {
-	APcost = apcost;
+	this->APcost = apcost;
 }
 
 void	AWeapon::setDamage(int damage)
 {
-	Damage = damage;
+	this->Damage = damage;
 }
 void AWeapon::attack() const
 {

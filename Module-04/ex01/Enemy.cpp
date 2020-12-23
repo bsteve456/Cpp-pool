@@ -12,6 +12,27 @@
 
 #include "Enemy.hpp"
 
+Enemy::Enemy() : HP(0), Type("NULL")
+{}
+
+Enemy::~Enemy()
+{}
+
+Enemy::Enemy(const Enemy &E)
+{
+	*this = E;
+}
+
+Enemy & Enemy::operator = (const Enemy &E)
+{
+	if (this != &E)
+	{
+		HP = E.getHP();
+		Type = E.getType();
+	}
+	return (*this);
+}
+
 std::string Enemy::getType() const
 {
 	return (Type);

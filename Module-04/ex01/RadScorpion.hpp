@@ -18,12 +18,9 @@
 class RadScorpion : public Enemy
 {
 	public:
-		RadScorpion() : Enemy()
-		{
-			setType("RadScorpion");
-			setHP(80);
-			std::cout << "* click click click *\n";
-		}
+		RadScorpion();
+		RadScorpion(const RadScorpion &R);
+		RadScorpion & operator = (const RadScorpion &R);
 		~RadScorpion();
 };
 

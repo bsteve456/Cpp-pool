@@ -18,12 +18,9 @@
 class PowerFist : public AWeapon
 {
 	public:
-		PowerFist() : AWeapon()
-		{
-			setName("Power Fist");
-			setAPCost(8);
-			setDamage(50);
-		}
+		PowerFist();
+		PowerFist(const PowerFist &P);
+		PowerFist & operator = (const PowerFist &P);
 		~PowerFist();
 		void attack() const;
 };

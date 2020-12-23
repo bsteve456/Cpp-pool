@@ -21,24 +21,15 @@ class Enemy
 		int HP;
 		std::string Type;
 	public:
-		Enemy()
-		{
-			HP = 0;
-			Type = "NULL";
-		}
-		virtual ~Enemy(){}
-		Enemy(const Enemy &E) {Type = E.getType(); HP = E.getHP();}
+		Enemy();
+		virtual ~Enemy();
+		Enemy(const Enemy &E);
 		std::string getType() const;
 		int getHP() const;
 		void setType(std::string Type);
 		void setHP(int HP);
 		virtual void takeDamage(int n);
-		Enemy &operator=(const Enemy &e)
-		{
-			HP = e.getHP();
-			Type = e.getType();
-			return *this;
-		}
+		Enemy & operator = (const Enemy &E);
 };
 
 # endif

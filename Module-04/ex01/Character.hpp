@@ -23,28 +23,17 @@ class Character
 		AWeapon *weapon;
 		int AP;
 	public:
-		Character(std::string const & name)
-		{
-			Name = name;
-			AP = 40;
-			weapon = 0;
-		}
-		~Character()
-		{}
-		Character(const Character &C) { Name = C.getName(); AP = C.getAP(); equip(C.getWeapon());}
+		Character();
+		Character(std::string const & name);
+		~Character();
+		Character(const Character &C);
 		void recoverAP();
 		void equip(AWeapon *wep);
 		void attack(Enemy *enemy);
 		std::string getName() const;
 		int getAP() const;
 		AWeapon *getWeapon() const;
-		Character &operator=(const Character &c)
-		{
-			Name = c.getName();
-			AP = c.getAP();
-			equip(c.getWeapon());
-			return *this;
-		}
+		Character & operator = (const Character &C);
 };
 std::ostream& operator<<(std::ostream& os, const Character &c);
 

@@ -18,16 +18,10 @@
 class SuperMutant : public Enemy
 {
 	public:
-		SuperMutant() : Enemy()
-		{
-			setType("SuperMutant");
-			setHP(170);
-			std::cout << "Gaaah. Me want smash heads!\n";
-		}
-		~SuperMutant()
-		{
-			std::cout << "Aaargh...\n";
-		}
+		SuperMutant();
+		SuperMutant(const SuperMutant &S);
+		SuperMutant & operator = (const SuperMutant &S);
+		~SuperMutant();
 		void takeDamage(int n);
 };
 

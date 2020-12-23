@@ -18,12 +18,9 @@
 class PlasmaRifle : public AWeapon
 {
 	public:
-		PlasmaRifle() : AWeapon()
-		{
-			setName("Plasma Rifle");
-			setAPCost(5);
-			setDamage(21);
-		}
+		PlasmaRifle();
+		PlasmaRifle(const PlasmaRifle &P);
+		PlasmaRifle & operator = (const PlasmaRifle &P);
 		~PlasmaRifle();
 		void attack() const;
 };
