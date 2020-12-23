@@ -12,6 +12,28 @@
 
 #include "AssaultTerminator.hpp"
 
+AssaultTerminator::AssaultTerminator() : ISpaceMarine()
+{
+	std::cout << "* teleports from space *\n";
+}
+
+AssaultTerminator::~AssaultTerminator()
+{
+	std::cout << "I'll be back...\n";
+}
+
+AssaultTerminator::AssaultTerminator(const AssaultTerminator &A)
+{
+	*this = A;
+}
+
+AssaultTerminator & AssaultTerminator::operator = (const AssaultTerminator &A)
+{
+	(void)A;
+	return *this;
+}
+
+
 void AssaultTerminator::battleCry() const
 {
 	std::cout << "This code is unclean PURIFY IT!\n";

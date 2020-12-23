@@ -18,20 +18,14 @@
 class 	AssaultTerminator : public ISpaceMarine
 {
 	public:
-		AssaultTerminator() : ISpaceMarine()
-		{
-			std::cout << "* teleports from space *\n";
-		}
-		~AssaultTerminator()
-		{
-			std::cout << "I'll be back...\n";
-		}
+		AssaultTerminator();
+		AssaultTerminator(const AssaultTerminator &A);
+		AssaultTerminator & operator = (const AssaultTerminator &A);
+		~AssaultTerminator();
 		ISpaceMarine *clone() const;
 		void	battleCry() const;
 		void	rangedAttack() const;
 		void	meleeAttack() const;
-
-
 };
 
 #endif

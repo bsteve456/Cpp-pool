@@ -18,14 +18,10 @@
 class 	TacticalMarine : public ISpaceMarine
 {
 	public:
-		TacticalMarine() : ISpaceMarine()
-		{
-			std::cout << "Tactical Marine ready for battle!\n";
-		}
-		~TacticalMarine()
-		{
-			std::cout << "Aaargh...\n";
-		}
+		TacticalMarine();
+		TacticalMarine(const TacticalMarine &T);
+		TacticalMarine & operator = (const TacticalMarine &T);
+		~TacticalMarine();
 		ISpaceMarine *clone() const;
 		void	battleCry() const;
 		void	rangedAttack() const;

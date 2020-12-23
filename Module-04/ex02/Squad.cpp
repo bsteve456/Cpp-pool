@@ -12,6 +12,36 @@
 
 #include "Squad.hpp"
 
+Squad::Squad() : ISquad(), squad(0)
+{}
+
+Squad::Squad(const Squad &S)
+{
+	*this = S;
+}
+
+Squad & Squad::operator = (const Squad &S)
+{
+	if (this != &S)
+	{
+		squade *clean;
+		squade *mem;
+		clean = this->getSquade();
+		if (clean != 0)
+		{
+			while(clean)
+			{
+				mem = clean->next;
+				delete(clean->marine);
+				delete(clean);
+				clean = mem;
+			}
+		}
+		this->squad = S.getSquade();
+	}
+	return *this;
+}
+
 squade *new_member(ISpaceMarine *new1)
 {
 	squade *new2 = new squade;
@@ -37,7 +67,7 @@ void	add_member(squade **lst, squade *new1)
 
 squade * Squad::getSquade() const
 {
-	return (squad);
+	return (this->squad);
 }
 
 int Squad::getCount() const
@@ -45,8 +75,8 @@ int Squad::getCount() const
 	int count = 0;
 	squade *lst;
 
-	lst = squad;
-	if(squad == 0)
+	lst = this->squad;
+	if(this->squad == 0)
 		return (0);
 	while(lst)
 	{
@@ -61,7 +91,7 @@ ISpaceMarine * Squad::getUnit(int i) const
 	int j = 0;
 	squade *lst;
 
-	lst = squad;
+	lst = this->squad;
 	if(squad == 0)
 		return (0);
 	while(lst->next && j < i)
@@ -76,21 +106,22 @@ ISpaceMarine * Squad::getUnit(int i) const
 
 int Squad::push(ISpaceMarine *member)
 {
-	add_member(&squad, new_member(member));
+	add_member(&(this->squad), new_member(member));
 	return (getCount());
 }
+
 Squad::~Squad()
 {
 	squade *mem;
 
-	if(squad != 0)
+	if(this->squad != 0)
 	{
-		while (squad)
+		while (this->squad)
 		{
-			mem = squad->next;
-			delete(squad->marine);
-			delete(squad);
-			squad = mem;
+			mem = this->squad->next;
+			delete(this->squad->marine);
+			delete(this->squad);
+			this->squad = mem;
 		}
 	}
 }

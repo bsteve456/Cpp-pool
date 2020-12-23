@@ -12,6 +12,27 @@
 
 #include "TacticalMarine.hpp"
 
+TacticalMarine::TacticalMarine() : ISpaceMarine()
+{
+	std::cout << "Tactical Marine ready for battle!\n";
+}
+
+TacticalMarine::TacticalMarine(const TacticalMarine &T)
+{
+	*this = T;
+}
+
+TacticalMarine & TacticalMarine::operator = (const TacticalMarine &T)
+{
+	(void)T;
+	return (*this);
+}
+
+TacticalMarine::~TacticalMarine()
+{
+	std::cout << "Aaargh...\n";
+}
+
 void TacticalMarine::battleCry() const
 {
 	std::cout << "For the holy PLOT!\n";
