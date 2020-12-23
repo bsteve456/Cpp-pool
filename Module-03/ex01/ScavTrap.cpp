@@ -162,7 +162,7 @@ void	ScavTrap::challengeNewcomer(int nb_challenge)
 		}
 		this->beRepaired(25);
 		std::cout << "Challenge : success. Level up!\n";
-		level += 1;
+		this->level += 1;
 	}
 	else
 	{
