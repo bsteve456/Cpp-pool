@@ -12,25 +12,41 @@
 
 #include "Victim.hpp"
 
+
+Victim::Victim()
+{}
+
+Victim::Victim(const Victim &V)
+{
+	*this = V;
+}
+
+Victim & Victim::operator = (const Victim &V)
+{
+	if (this != &V)
+		this->name = V.getName();
+	return (*this);
+}
+
 Victim::Victim(std::string name1)
 {
-	name = name1;
-	std::cout << "Some random victim called " << name << " just appeared!\n";
+	this->name = name1;
+	std::cout << "Some random victim called " << this->name << " just appeared!\n";
 }
 
 std::string Victim::getName() const
 {
-	return (name);
+	return (this->name);
 }
 
 void Victim::getPolymorphed() const
 {
-	std::cout << name << " has been turned into a cute little sheep!\n";
+	std::cout << this->name << " has been turned into a cute little sheep!\n";
 }
 
 Victim::~Victim()
 {
-	std::cout << "Victim " << name << " just died for no apparent reason!\n";
+	std::cout << "Victim " << this->name << " just died for no apparent reason!\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Victim &f)

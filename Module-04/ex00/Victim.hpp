@@ -20,6 +20,9 @@ class Victim
 	private:
 		std::string name;
 	public:
+		Victim();
+		Victim(const Victim &V);
+		Victim & operator = (const Victim &V);
 		Victim(std::string name1);
 		std::string getName() const;
 		virtual void	getPolymorphed() const;

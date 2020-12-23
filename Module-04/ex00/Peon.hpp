@@ -19,12 +19,11 @@ class Peon: public Victim
 {
 	private:
 		std::string name;
+		Peon();
 	public:
-		Peon(std::string name1) : Victim(name1)
-		{
-			name = name1;
-			std::cout << "Some random victim called " << name << " just appeared!\n" << "Zog, zog.\n";
-		}
+		Peon(std::string name1);
+		Peon(const Peon &P);
+		Peon & operator = (const Peon &P);
 		std::string getName() const;
 		void	getPolymorphed() const;
 		~Peon();

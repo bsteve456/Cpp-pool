@@ -12,20 +12,39 @@
 
 #include "Peon.hpp"
 
+Peon::Peon()
+{}
+
+Peon::Peon(std::string name1) : Victim(name1), name(name1)
+{
+	std::cout << "Zog, zog." << std::endl;
+}
+
+Peon::Peon(const Peon &P)
+{
+	*this = P;
+}
+
+Peon & Peon::operator = (const Peon &P)
+{
+	if (this != &P)
+		this->name = P.getName();
+	return (*this);
+}
+
 std::string Peon::getName() const
 {
-	return (name);
+	return (this->name);
 }
 
 void Peon::getPolymorphed() const
 {
-	std::cout << name << " has been turned into a pink pony!\n";
+	std::cout << this->name << " has been turned into a pink pony!\n";
 }
 
 Peon::~Peon()
 {
-
-	std::cout << "Bleuark...\n" <<"Peon " << name << " just died for no apparent reason!\n";
+	std::cout << "Bleuark..." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Peon &f)

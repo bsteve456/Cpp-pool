@@ -12,21 +12,39 @@
 
 #include "Sorcerer.hpp"
 
+Sorcerer::Sorcerer()
+{}
+
 Sorcerer::Sorcerer(std::string name1, std::string title1)
 {
-	name = name1;
-	title = title1;
-	std::cout << name << ", " << title << ", is born!\n";
+	this->name = name1;
+	this->title = title1;
+	std::cout << this->name << ", " << this->title << ", is born!\n";
+}
+
+Sorcerer::Sorcerer(const Sorcerer &S)
+{
+	*this = S;
+}
+
+Sorcerer & Sorcerer::operator = (const Sorcerer &S)
+{
+	if (this != &S)
+	{
+		this->name = S.getName();
+		this->title = S.getTitle();
+	}
+	return (*this);
 }
 
 std::string Sorcerer::getName() const
 {
-	return (name);
+	return (this->name);
 }
 
 std::string Sorcerer::getTitle() const
 {
-	return (title);
+	return (this->title);
 }
 
 void Sorcerer::polymorph(Victim const &a) const
@@ -36,7 +54,7 @@ void Sorcerer::polymorph(Victim const &a) const
 
 Sorcerer::~Sorcerer()
 {
-	std::cout << name << ", " << title << ", is dead. Consequences will never be the same!\n";
+	std::cout << this->name << ", " << this->title << ", is dead. Consequences will never be the same!\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Sorcerer &f)

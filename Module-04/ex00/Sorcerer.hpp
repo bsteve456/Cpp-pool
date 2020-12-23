@@ -21,8 +21,11 @@ class Sorcerer
 	private:
 		std::string name;
 		std::string title;
+		Sorcerer();
 	public:
 		Sorcerer(std::string name1, std::string title1);
+		Sorcerer(const Sorcerer &S);
+		Sorcerer & operator = (const Sorcerer &S);
 		std::string getName() const;
 		std::string getTitle() const;
 		void	polymorph(Victim const &a) const;
