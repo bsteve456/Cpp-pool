@@ -35,15 +35,7 @@ ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap &S)
 {
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
-	this->HPoint = S.getHPoint();
-	this->MHPoint = S.getMHPoint();
-	this->EPoint = S.getEPoint();
-	this->MEPoint = S.getMEPoint();
-	this->level = S.getLevel();
-	this->Name = S.getName();
-	this->MDmg = S.getMDmg();
-	this->RDmg = S.getRDmg();
-	this->Adr = S.getAdr();
+	*this = S;
 }
 
 ScavTrap & ScavTrap::operator = (const ScavTrap &S)

@@ -34,15 +34,7 @@ ClapTrap::ClapTrap(std::string const name)
 ClapTrap::ClapTrap(const ClapTrap &C)
 {
 	std::cout << "ClapTrap Copy Constructor called" << std::endl;
-	this->HPoint = C.getHPoint();
-	this->MHPoint = C.getMHPoint();
-	this->EPoint = C.getEPoint();
-	this->MEPoint = C.getMEPoint();
-	this->level = C.getLevel();
-	this->Name = C.getName();
-	this->MDmg = C.getMDmg();
-	this->RDmg = C.getRDmg();
-	this->Adr = C.getAdr();
+	*this = C;
 }
 
 ClapTrap & ClapTrap::operator = (const ClapTrap &C)

@@ -34,15 +34,7 @@ FragTrap::FragTrap(std::string const name)
 FragTrap::FragTrap(const FragTrap &F)
 {
 	std::cout << "FragTrap Copy Constructor called" << std::endl;
-	this->HPoint = F.getHPoint();
-	this->MHPoint = F.getMHPoint();
-	this->EPoint = F.getEPoint();
-	this->MEPoint = F.getMEPoint();
-	this->level = F.getLevel();
-	this->Name = F.getName();
-	this->MDmg = F.getMDmg();
-	this->RDmg = F.getRDmg();
-	this->Adr = F.getAdr();
+	*this = F;
 }
 
 FragTrap & FragTrap::operator = (const FragTrap &F)
