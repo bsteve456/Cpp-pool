@@ -21,41 +21,17 @@ class Character : public ICharacter
 		private:
 			AMateria **inventory;
 			std::string Name;
+			Character();
 		public:
-			Character(std::string name) : ICharacter()
-			{
-				Name = name;
-				inventory = new AMateria*[4];
-				for(int i = 0; i < 4; i++)
-					inventory[i] = 0;
-			}
+			Character(std::string name);
 			~Character();
-			Character(const Character &c)
-			{
-				for (int i = 0; i < 4; i++)
-				{
-					delete (inventory[i]);
-					inventory[i] = 0;
-				}
-				delete(inventory);
-				inventory = c.getInventory();
-			}
+			Character(const Character &C);
 			std::string const & getName() const;
 			void equip(AMateria *m);
 			void unequip(int idx);
 			void use(int idx, ICharacter &target);
 			AMateria **getInventory() const;
-			Character &operator=(const Character &C)
-			{
-				for (int i = 0; i < 4; i++)
-				{
-					delete(inventory[i]);
-					inventory[i] = 0;
-				}
-				delete(inventory);
-				inventory = C.getInventory();
-				return (*this);
-			}
+			Character &operator=(const Character &C);
 };
 
 #endif

@@ -17,8 +17,23 @@ AMateria *Ice::clone() const
 	return (new Ice(*this));
 }
 
+Ice::Ice() : AMateria("ice")
+{}
+
+Ice::Ice(const Ice &I)
+{
+	*this = I;
+}
+
+Ice & Ice::operator = (const Ice &I)
+{
+	if (this != &I)
+		this->setXP(I.getXP());
+	return (*this);
+}
+
 void Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at "  << target.getName() << " *\n";
-	incXP();
+	this->incXP();
 }

@@ -21,23 +21,13 @@ class MateriaSource : public IMateriaSource
 	private:
 		AMateria **Materia;
 	public:
-		MateriaSource() : IMateriaSource()
-		{
-			Materia = new AMateria*[4];
-			for (int i = 0; i < 4; i++)
-				Materia[i] = 0;
-		}
+		MateriaSource();
+		MateriaSource(const MateriaSource &M);
+		MateriaSource & operator = (const MateriaSource &M);
+		AMateria **getMateria() const;
 		void	learnMateria(AMateria *n);
 		AMateria *createMateria(std::string const & type);
-		~MateriaSource()
-		{
-			for(int i = 0; i < 4; i++)
-			{
-				delete(Materia[i]);
-				Materia[i] = 0;
-			}
-			delete(Materia);
-		}
+		~MateriaSource();
 };
 
 #endif

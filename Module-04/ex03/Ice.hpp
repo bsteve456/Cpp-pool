@@ -16,7 +16,9 @@
 class Ice : public AMateria
 {
 	public:
-		Ice() : AMateria("ice") {}
+		Ice();
+		Ice(const Ice &I);
+		Ice & operator = (const Ice &I);
 		~Ice() {}
 		AMateria *clone() const;
 		void	use(ICharacter &target);

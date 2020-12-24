@@ -12,32 +12,49 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type)
+
+AMateria::AMateria()
+{}
+
+AMateria::AMateria(std::string const & type) : Type(type), _xp(0)
+{}
+
+AMateria::AMateria(const AMateria &A)
 {
-	Type = type;
-	_xp = 0;
+	*this = A;
 }
 
 std::string const & AMateria::getType() const
 {
-	return (Type);
+	return (this->Type);
 }
 
 unsigned int 	AMateria::getXP() const
 {
-	return (_xp);
+	return (this->_xp);
+}
+
+void			AMateria::setXP(unsigned int XP)
+{
+	this->_xp = XP;
 }
 
 void	AMateria::incXP()
 {
-	_xp += 10;
+	this->_xp += 10;
 }
 
 void	AMateria::use(ICharacter & target)
 {
 	std::cout << "* Bad message for "  << target.getName() << " *\n";
-	incXP();
+	this->incXP();
+}
 
+AMateria & AMateria::operator = (const AMateria &A)
+{
+	if (this != &A)
+		_xp = A.getXP();
+	return (*this);
 }
 
 AMateria::~AMateria(){}

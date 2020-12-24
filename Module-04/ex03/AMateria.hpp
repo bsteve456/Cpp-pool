@@ -23,18 +23,17 @@ class AMateria
 		std::string Type;
 		unsigned int _xp;
 	public:
+		AMateria();
 		AMateria(std::string const & type);
+		AMateria(const AMateria &A);
 		virtual ~AMateria();
 		std::string const & getType() const;
 		unsigned int getXP() const;
+		void		setXP(unsigned int XP);
 		void	incXP();
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter &target);
-		AMateria & operator = (const AMateria &a)
-		{
-			_xp = a.getXP();
-			return (*this);
-		}
+		AMateria & operator = (const AMateria &A);
 };
 
 #endif
