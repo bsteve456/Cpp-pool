@@ -14,19 +14,19 @@
 
 Squad::Squad() : ISquad(), squad(0)
 {
-	std::cout << "Squad Default constructor call" << std::endl;
+	std::cout << "Squad Default constructor called" << std::endl;
 }
 
 Squad::Squad(const ISquad &S)
 {
-	std::cout << "Squad Copy constructor call" << std::endl;
+	std::cout << "Squad Copy constructor called" << std::endl;
 	this->squad = 0;
 	*this = S;
 }
 
 Squad & Squad::operator = (const ISquad &S)
 {
-	std::cout << "Squad Assignment operator call" << std::endl;
+	std::cout << "Squad Assignment operator called" << std::endl;
 	if (this != &S)
 	{
 		squade *clean;
@@ -120,7 +120,7 @@ int Squad::push(ISpaceMarine *member)
 Squad::~Squad()
 {
 	squade *mem;
-	std::cout << "Squad Destructor call" << std::endl;
+	std::cout << "Squad Destructor called" << std::endl;
 	if (this->squad != 0)
 	{
 		while (this->squad)
