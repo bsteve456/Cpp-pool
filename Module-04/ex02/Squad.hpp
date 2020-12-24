@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include "ISquad.hpp"
-# include "ISpaceMarine.hpp"
 
 struct squade
 {
@@ -26,18 +25,18 @@ struct squade
 squade	*new_member(ISpaceMarine *new1);
 void	add_member(squade **lst, squade *new1);
 
-class Squad : public ISquad
+class Squad : public virtual ISquad
 {
 	private:
 		squade *squad;
 	public:
 		Squad();
 		~Squad();
-		Squad(const Squad &s);
+		Squad(const ISquad &S);
 		squade			*getSquade() const;
 		int				getCount() const;
 		ISpaceMarine	*getUnit(int n) const;
 		int				push(ISpaceMarine *member);
-		Squad & operator = (const Squad &S);
+		Squad & operator = (const ISquad &S);
 };
 #endif

@@ -13,15 +13,20 @@
 #include "Squad.hpp"
 
 Squad::Squad() : ISquad(), squad(0)
-{}
-
-Squad::Squad(const Squad &S)
 {
+	std::cout << "Squad Default constructor call" << std::endl;
+}
+
+Squad::Squad(const ISquad &S)
+{
+	std::cout << "Squad Copy constructor call" << std::endl;
+	this->squad = 0;
 	*this = S;
 }
 
-Squad & Squad::operator = (const Squad &S)
+Squad & Squad::operator = (const ISquad &S)
 {
+	std::cout << "Squad Assignment operator call" << std::endl;
 	if (this != &S)
 	{
 		squade *clean;
@@ -36,8 +41,10 @@ Squad & Squad::operator = (const Squad &S)
 				delete(clean);
 				clean = mem;
 			}
+			this->squad = 0;
 		}
-		this->squad = S.getSquade();
+		for (int i = 0; i < S.getCount(); i++)
+			this->push(S.getUnit(i)->clone());
 	}
 	return *this;
 }
@@ -113,8 +120,8 @@ int Squad::push(ISpaceMarine *member)
 Squad::~Squad()
 {
 	squade *mem;
-
-	if(this->squad != 0)
+	std::cout << "Squad Destructor call" << std::endl;
+	if (this->squad != 0)
 	{
 		while (this->squad)
 		{
