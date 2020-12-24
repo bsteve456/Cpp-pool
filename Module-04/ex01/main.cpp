@@ -61,5 +61,6 @@ int main()
 	std::cout << *me;
 	me->attack(c);
 	std::cout << *me;
+	delete me;
 	return (0);
 }
