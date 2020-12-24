@@ -45,9 +45,18 @@ int main()
 	Squad lc2;
 	lc2.push(bob2);
 	lc2 = *vlc;
-	for (int i = 0; i < lc.getCount(); ++i)
+	for (int i = 0; i < lc2.getCount(); ++i)
 	{
-		ISpaceMarine* cur1 = lc.getUnit(i);
+		ISpaceMarine* cur1 = lc2.getUnit(i);
+		cur1->battleCry();
+		cur1->rangedAttack();
+		cur1->meleeAttack();
+	}
+	std::cout << "\n     -----FOURTH PART-----\n" << std::endl;
+	Squad lc3 = lc2;
+	for (int i = 0; i < lc3.getCount(); ++i)
+	{
+		ISpaceMarine* cur1 = lc3.getUnit(i);
 		cur1->battleCry();
 		cur1->rangedAttack();
 		cur1->meleeAttack();

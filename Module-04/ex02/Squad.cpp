@@ -24,9 +24,41 @@ Squad::Squad(const ISquad &S)
 	*this = S;
 }
 
+Squad::Squad(const Squad &S)
+{
+	std::cout << "Squad Copy2 constructor called" << std::endl;
+	this->squad = 0;
+	*this = S;
+}
+
 Squad & Squad::operator = (const ISquad &S)
 {
 	std::cout << "Squad Assignment operator called" << std::endl;
+	if (this != &S)
+	{
+		squade *clean;
+		squade *mem;
+		clean = this->getSquade();
+		if (clean != 0)
+		{
+			while(clean)
+			{
+				mem = clean->next;
+				delete(clean->marine);
+				delete(clean);
+				clean = mem;
+			}
+			this->squad = 0;
+		}
+		for (int i = 0; i < S.getCount(); i++)
+			this->push(S.getUnit(i)->clone());
+	}
+	return *this;
+}
+
+Squad & Squad::operator = (const Squad &S)
+{
+	std::cout << "Squad Assignment operator2 called" << std::endl;
 	if (this != &S)
 	{
 		squade *clean;

@@ -33,10 +33,12 @@ class Squad : public virtual ISquad
 		Squad();
 		~Squad();
 		Squad(const ISquad &S);
+		Squad(const Squad &S);
 		squade			*getSquade() const;
 		int				getCount() const;
 		ISpaceMarine	*getUnit(int n) const;
 		int				push(ISpaceMarine *member);
 		Squad & operator = (const ISquad &S);
+		Squad & operator = (const Squad &S);
 };
 #endif
