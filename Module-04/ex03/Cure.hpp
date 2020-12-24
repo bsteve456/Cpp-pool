@@ -19,7 +19,7 @@ class Cure : public AMateria
 		Cure();
 		Cure(const Cure &C);
 		Cure & operator = (const Cure &C);
-		~Cure() {}
+		~Cure();
 		AMateria *clone() const;
 		void	use(ICharacter &target);
 };

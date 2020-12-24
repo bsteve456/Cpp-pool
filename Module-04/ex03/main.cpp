@@ -17,6 +17,7 @@
 
 int main()
 {
+	std::cout << "\n    -----FIRST TEST-----\n" << std::endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -34,9 +35,21 @@ int main()
 	me->use(1, *bob);
 	std::cout << 0 << " Materia " << tmp->getXP() << '\n';
 	std::cout << 1 << " Materia " << res->getXP() << '\n';
+	std::cout << "\n    -----SECOND TEST-----\n" << std::endl;
+	Character root("OK");
+	root.equip(tmp);
+	root.use(0 ,*bob);
+	Character copy1 = root;
+	copy1.use(0, *bob);
+	Character copy2("copy");
+	copy2.equip(res);
+	copy2.equip(tmp);
+	copy2.use(0, *bob);
+	copy2.use(1, *bob);
+	copy2 = root;
+	copy2.use(0, *bob);
 	delete bob;
 	delete me;
 	delete src;
-
 	return 0;
 }

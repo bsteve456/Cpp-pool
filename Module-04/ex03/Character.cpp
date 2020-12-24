@@ -29,6 +29,9 @@ Character::Character(std::string name) : ICharacter(), Name(name)
 
 Character::Character(const Character &C)
 {
+	this->inventory = new AMateria*[4];
+	for(int i = 0; i < 4; i++)
+		this->inventory[i] = 0;
 	*this = C;
 }
 
@@ -37,6 +40,7 @@ Character & Character::operator = (const Character &C)
 	AMateria **mem;
 	if (this != &C)
 	{
+		this->Name = C.getName();
 		mem = C.getInventory();
 		for (int i = 0; i < 4; i++)
 		{
@@ -46,7 +50,7 @@ Character & Character::operator = (const Character &C)
 		for(int i = 0; i < 4; i++)
 		{
 			if (mem[i] != 0)
-				this->equip(mem[i]->clone());
+				this->equip(mem[i]);
 		}
 	}
 	return (*this);
@@ -58,7 +62,7 @@ void	Character::equip(AMateria *m)
 	{
 		if(this->inventory[i] == 0)
 		{
-			this->inventory[i] = m;
+			this->inventory[i] = m->clone();
 			break;
 		}
 	}
@@ -88,7 +92,7 @@ Character::~Character()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		delete(this->inventory[i]);
+		delete this->inventory[i];
 		this->inventory[i] = 0;
 	}
 	delete [] this->inventory;

@@ -37,3 +37,6 @@ void Cure::use(ICharacter &target)
 	std::cout << "* heals "  << target.getName() << "'s wounds *\n";
 	this->incXP();
 }
+
+Cure::~Cure()
+{}
