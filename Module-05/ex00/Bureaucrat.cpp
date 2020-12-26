@@ -32,16 +32,16 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name)
 	try
 	{
 		if (grade < 1)
-			throw (GradeTooHighException());
+			throw (Bureaucrat::GradeTooHighException());
 		else if (grade > 150)
-			throw (GradeTooLowException());
+			throw (Bureaucrat::GradeTooLowException());
 		this->Grade = grade;
 	}
-	catch (GradeTooHighException &e)
+	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	catch (GradeTooLowException &e)
+	catch (Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -73,9 +73,9 @@ void	Bureaucrat::inc()
 	{
 		this->Grade += 5;
 		if (this->Grade > 150)
-			throw GradeTooLowException();
+			throw Bureaucrat::GradeTooLowException();
 	}
-	catch (GradeTooLowException &e)
+	catch (Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -87,9 +87,9 @@ void	Bureaucrat::dec()
 	{
 		this->Grade -= 5;
 		if (this->Grade < 1)
-			throw GradeTooHighException();
+			throw Bureaucrat::GradeTooHighException();
 	}
-	catch (GradeTooHighException &e)
+	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
