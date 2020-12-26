@@ -12,27 +12,72 @@
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat()
+{}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &B) : Name(B.getName())
+{
+	*this = B;
+}
+
+Bureaucrat & Bureaucrat::operator = (const Bureaucrat &B)
+{
+	if (this != &B)
+		this->Grade = B.getGrade();
+	return (*this);
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name)
+{
+	try
+	{
+		if (grade < 1)
+			throw (GradeTooHighException());
+		else if (grade > 150)
+			throw (GradeTooLowException());
+		this->Grade = grade;
+	}
+	catch (GradeTooHighException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch (GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+const char  * Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade Is Too High";
+}
+
+const char  * Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade Is Too Low";
+}
+
 std::string Bureaucrat::getName() const
 {
-	return (Name);
+	return (this->Name);
 }
 
 int Bureaucrat::getGrade() const
 {
-	return (Grade);
+	return (this->Grade);
 }
 
 void	Bureaucrat::inc()
 {
 	try
 	{
-		Grade += 5;
-		if (Grade > 150)
-			throw "Bureaucrat::GradeTooLowException";
+		this->Grade += 5;
+		if (this->Grade > 150)
+			throw GradeTooLowException();
 	}
-	catch (char const *err)
+	catch (GradeTooLowException &e)
 	{
-		std::cout << err << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -40,13 +85,13 @@ void	Bureaucrat::dec()
 {
 	try
 	{
-		Grade -= 5;
-		if (Grade < 1)
-			throw "Bureaucrat::GradeTooHighException";
+		this->Grade -= 5;
+		if (this->Grade < 1)
+			throw GradeTooHighException();
 	}
-	catch (char const *err)
+	catch (GradeTooHighException &e)
 	{
-		std::cout << err << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
