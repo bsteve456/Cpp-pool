@@ -37,7 +37,7 @@ int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	try
 	{
 		if (this->getSigned() == 0)
-			throw FormNotSignedException();
+			throw Form::FormNotSignedException();
 		else if(executor.getGrade() > this->getEGrade())
 			throw Form::GradeTooLowException();
 		std::string tab[9];

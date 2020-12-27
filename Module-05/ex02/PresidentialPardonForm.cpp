@@ -12,20 +12,55 @@
 
 #include "PresidentialPardonForm.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm()
+{}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &P)
+{
+	*this = P;
+}
+
+PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm &P)
+{
+	if (this != &P)
+		this->target = P.getTarget();
+	return (*this);
+}
+
 int	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
-		if (getSigned() == 0)
-			throw "Form not signed !";
-		else if(executor.getGrade() > getEGrade())
-			throw "GradeTooLow";
-		std::cout << target << " has been pardoned by Zafod Beeblebrox\n";
+		if (this->getSigned() == 0)
+			throw Form::FormNotSignedException();
+		else if(executor.getGrade() > this->getEGrade())
+			throw Form::GradeTooLowException();
+		std::cout << this->target << " has been pardoned by Zafod Beeblebrox\n";
 		return (1);
 	}
-	catch(char const *err)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << executor.getName() << " " << err << std::endl;
+		std::cout << executor.getName() << " " << e.what() << std::endl;
 		return (0);
 	}
+	catch (Form::FormNotSignedException &e)
+	{
+		std::cout << executor.getName() << " " << e.what() << std::endl;
+		return (0);
+	}
+	return (1);
+
 }
+
+PresidentialPardonForm::PresidentialPardonForm(std::string Target) : Form("PresidentialPardonForm", 25, 5)
+{
+	this->target = Target;
+}
+
+std::string PresidentialPardonForm::getTarget(void) const
+{
+	return (this->target);
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{}
