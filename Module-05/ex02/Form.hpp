@@ -25,27 +25,32 @@ class Form
 		int const	EGrade;
 		bool Signed = false;
 	public:
-		Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrade) , EGrade(egrade)
+		Form();
+		class GradeTooHighException : std::exception
 		{
-			try
-			{
-				if (sgrade > 150 || egrade > 150)
-					throw "Form::GradeTooLowException";
-				else if (sgrade < 1 || egrade < 1)
-					throw "Form::GradeTooHighException";
-			}
-			catch (char const *err)
-			{
-				std::cout << err << std::endl;
-			}
-		}
+			public:
+				const char * what() const throw();
+		};
+		class GradeTooLowException : std::exception
+		{
+			public:
+				const char * what() const throw();
+		};
+		class FormNotSignedException : std::exception
+		{
+			public:
+				const char * what() const throw();
+		};
+		Form(const Form &F);
+		Form & operator = (const Form &F);
+		Form(std::string name, int sgrade, int egrade);
 		std::string getName() const;
 		int			getSGrade() const;
 		int			getEGrade() const;
 		int			getSigned() const;
 		void		beSigned(Bureaucrat const &s);
 		int		virtual execute(Bureaucrat const & executor) const = 0;
-		~Form() {}
+		~Form();
 };
 std::ostream& operator<<(std::ostream& os, const Form &f);
 #endif

@@ -11,16 +11,35 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm()
+{}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &S)
+{
+	*this = S;
+}
+
+ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm &S)
+{
+	if (this != &S)
+		this->target = S.getTarget();
+	return (*this);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string Target) : Form("ShrubberyCreationForm", 145, 137)
+{
+	this->target = Target;
+}
 
 int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
-		if (getSigned() == 0)
-			throw "Form not signed !";
-		else if(executor.getGrade() > getEGrade())
-			throw "GradeTooLow";
+		if (this->getSigned() == 0)
+			throw FormNotSignedException();
+		else if(executor.getGrade() > this->getEGrade())
+			throw Form::GradeTooLowException();
 		std::string tab[9];
 		tab[0] = "             *\n";
 		tab[1] = "            *#*\n";
@@ -37,9 +56,23 @@ int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 			out << tab[i];
 		return (1);
 	}
-	catch(char const *err)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << executor.getName() << " " << err << std::endl;
+		std::cout << executor.getName() << " " << e.what() << std::endl;
 		return (0);
 	}
+	catch (Form::FormNotSignedException &e)
+	{
+		std::cout << executor.getName() << " " << e.what() << std::endl;
+		return (0);
+	}
+	return (1);
 }
+
+std::string ShrubberyCreationForm::getTarget(void) const
+{
+	return (this->target);
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{}
