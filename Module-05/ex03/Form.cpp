@@ -12,42 +12,89 @@
 
 #include "Form.hpp"
 
+Form::Form() : Name("none"),
+SGrade(0),
+EGrade(0)
+{}
+
+Form::Form(const Form &F) : Name(F.getName()), SGrade(F.getSGrade()), EGrade(F.getEGrade())
+{}
+
+
+Form & Form::operator = (Form &F)
+{
+	(void)F;
+	return (*this);
+}
+
+Form::Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrade) , EGrade(egrade)
+{
+	try
+	{
+		if (sgrade > 150 || egrade > 150)
+			throw Form::GradeTooLowException();
+		else if (sgrade < 1 || egrade < 1)
+			throw Form::GradeTooHighException();
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
 std::string Form::getName() const
 {
-	return (Name);
+	return (this->Name);
 }
 
 int			Form::getSGrade() const
 {
-	return (SGrade);
+	return (this->SGrade);
 }
 
 int			Form::getEGrade() const
 {
-	return (EGrade);
+	return (this->EGrade);
 }
 
 int			Form::getSigned() const
 {
-	if(Signed == false)
+	if(this->Signed == false)
 		return (0);
 	else
 		return (1);
+}
+
+const char  * Form::GradeTooHighException::what() const throw()
+{
+	return "Form Grade Is Too High";
+}
+
+const char  * Form::GradeTooLowException::what() const throw()
+{
+	return "Form Grade Is Too Low";
+}
+
+const char  * Form::FormNotSignedException::what() const throw()
+{
+	return "Form Not Signed !";
 }
 
 void		Form::beSigned(Bureaucrat const &s)
 {
 	try
 	{
-		if (s.getGrade() > SGrade)
-			throw "GradeTooLowException";
-		Signed = true;
-		s.signForm(Name, 1);
+		if (s.getGrade() > this->SGrade)
+			throw Form::GradeTooLowException();
+		this->Signed = true;
+		s.signForm(this->Name, 1);
 	}
-	catch(char const *err)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << err << std::endl;
-		s.signForm(Name, 0);
+		s.signForm(this->Name, 0);
 	}
 }
 
@@ -57,7 +104,8 @@ std::ostream& operator<<(std::ostream& os, const Form &f)
 		os << "Form : " << f.getName() << " SGrade : " << f.getSGrade() << " EGrade : " << f.getEGrade() << " Signed : NO" << std::endl;
 	else
 		os << "Form : " << f.getName() << " SGrade : " << f.getSGrade() << " EGrade : " << f.getEGrade() << " Signed : YES" << std::endl;
-
 	return os;
 }
 
+Form::~Form()
+{}

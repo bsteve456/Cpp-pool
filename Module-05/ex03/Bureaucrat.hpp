@@ -23,22 +23,26 @@ class Bureaucrat
 		std::string const Name;
 		int Grade;
 	public:
-		Bureaucrat(std::string name, int grade) : Name(name)
+		class GradeTooHighException : std::exception
 		{
-			try
-			{
-				if(grade < 1)
-					throw "Bureaucrat::GradeTooHighException";
-				else if(grade > 150)
-					throw "Bureaucrat::GradeTooLowException";
-				Grade = grade;
-			}
-			catch (char const *err)
-			{
-				std::cout << err << std::endl;
-			}
-		}
-		~Bureaucrat() {}
+			public:
+				const char * what() const throw();
+		};
+		class GradeTooLowException : std::exception
+		{
+			public:
+				const char * what() const throw();
+		};
+		class CannotExecFormException : std::exception
+		{
+			public:
+				const char * what() const throw();
+		};
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &B);
+		Bureaucrat & operator = (const Bureaucrat &B);
+		Bureaucrat(std::string name, int grade);
+		~Bureaucrat();
 		std::string getName() const;
 		int			getGrade() const;
 		void		inc();

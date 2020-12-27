@@ -20,11 +20,12 @@ class PresidentialPardonForm : public Form
 	private:
 		std::string target;
 	public:
-		PresidentialPardonForm(std::string Target) : Form("presidential request", 25, 5)
-		{
-			target = Target;
-		}
-		~PresidentialPardonForm() {}
+		PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm &S);
+		PresidentialPardonForm & operator = (const PresidentialPardonForm &S);
+		PresidentialPardonForm(std::string Target);
+		~PresidentialPardonForm();
+		std::string getTarget(void) const;
 		int	execute(Bureaucrat const & executor) const;
 		Form *clone(std::string  Target);
 };

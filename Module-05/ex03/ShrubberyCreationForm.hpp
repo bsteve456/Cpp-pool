@@ -14,20 +14,21 @@
 # define SHRUBBERY_CREATION_FORM_HPP
 
 #include "Form.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public Form
 {
 	private:
 		std::string target;
 	public:
-		ShrubberyCreationForm(std::string Target) : Form("shrubbery creation", 145, 137)
-		{
-			target = Target;
-		}
-		~ShrubberyCreationForm() {}
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(const ShrubberyCreationForm &S);
+		ShrubberyCreationForm & operator = (const ShrubberyCreationForm &S);
+		ShrubberyCreationForm(std::string Target);
+		~ShrubberyCreationForm();
 		int	execute(Bureaucrat const & executor) const;
+		std::string getTarget(void) const;
 		Form *clone(std::string  Target);
-
 };
 
 #endif

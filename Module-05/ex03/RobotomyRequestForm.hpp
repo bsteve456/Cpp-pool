@@ -20,11 +20,12 @@ class RobotomyRequestForm : public Form
 	private:
 		std::string target;
 	public:
-		RobotomyRequestForm(std::string Target) : Form("robotomy request", 72, 45)
-		{
-			target = Target;
-		}
-		~RobotomyRequestForm() {}
+		RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &R);
+		RobotomyRequestForm & operator = (const RobotomyRequestForm &R);
+		RobotomyRequestForm(std::string Target);
+		std::string getTarget(void) const;
+		~RobotomyRequestForm();
 		int	execute(Bureaucrat const & executor) const;
 		Form *clone(std::string  Target);
 

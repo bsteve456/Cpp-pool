@@ -12,26 +12,59 @@
 
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm()
+{}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &R)
+{
+	*this = R;
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm &R)
+{
+	if (this != &R)
+		this->target = R.getTarget();
+	return (*this);
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string Target) : Form("robotomy request", 72, 45)
+{
+	this->target = Target;
+}
+
 int	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
-		if (getSigned() == 0)
-			throw "Form not signed !";
-		else if(executor.getGrade() > getEGrade())
-			throw "GradeTooLow";
-		std::cout << "* drilling noises * " << target << " has been robotomized successfully 50\% of time. And the other 50\% is a failure\n";
+		if (this->getSigned() == 0)
+			throw Form::FormNotSignedException();
+		else if(executor.getGrade() > this->getEGrade())
+			throw Form::GradeTooLowException();
+		std::cout << "* drilling noises * " << this->target << " has been robotomized successfully 50\% of time. And the other 50\% is a failure\n";
 		return (1);
 	}
-	catch(char const *err)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << executor.getName() << " " << err << std::endl;
+		std::cout << executor.getName() << " " << e.what() << std::endl;
 		return (0);
 	}
+	catch (Form::FormNotSignedException &e)
+	{
+		std::cout << executor.getName() << " " << e.what() << std::endl;
+		return (0);
+	}
+	return(1);
 }
+
+std::string RobotomyRequestForm::getTarget(void) const
+{
+	return (this->target);
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{}
 
 Form*	RobotomyRequestForm::clone(std::string Target)
 {
-	target = Target;
-	return (new RobotomyRequestForm(*this));
+	return (new RobotomyRequestForm(Target));
 }
