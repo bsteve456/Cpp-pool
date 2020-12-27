@@ -67,6 +67,34 @@ int Bureaucrat::getGrade() const
 	return (this->Grade);
 }
 
+void	Bureaucrat::inc()
+{
+	try
+	{
+		this->Grade += 5;
+		if (this->Grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::dec()
+{
+	try
+	{
+		this->Grade -= 5;
+		if (this->Grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
 void	Bureaucrat::signForm(std::string name, int b) const
 {
 	if (b == 1)
@@ -74,6 +102,9 @@ void	Bureaucrat::signForm(std::string name, int b) const
 	else
 		std::cout << this->Name << " cannot signs " << name << " because  GradeTooLow." << std::endl;
 }
+
+Bureaucrat::~Bureaucrat()
+{}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &b)
 {

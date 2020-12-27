@@ -44,7 +44,6 @@ Form::Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrad
 		{
 			std::cout << e.what() << std::endl;
 		}
-
 }
 
 const char  * Form::GradeTooHighException::what() const throw()
@@ -56,6 +55,7 @@ const char  * Form::GradeTooLowException::what() const throw()
 {
 	return "Form Grade Is Too Low";
 }
+
 std::string Form::getName() const
 {
 	return (this->Name);
@@ -83,16 +83,19 @@ void		Form::beSigned(Bureaucrat const &s)
 {
 	try
 	{
-		if (s.getGrade() > SGrade)
+		if (s.getGrade() > this->SGrade)
 			throw Form::GradeTooLowException();
-		Signed = true;
-		s.signForm(Name, 1);
+		this->Signed = true;
+		s.signForm(this->Name, 1);
 	}
 	catch (Form::GradeTooLowException &e)
 	{
-		s.signForm(Name, 0);
+		s.signForm(this->Name, 0);
 	}
 }
+
+Form::~Form()
+{}
 
 std::ostream& operator<<(std::ostream& os, const Form &f)
 {

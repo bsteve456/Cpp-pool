@@ -44,7 +44,7 @@ class Form
 		int			getEGrade() const;
 		int			getSigned() const;
 		void		beSigned(Bureaucrat const &s);
-		~Form() {}
+		~Form();
 };
 std::ostream& operator<<(std::ostream& os, const Form &f);
 #endif
