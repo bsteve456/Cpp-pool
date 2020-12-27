@@ -57,4 +57,7 @@ int main()
 	cool.executeForm(*form3);
 	cool.dec();
 	cool.executeForm(*form3);
+	delete(form1);
+	delete(form2);
+	delete(form3);
 }

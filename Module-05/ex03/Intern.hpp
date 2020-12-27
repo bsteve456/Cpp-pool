@@ -34,7 +34,7 @@ class Intern
 		{
 			for (int i = 0; i < 3; i++)
 				delete(forms[i]);
-			delete(forms);
+			delete [] forms;
 		}
 		Form	*makeForm(std::string name, std::string target);
 };
