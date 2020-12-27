@@ -23,19 +23,11 @@ class Intern
 	private:
 		Form **forms;
 	public:
-		Intern()
-		{
-			forms = new Form *[3];
-			forms[0] = new ShrubberyCreationForm("none");
-			forms[1] = new RobotomyRequestForm("none");
-			forms[2] = new PresidentialPardonForm("none");
-		}
-		~Intern()
-		{
-			for (int i = 0; i < 3; i++)
-				delete(forms[i]);
-			delete [] forms;
-		}
+		Intern();
+		Intern(const Intern &I);
+		Intern & operator = (const Intern &I);
+		Form 	**getForms(void) const;
+		~Intern();
 		Form	*makeForm(std::string name, std::string target);
 };
 #endif
