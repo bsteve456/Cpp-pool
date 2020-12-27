@@ -95,6 +95,9 @@ void	Bureaucrat::dec()
 	}
 }
 
+Bureaucrat::~Bureaucrat()
+{}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &b)
 {
 	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
