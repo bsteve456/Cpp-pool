@@ -49,7 +49,6 @@ int	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		return (0);
 	}
 	return (1);
-
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string Target) : Form("PresidentialPardonForm", 25, 5)

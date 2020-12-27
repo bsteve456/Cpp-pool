@@ -35,15 +35,15 @@ Form::Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrad
 			throw Form::GradeTooLowException();
 		else if (sgrade < 1 || egrade < 1)
 			throw Form::GradeTooHighException();
-		}
-		catch (Form::GradeTooLowException &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-		catch (Form::GradeTooHighException &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 const char  * Form::GradeTooHighException::what() const throw()
