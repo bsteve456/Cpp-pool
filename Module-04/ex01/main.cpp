@@ -64,5 +64,7 @@ int main()
 	delete me;
 	delete d;
 	delete c;
+	delete pr;
+	delete pf;
 	return (0);
 }

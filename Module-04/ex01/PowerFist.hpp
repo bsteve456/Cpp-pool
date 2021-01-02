@@ -21,7 +21,7 @@ class PowerFist : public AWeapon
 		PowerFist();
 		PowerFist(const PowerFist &P);
 		PowerFist & operator = (const PowerFist &P);
-		~PowerFist();
+		virtual ~PowerFist();
 		void attack() const;
 };
 

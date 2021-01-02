@@ -23,7 +23,7 @@ class AWeapon
 		int Damage;
 	public:
 		AWeapon();
-		~AWeapon();
+		virtual ~AWeapon();
 		AWeapon(const AWeapon &W);
 		std::string getName() const;
 		int getAPCost() const;

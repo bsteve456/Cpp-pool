@@ -21,7 +21,7 @@ class PlasmaRifle : public AWeapon
 		PlasmaRifle();
 		PlasmaRifle(const PlasmaRifle &P);
 		PlasmaRifle & operator = (const PlasmaRifle &P);
-		~PlasmaRifle();
+		virtual ~PlasmaRifle();
 		void attack() const;
 };
 
