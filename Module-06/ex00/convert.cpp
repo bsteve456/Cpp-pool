@@ -6,11 +6,36 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 19:48:31 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 20:35:36 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
+
+
+int	ft_strlen(std::string scala)
+{
+	int count = 0;
+
+	while(scala[count])
+		count++;
+	return (count);
+}
+
+int	ft_strcmp(std::string s1, std::string s2)
+{
+	int i = 0;
+	int j = 0;
+
+	while ((s1[j] || s2[j]) && i < ft_strlen(s2))
+	{
+		if (s1[j] != s2[j])
+			return (s1[j] - s2[j]);
+		j++;
+		i++;
+	}
+	return (0);
+}
 
 int main (int ac, char **av)
 {

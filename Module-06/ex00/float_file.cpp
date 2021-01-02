@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 19:12:05 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 20:44:08 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int check_dot(std::string scala)
 	int count = 0;
 	int res = 0;
 	int zero = 0;
-	for (std::string::size_type i = 0; i < scala.length(); i++)
+
+	if (scala[0] == 'n' || scala[0] == '+' || scala[0] == '-')
+		return (1);
+	for (int i = 0; i < ft_strlen(scala); i++)
 	{
 		if (count == 1 && scala[i] == '0')
 			zero++;
@@ -53,11 +56,11 @@ int check_dot(std::string scala)
 int	check_float(char *s)
 {
 	std::string scale = std::string(s);
-	if (scale.compare("f") == 0)
+	if (ft_strcmp(scale, "f") == 0)
 		return (0);
-	else if(scale.compare("nanf") == 0 ||
-		scale.compare("+inff") == 0 ||
-		scale.compare("-inff") == 0)
+	else if(ft_strcmp(scale, "nanf") == 0 ||
+			ft_strcmp(scale, "+inff") == 0 ||
+			ft_strcmp(scale, "-inff") == 0)
 		return (1);
 	if (check_fnumeric(s) != 1)
 		return (0);
@@ -81,14 +84,14 @@ void	float_to_all(float n, std::string scala)
 	i = static_cast<int>(n);
 	if (n < 32 && n > -128)
 		std::cout << "char: non displayable" << std::endl;
-	else if (n > 128 || n < -128 || scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
+	else if (n > 128 || n < -128 || ft_strcmp(scala, "nanf") == 0 || n == INFINITY || n == -INFINITY)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
 		c = static_cast<char>(n);
 		std::cout << "char: " << c << std::endl;
 	}
-	if (scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
+	if (ft_strcmp(scala, "nanf") == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
