@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 18:15:02 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 19:48:31 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main (int ac, char **av)
 	{
 		std::string scalar = std::string(av[1]);
 		if (check_char(scalar) == 1)
-			char_to_all((char)scalar[0]);
+			char_to_all(static_cast<char>(scalar[0]));
 		else if (check_int(av[1]) == 1)
 			int_to_all(iconvert(av[1]));
 		else if (check_float(av[1]) == 1)
