@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 20:35:36 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 20:47:39 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int main (int ac, char **av)
 			float_to_all(fconvert(av[1]), scalar);
 		else if (check_double(av[1]) == 1)
 			double_to_all(dconvert(av[1]), scalar);
+		else
+			std::cout << "Error: Arg cannot be converted." << std::endl;
 	}
 	else
 		std::cout << "2 arguments required" << std::endl;
