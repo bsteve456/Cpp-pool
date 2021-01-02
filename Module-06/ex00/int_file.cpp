@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 19:04:51 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 22:33:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 19:10:44 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,19 @@ int	iconvert(char *s)
 	return (res);
 }
 
+int min_max_check(long double n)
+{
+	if (n > INT_MAX || n < INT_MIN)
+		return (0);
+	return (1);
+}
+
 int	check_int(char *scalar)
 {
 	if (check_numeric(scalar) != 1)
 		return (0);
 	long double n = std::atof(scalar);
-	if (n > INT_MAX || n < INT_MIN)
+	if(min_max_check(n) == 0)
 		return (0);
 	return (1);
 }
@@ -61,9 +68,9 @@ void	int_to_all(int n)
 	double d = 0;
 	d = static_cast<double>(n);
 	f = static_cast<float>(n);
-	if (n < 32)
+	if (n < 32 && n > -128)
 		std::cout << "char: non displayable" << std::endl;
-	else if (n > 128)
+	else if (n > 128 || n < -128)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{

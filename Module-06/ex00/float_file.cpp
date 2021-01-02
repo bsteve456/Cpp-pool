@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 22:33:51 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 19:12:05 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,27 @@ int	check_fnumeric(char *s)
 	}
 	return(0);
 }
+
+int check_dot(std::string scala)
+{
+	int count = 0;
+	int res = 0;
+	int zero = 0;
+	for (std::string::size_type i = 0; i < scala.length(); i++)
+	{
+		if (count == 1 && scala[i] == '0')
+			zero++;
+		if (count == 1 && scala[i] != '0' && scala[i] != 'f')
+			res = 1;
+		if (scala[i] == '.')
+			count++;
+	}
+	if (res == 1 && zero < 4)
+		return (1);
+	return (0);
+}
+
+
 int	check_float(char *s)
 {
 	std::string scale = std::string(s);
@@ -60,17 +81,25 @@ void	float_to_all(float n, std::string scala)
 	i = static_cast<int>(n);
 	if (n < 32 && n > -128)
 		std::cout << "char: non displayable" << std::endl;
-	else if (n > 128 || scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
+	else if (n > 128 || n < -128 || scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
 		c = static_cast<char>(n);
 		std::cout << "char: " << c << std::endl;
 	}
-	if (scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY)
+	if (scala.compare("nanf") == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << n << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	if (check_dot(scala) == 0)
+	{
+		std::cout << "float: " << n << ".0f" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << n << "f" << std::endl;
+		std::cout << "double: " << d << std::endl;
+	}
 }

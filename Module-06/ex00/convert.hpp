@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:35 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 22:33:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 18:58:45 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int		check_float(char *s);
 int		check_double(char *s);
 double	dconvert(char *s);
 void	double_to_all(double n, std::string scala);
+int		check_dot(std::string scala);
+int		min_max_check(long double n);
 
 # endif
