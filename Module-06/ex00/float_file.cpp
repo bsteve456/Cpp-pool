@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 20:44:08 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 20:58:34 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int check_dot(std::string scala)
 	int count = 0;
 	int res = 0;
 	int zero = 0;
+	int count2 = 0;
 
 	if (scala[0] == 'n' || scala[0] == '+' || scala[0] == '-')
 		return (1);
@@ -46,8 +47,9 @@ int check_dot(std::string scala)
 			res = 1;
 		if (scala[i] == '.')
 			count++;
+		count2++;
 	}
-	if (res == 1 && zero < 4)
+	if ((res == 1 && zero < 4) || (count2 > 5 && res == 0))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:35 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 20:34:48 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/02 21:01:00 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	char_to_all(char c);
 int		check_numeric(char *s);
 int		check_int(char *scalar);
 int		iconvert(char *s);
-void	int_to_all(int n);
+void	int_to_all(int n, std::string scala);
 int		isdigit(char c);
 float	fconvert(char *s);
 void	float_to_all(float n, std::string scala);
