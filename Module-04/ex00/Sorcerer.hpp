@@ -29,7 +29,7 @@ class Sorcerer
 		std::string getName() const;
 		std::string getTitle() const;
 		void	polymorph(Victim const &a) const;
-		~Sorcerer();
+		virtual ~Sorcerer();
 };
 std::ostream& operator<<(std::ostream& os, const Sorcerer &f);
 #endif

@@ -26,7 +26,7 @@ class Peon: public Victim
 		Peon & operator = (const Peon &P);
 		std::string getName() const;
 		void	getPolymorphed() const;
-		~Peon();
+		virtual ~Peon();
 };
 std::ostream& operator<<(std::ostream& os, const Peon &f);
 #endif
