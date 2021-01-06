@@ -26,7 +26,7 @@ class Victim
 		Victim(std::string name1);
 		std::string getName() const;
 		virtual void	getPolymorphed() const;
-		~Victim();
+		virtual	~Victim();
 };
 std::ostream& operator<<(std::ostream& os, const Victim &f);
 #endif
