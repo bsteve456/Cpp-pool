@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 18:13:03 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 01:37:04 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/08 11:47:22 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 Form::Form() : Name("none"),
 SGrade(0),
-EGrade(0)
+EGrade(0),
+Signed(false)
 {}
 
-Form::Form(const Form &F) : Name(F.getName()), SGrade(F.getSGrade()), EGrade(F.getEGrade())
+Form::Form(const Form &F) : Name(F.getName()), SGrade(F.getSGrade()), EGrade(F.getEGrade()), Signed(F.getSigned())
 {}
 
 
 Form & Form::operator = (Form &F)
 {
-	(void)F;
+	if (this != &F)
+		this->Signed = F.getSigned();
 	return (*this);
 }
 
-Form::Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrade) , EGrade(egrade)
+Form::Form(std::string name, int sgrade, int egrade) : Name(name) , SGrade(sgrade) , EGrade(egrade), Signed(false)
 {
 	try
 	{

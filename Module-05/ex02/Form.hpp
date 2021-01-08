@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:49:22 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 23:01:11 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/08 11:12:42 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Form
 		std::string const Name;
 		int	const	SGrade;
 		int const	EGrade;
-		bool Signed = false;
+		bool Signed;
 	public:
 		Form();
 		class GradeTooHighException : std::exception

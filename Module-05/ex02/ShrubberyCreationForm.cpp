@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 21:35:11 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/11 00:10:39 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/08 11:15:48 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		tab[7] = "            0#0\n";
 		tab[8] = "            000\n";
 		std::string str = std::string(target) + std::string("_shrubbery");
-		std::ofstream out(str);
+		std::ofstream out(str.c_str());
 		for(int i = 0; i < 9; i++)
 			out << tab[i];
 		return (1);
