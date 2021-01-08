@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 10:46:00 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 14:23:48 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:25:56 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	AMateria::use(ICharacter & target)
 AMateria & AMateria::operator = (const AMateria &A)
 {
 	if (this != &A)
-		_xp = A.getXP();
+		this->_xp = A.getXP();
 	return (*this);
 }
 

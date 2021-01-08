@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 13:39:34 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/10 14:52:54 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/07 19:31:21 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int main()
 	std::cout << "\n    -----SECOND TEST-----\n" << std::endl;
 	Character root("OK");
 	root.equip(tmp);
+	AMateria **ress = root.getInventory();
+	std::cout << 0 << " Materia " << ress[0]->getXP() << '\n';
 	root.use(0 ,*bob);
+	std::cout << 0 << " Materia " << ress[0]->getXP() << '\n';
 	Character copy1 = root;
 	copy1.use(0, *bob);
 	Character copy2("copy");
