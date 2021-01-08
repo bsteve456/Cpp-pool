@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 18:13:03 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/08 11:11:07 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/08 12:05:26 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ EGrade(0),
 Signed(false)
 {}
 
-Form::Form(const Form &F) : Name(F.getName()), SGrade(F.getSGrade()), EGrade(F.getEGrade())
+Form::Form(const Form &F) : Name(F.getName()), SGrade(F.getSGrade()), EGrade(F.getEGrade()), Signed(F.getSigned())
 {}
 
 Form & Form::operator = (const Form &F)
