@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 20:58:34 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 12:48:33 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,13 @@ int check_dot(std::string scala)
 	int res = 0;
 	int zero = 0;
 	int count2 = 0;
+	int start = 0;
 
-	if (scala[0] == 'n' || scala[0] == '+' || scala[0] == '-')
+	if (scala[0] == 'n')
 		return (1);
-	for (int i = 0; i < ft_strlen(scala); i++)
+	if (scala[0] == '+' || scala[0] == '-')
+		start = 1;
+	for (int i = start; i < ft_strlen(scala); i++)
 	{
 		if (count == 1 && scala[i] == '0')
 			zero++;

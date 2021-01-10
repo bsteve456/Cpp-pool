@@ -6,12 +6,12 @@
 #    By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 20:16:11 by stbaleba          #+#    #+#              #
-#    Updated: 2020/12/11 22:01:23 by stbaleba         ###   ########.fr        #
+#    Updated: 2021/01/10 12:49:08 by stbaleba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=clang++
-CFLAGS=-Wall -Werror -Wextra
+CFLAGS=-Wall -Werror -Wextra -std=c++98
 
 NAME=convert
 INC=
