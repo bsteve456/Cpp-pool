@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 20:36:32 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:17:16 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_double(char *s)
 {
-	std::string scale = std::string(s);
+	char * scale = s;
 	if(ft_strcmp(scale, "nan") == 0 ||
 		ft_strcmp(scale, "+inf") == 0 ||
 		ft_strcmp(scale, "-inf") == 0)
@@ -30,7 +30,7 @@ double	dconvert(char *s)
 	return (n);
 }
 
-void	double_to_all(double n, std::string scala)
+void	double_to_all(double n, char * scala)
 {
 	char c;
 	int i = 0;

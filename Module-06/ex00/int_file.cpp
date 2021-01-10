@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 19:04:51 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 21:00:09 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:02:37 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_int(char *scalar)
 	return (1);
 }
 
-void	int_to_all(int n, std::string scala)
+void	int_to_all(int n, char * scala)
 {
 	char c;
 	float f = 0;

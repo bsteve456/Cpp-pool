@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 12:48:33 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:03:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_fnumeric(char *s)
 	return(0);
 }
 
-int check_dot(std::string scala)
+int check_dot(char * scala)
 {
 	int count = 0;
 	int res = 0;
@@ -60,7 +60,7 @@ int check_dot(std::string scala)
 
 int	check_float(char *s)
 {
-	std::string scale = std::string(s);
+	char *scale = s;
 	if (ft_strcmp(scale, "f") == 0)
 		return (0);
 	else if(ft_strcmp(scale, "nanf") == 0 ||
@@ -79,7 +79,7 @@ float	fconvert(char *s)
 	return (res);
 }
 
-void	float_to_all(float n, std::string scala)
+void	float_to_all(float n, char * scala)
 {
 	char c;
 	int i = 0;

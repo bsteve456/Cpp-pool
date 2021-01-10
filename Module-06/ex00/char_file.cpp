@@ -6,18 +6,18 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:33:00 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/02 19:49:58 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:00:15 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
-int		check_char(std::string scalar)
+int		check_char(char * scalar)
 {
 	char c;
-	if (scalar.length() != 1)
+	if (ft_strlen(scalar) != 1)
 		return (0);
-	c = static_cast<char>(scalar[0]);
+	c = scalar[0];
 	if (c < 32 || (c > 47 && c < 58))
 		return (0);
 	return (1);
