@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:03:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/10 15:09:18 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int check_dot(char * scala)
 	int count2 = 0;
 	int start = 0;
 
-	if (scala[0] == 'n')
+	if (scala[0] == 'n' || ft_strcmp(scala, "+inff") == 0 ||
+		ft_strcmp(scala, "-inff") == 0)
 		return (1);
 	if (scala[0] == '+' || scala[0] == '-')
 		start = 1;
