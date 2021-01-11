@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:16 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:12:03 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:32:58 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@ int	ft_strlen(const char * scala)
 	return (count);
 }
 
-int	ft_strcmp(const char * s1, const char * s2)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int i = 0;
-	int j = 0;
+	size_t i;
 
-	while ((s1[j] || s2[j]) && i < ft_strlen(s2))
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((*s1 || *s2) && i < n)
 	{
-		if (s1[j] != s2[j])
-			return (s1[j] - s2[j]);
-		j++;
+		if ((unsigned char)*s1 != (unsigned char)*s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
 		i++;
 	}
 	return (0);

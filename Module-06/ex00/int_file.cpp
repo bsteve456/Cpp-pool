@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 19:04:51 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:02:37 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:48:51 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	check_numeric(char *s)
 		s++;
 	while (*s)
 	{
+		if (*s == '.' && *(s + 1) == '\0')
+			return (0);
 		if (*s == '.')
 			dot += 1;
 		if (dot > 1 || (isdigit(*s) == 0 && *s != '.'))
@@ -75,7 +77,7 @@ void	int_to_all(int n, char * scala)
 	else
 	{
 		c = static_cast<char>(n);
-		std::cout << "char: " << c << std::endl;
+		std::cout << "char: " << "'" << c << "'" << std::endl;
 	}
 	std::cout << "int: " << n << std::endl;
 	if (check_dot(scala) == 0)

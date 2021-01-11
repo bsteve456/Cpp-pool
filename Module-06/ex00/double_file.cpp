@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:17:16 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:39:44 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	check_double(char *s)
 {
 	char * scale = s;
-	if(ft_strcmp(scale, "nan") == 0 ||
-		ft_strcmp(scale, "+inf") == 0 ||
-		ft_strcmp(scale, "-inf") == 0)
+	if(ft_strncmp(scale, "nan", ft_strlen(scale)) == 0 ||
+		ft_strncmp(scale, "+inf", ft_strlen(scale)) == 0 ||
+		ft_strncmp(scale, "-inf", ft_strlen(scale)) == 0)
 		return (1);
 	if (check_numeric(s) == 0)
 		return (0);
@@ -40,14 +40,14 @@ void	double_to_all(double n, char * scala)
 	i = static_cast<int>(n);
 	if (n < 32 && n > -128)
 		std::cout << "char: non displayable" << std::endl;
-	else if (n > 128 || n < -128 || ft_strcmp(scala, "nan") == 0 || n == INFINITY || n == -INFINITY)
+	else if (n > 128 || n < -128 || ft_strncmp(scala, "nan", ft_strlen(scala)) == 0 || n == INFINITY || n == -INFINITY)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
 		c = static_cast<char>(n);
-		std::cout << "char: " << c << std::endl;
+		std::cout << "char: " << "'" << c << "'" << std::endl;
 	}
-	if (ft_strcmp(scala, "nan") == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
+	if (ft_strncmp(scala, "nan", ft_strlen(scala)) == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;

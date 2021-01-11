@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:19:35 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:12:17 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:33:39 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	double_to_all(double n, char * scala);
 int		check_dot(char * scala);
 int		min_max_check(long double n);
 int		ft_strlen(const char * scala);
-int		ft_strcmp(const char * s1, const char * s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 # endif

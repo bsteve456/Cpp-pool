@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 17:33:00 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/10 13:00:15 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:23:29 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	char_to_all(char c)
 	float f;
 	double d;
 
-	std::cout << "char : " << c << std::endl;
+	std::cout << "char : " << "'" << c << "'" << std::endl;
 	i = static_cast<int>(c);
 	std::cout << "int : " << i << std::endl;
 	f = static_cast<float>(c);

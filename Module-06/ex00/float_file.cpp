@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/11 16:14:25 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/11 16:46:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	check_fnumeric(char *s)
 		s++;
 	while (*s)
 	{
+		if (*s == '.' && isdigit(*(s + 1)) == 0)
+			return (0);
 		if (*s == '.')
 			dot += 1;
 		if (*s == 'f' && *(s + 1) == '\0')
@@ -38,10 +40,10 @@ int check_dot(char * scala)
 	int count2 = 0;
 	int start = 0;
 
-	if (scala[0] == 'n' || ft_strcmp(scala, "+inff") == 0 ||
-		ft_strcmp(scala, "-inff") == 0 ||
-		ft_strcmp(scala, "+inf") == 0 ||
-		ft_strcmp(scala, "-inf") == 0)
+	if (scala[0] == 'n' || ft_strncmp(scala, "+inff", ft_strlen(scala)) == 0 ||
+		ft_strncmp(scala, "-inff", ft_strlen(scala)) == 0 ||
+		ft_strncmp(scala, "+inf", ft_strlen(scala)) == 0 ||
+		ft_strncmp(scala, "-inf", ft_strlen(scala)) == 0)
 		return (1);
 	if (scala[0] == '+' || scala[0] == '-')
 		start = 1;
@@ -64,11 +66,11 @@ int check_dot(char * scala)
 int	check_float(char *s)
 {
 	char *scale = s;
-	if (ft_strcmp(scale, "f") == 0)
+	if (ft_strncmp(scale, "f", 1) == 0)
 		return (0);
-	else if(ft_strcmp(scale, "nanf") == 0 ||
-			ft_strcmp(scale, "+inff") == 0 ||
-			ft_strcmp(scale, "-inff") == 0)
+	else if(ft_strncmp(scale, "nanf", ft_strlen(scale)) == 0 ||
+			ft_strncmp(scale, "+inff", ft_strlen(scale)) == 0 ||
+			ft_strncmp(scale, "-inff", ft_strlen(scale)) == 0)
 		return (1);
 	if (check_fnumeric(s) != 1)
 		return (0);
@@ -92,14 +94,14 @@ void	float_to_all(float n, char * scala)
 	i = static_cast<int>(n);
 	if (n < 32 && n > -128)
 		std::cout << "char: non displayable" << std::endl;
-	else if (n > 128 || n < -128 || ft_strcmp(scala, "nanf") == 0 || n == INFINITY || n == -INFINITY)
+	else if (n > 128 || n < -128 || ft_strncmp(scala, "nanf", ft_strlen(scala)) == 0 || n == INFINITY || n == -INFINITY)
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
 		c = static_cast<char>(n);
-		std::cout << "char: " << c << std::endl;
+		std::cout << "char: " << "'" << c << "'" << std::endl;
 	}
-	if (ft_strcmp(scala, "nanf") == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
+	if (ft_strncmp(scala, "nanf", ft_strlen(scala)) == 0 || n == INFINITY || n == -INFINITY || min_max_check(n) == 0)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
