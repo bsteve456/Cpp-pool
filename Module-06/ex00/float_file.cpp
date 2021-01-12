@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/12 16:47:59 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/12 18:52:28 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ int	check_float(char *s)
 {
 	char *scale = s;
 
-	if (ft_strncmp(scale, "f", 1) == 0)
+	if (ft_strncmp(scale, "f", 1) == 0
+		|| ft_strncmp(scale, "+f", 2) == 0
+		|| ft_strncmp(scale, "-f", 2) == 0)
 		return (0);
 	else if(ft_strncmp(scale, "nanf", ft_strlen("nanf") + 1) == 0 ||
 			ft_strncmp(scale, "+inff", ft_strlen("+inff") + 1) == 0 ||
