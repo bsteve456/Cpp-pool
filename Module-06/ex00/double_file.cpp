@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/11 16:39:44 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/12 16:48:52 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	check_double(char *s)
 {
 	char * scale = s;
-	if(ft_strncmp(scale, "nan", ft_strlen(scale)) == 0 ||
-		ft_strncmp(scale, "+inf", ft_strlen(scale)) == 0 ||
-		ft_strncmp(scale, "-inf", ft_strlen(scale)) == 0)
+	if(ft_strncmp(scale, "nan", ft_strlen("nan") + 1) == 0 ||
+		ft_strncmp(scale, "+inf", ft_strlen("+inf") + 1) == 0 ||
+		ft_strncmp(scale, "-inf", ft_strlen("-inf") + 1) == 0)
 		return (1);
 	if (check_numeric(s) == 0)
 		return (0);

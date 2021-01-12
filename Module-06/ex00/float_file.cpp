@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 22:03:19 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/11 16:46:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/12 16:47:59 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ int check_dot(char * scala)
 int	check_float(char *s)
 {
 	char *scale = s;
+
 	if (ft_strncmp(scale, "f", 1) == 0)
 		return (0);
-	else if(ft_strncmp(scale, "nanf", ft_strlen(scale)) == 0 ||
-			ft_strncmp(scale, "+inff", ft_strlen(scale)) == 0 ||
-			ft_strncmp(scale, "-inff", ft_strlen(scale)) == 0)
+	else if(ft_strncmp(scale, "nanf", ft_strlen("nanf") + 1) == 0 ||
+			ft_strncmp(scale, "+inff", ft_strlen("+inff") + 1) == 0 ||
+			ft_strncmp(scale, "-inff", ft_strlen("-inff") + 1) == 0)
 		return (1);
 	if (check_fnumeric(s) != 1)
 		return (0);
