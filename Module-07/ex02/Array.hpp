@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:01:27 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/12 16:14:07 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/12 20:14:25 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ class Array
 		};
 		Array()
 		{
-			this->arr = 0;
-				this->length = 0;
+			this->length = 0;
+			this->arr = new T[0];
 		}
 		Array(unsigned int n)
 		{
+			std::cout << "HERE" << std::endl;
 			this->length = n;
 			this->arr = new T[n];
 			for (unsigned int i = 0; i < n; i++)
@@ -41,12 +42,15 @@ class Array
 		}
 		Array<T>(Array<T> const &t)
 		{
+			this->arr = 0;
 			*this = t;
 		}
 		Array<T> & operator = (Array<T> const &t)
 		{
+			std::cout << "HERE2" << std::endl;
 			if (this != &t )
 			{
+				delete [] this->arr;
 				this->length = t.size();
 				this->arr = new T[this->length];
 				for (unsigned int i = 0; i < t.size(); i++)
