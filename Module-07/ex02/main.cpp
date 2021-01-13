@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:13:26 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/12 20:15:21 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:20:05 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main()
 	std::cout << "size : " << n1.size() << " " << n1[2] << std::endl;
 	Array<int> n2(n1);
 	std::cout << "size : " << n2.size() << " " << n2[2] << std::endl;
-	n2.setArray(2, 456);
-	n2.setArray(3, -545);
-	n2.setArray(4, 45);
+	n2[2] = 456;
+	n2[3] = -545;
+	n2[4] = 45;
 	for (unsigned int i = 0; i < n2.size(); i++)
 		std::cout << n2[i] << " ";
 	std::cout << std::endl;
@@ -40,11 +40,11 @@ int main()
 	std::cout << "size : " << c1.size() << " " << c1[2] << std::endl;
 	Array<char> c2(c1);
 	std::cout << "size : " << c2.size() << " " << c2[2] << std::endl;
-	c2.setArray(0, 'H');
-	c2.setArray(1, 'E');
-	c2.setArray(2, 'L');
-	c2.setArray(3, 'L');
-	c2.setArray(4, 'O');
+	c2[0] = 'H';
+	c2[1] = 'E';
+	c2[2] = 'L';
+	c2[3] = 'L';
+	c2[4] = 'O';
 	for (unsigned int i = 0; i < c2.size(); i++)
 		std::cout << c2[i] << " ";
 	std::cout << std::endl;

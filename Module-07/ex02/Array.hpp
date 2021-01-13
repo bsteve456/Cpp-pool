@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:01:27 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/13 14:55:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:21:00 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ class Array
 		};
 		Array()
 		{
+			this->err = 0;
 			this->length = 0;
 			this->arr = new T[0];
 		}
 		Array(unsigned int n)
 		{
+			this->err = 0;
 			this->length = n;
 			this->arr = new T[n];
 			for (unsigned int i = 0; i < n; i++)
@@ -41,11 +43,13 @@ class Array
 		}
 		Array<T>(Array<T> const &t)
 		{
+			this->err = 0;
 			this->arr = 0;
 			*this = t;
 		}
 		Array<T> & operator = (Array<T> const &t)
 		{
+			this->err = 0;
 			if (this != &t )
 			{
 				delete [] this->arr;
@@ -56,7 +60,7 @@ class Array
 			}
 			return (*this);
 		}
-		T operator [] (unsigned int n) const
+		T &  operator [] (unsigned int n)
 		{
 			try
 			{
@@ -67,7 +71,21 @@ class Array
 			catch (OutOfLimits &e)
 			{
 				std::cerr << "Error : " << e.what();
-				return (static_cast<T>(0));
+				return (err);
+			}
+		}
+		const T &  operator [] (unsigned int n) const
+		{
+			try
+			{
+				if (n >= this->length)
+					throw OutOfLimits();
+				return (this->arr[n]);
+			}
+			catch (OutOfLimits &e)
+			{
+				std::cerr << "Error : " << e.what();
+				return (err);
 			}
 		}
 		void	setArray(unsigned int elem, T val)
@@ -85,6 +103,7 @@ class Array
 		}
 	private:
 		T *arr;
+		T err;
 		unsigned int length;
 };
 #endif
