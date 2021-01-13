@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:01:27 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/12 20:14:25 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:55:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class Array
 		}
 		Array(unsigned int n)
 		{
-			std::cout << "HERE" << std::endl;
 			this->length = n;
 			this->arr = new T[n];
 			for (unsigned int i = 0; i < n; i++)
@@ -47,7 +46,6 @@ class Array
 		}
 		Array<T> & operator = (Array<T> const &t)
 		{
-			std::cout << "HERE2" << std::endl;
 			if (this != &t )
 			{
 				delete [] this->arr;
