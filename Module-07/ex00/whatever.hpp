@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 11:33:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/12 11:42:48 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/13 18:10:44 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 template < typename T >
 void swap(T &a, T &b)
 {
-	T temp;
-
-	temp = a;
+	T temp = a;
 	a = b;
 	b = temp;
 }
