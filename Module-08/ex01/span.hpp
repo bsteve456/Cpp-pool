@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:46:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 14:58:38 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/14 17:53:19 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <iostream>
 # include <stdlib.h>
 # include <time.h>
+# include <iterator>
 
-class Span
+class Span : public std::iterator<std::input_iterator_tag, int>
 {
 	private:
 		unsigned int N;
@@ -34,7 +35,9 @@ class Span
 			public:
 				const char * what() const throw();
 		};
-
+		Span & operator++();
+		Span operator++(int);
+		int & operator *();
 		Span(void);
 		Span(unsigned int n);
 		Span(const Span &S);
@@ -44,6 +47,7 @@ class Span
 		void addNumber(int temparr[5]);
 		int	shortestSpan(void) const;
 		int	longestSpan(void) const;
+		int *getArr() const;
 		unsigned int getN(void) const;
 		unsigned int getCount(void) const;
 		int			getElem(int i) const;

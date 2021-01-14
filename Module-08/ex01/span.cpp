@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:52:32 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 15:06:14 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/14 18:07:00 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ Span & Span::operator = (const Span &S)
 		this->N = S.getN();
 		this->count = S.getCount();
 		this->arr = new int[this->N];
+		int n1 = 0;
 		for (unsigned int n = 0; n < this->N; n++)
+		{
 			this->arr[n] = S.getElem(n);
+			n1++;
+		}
 	}
 	return (*this);
 }
@@ -55,6 +59,11 @@ unsigned int Span::getCount(void) const
 int			Span::getElem(int i) const
 {
 	return (this->arr[i]);
+}
+
+int	*		Span::getArr() const
+{
+	return this->arr;
 }
 
 void		Span::addNumber(int n)
@@ -167,6 +176,25 @@ int			Span::longestSpan(void) const
 		std::cerr << e.what() << std::endl;
 		return (-1);
 	}
+}
+
+Span & Span::operator ++()
+{
+	(this->arr)++;
+	return (*this);
+}
+
+Span Span::operator++(int n)
+{
+	Span tmp(*this);
+	for(int i = 0; i < n; i++)
+		this->operator++();
+	return (tmp);
+}
+
+int & Span::operator *()
+{
+	return (*(this->arr));
 }
 
 Span::~Span()

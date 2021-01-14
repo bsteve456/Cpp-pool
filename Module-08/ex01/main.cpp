@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:21:54 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 15:12:48 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/14 18:07:17 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,8 @@ int main()
 	std::cout << sp.longestSpan() << std::endl;
 	Span res = Span(10000);
 	std::cout << "TEST WITH 10000 NUMBERS" << std::endl;
-	int		arr[5];
-	for(int i = 0; i < 2000; i++)
-	{
-		arr[0] = rand() % 5000 + 1000;
-		arr[1] = rand() % 5000 + 1000;
-		arr[2] = rand() % 5000 + 1000;
-		arr[3] = rand() % 5000 + 1000;
-		arr[4] = rand() % 5000 + 1000;
-		res.addNumber(arr);
-	}
+	for(int i = 0; i < 10000; i++)
+		res.addNumber(rand() % 5000 + 1000);
 	std::cout << res.getCount() << std::endl;
 	std::cout << res.shortestSpan() << std::endl;
 	std::cout << res.longestSpan() << std::endl;
