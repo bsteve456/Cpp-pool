@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:52:32 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 14:50:35 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/14 15:06:14 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,27 +97,42 @@ const char  * Span::OutOfLimits::what() const throw()
 	return "Out Of Limits ! ";
 }
 
+const char  * Span::NotEnoughNumbers::what() const throw()
+{
+	return "Not Enough Numbers ! ";
+}
+
 int			Span::shortestSpan(void) const
 {
 	int num = 0;
 	int break1 = 0;
 	unsigned int i;
-	for (i = 0; i < this->N; i++)
+	try
 	{
-		break1 = 0;
-		num = this->arr[i];
-		for (unsigned int j = 0; j < this->N; j++)
+		if (this->count < 2)
+			throw NotEnoughNumbers();
+		for (i = 0; i < this->N; i++)
 		{
-			if (num > this->arr[j])
+			break1 = 0;
+			num = this->arr[i];
+			for (unsigned int j = 0; j < this->N; j++)
 			{
-				break1 = 1;
-				break;
+				if (num > this->arr[j])
+				{
+					break1 = 1;
+					break;
+				}
 			}
+			if (break1 == 0)
+				break;
 		}
-		if (break1 == 0)
-			break;
+		return (this->arr[i]);
 	}
-	return (this->arr[i]);
+	catch (Span::NotEnoughNumbers &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (-1);
+	}
 }
 
 int			Span::longestSpan(void) const
@@ -125,22 +140,33 @@ int			Span::longestSpan(void) const
 	int num = 0;
 	int break1 = 0;
 	unsigned int i;
-	for (i = 0; i < this->N; i++)
+
+	try
 	{
-		break1 = 0;
-		num = this->arr[i];
-		for (unsigned int j = 0; j < this->N; j++)
+		if (this->count < 2)
+			throw NotEnoughNumbers();
+		for (i = 0; i < this->N; i++)
 		{
-			if (num < this->arr[j])
+			break1 = 0;
+			num = this->arr[i];
+			for (unsigned int j = 0; j < this->N; j++)
 			{
-				break1 = 1;
-				break;
+				if (num < this->arr[j])
+				{
+					break1 = 1;
+					break;
+				}
 			}
+			if (break1 == 0)
+				break;
 		}
-		if (break1 == 0)
-			break;
+		return (this->arr[i]);
 	}
-	return (this->arr[i]);
+	catch (Span::NotEnoughNumbers &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (-1);
+	}
 }
 
 Span::~Span()

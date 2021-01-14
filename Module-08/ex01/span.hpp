@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:46:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 14:46:59 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/14 14:58:38 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ class Span
 			public:
 				const char * what() const throw();
 		};
+		class NotEnoughNumbers : std::exception
+		{
+			public:
+				const char * what() const throw();
+		};
+
 		Span(void);
 		Span(unsigned int n);
 		Span(const Span &S);
