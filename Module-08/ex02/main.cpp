@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 21:33:18 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/15 17:40:32 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/15 18:44:15 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int main()
 	std::cout << *it << std::endl;
 	++it;
 	}
-//	std::stack<int> s(mstack);
+	std::stack<int> s(mstack);
 	return 0;
 }

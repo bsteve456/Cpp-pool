@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/15 17:37:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/15 18:43:51 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stack>
 
 template < class T >
-class MutantStack
+class MutantStack : public std::stack<T>
 {
 	public:
 		struct dlist
