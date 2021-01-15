@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/15 16:16:08 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/15 17:37:53 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <stack>
 
-template < typename T >
+template < class T >
 class MutantStack
 {
 	public:
