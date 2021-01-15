@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/15 00:59:02 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/15 16:16:08 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,8 +160,14 @@ class MutantStack
 		private:
 			dlist *p;
 		public:
+			iterator() : p(0) {}
 			iterator(dlist *p) : p(p) {}
 			iterator(const iterator &i) : p(i.getP()) {}
+			iterator & operator = (const iterator &i)
+			{
+				this->p = i.getP();
+				return (*this);
+			}
 			iterator & operator ++()
 			{
 				p = p->next;
@@ -192,6 +198,7 @@ class MutantStack
 			{
 				return (this->p != other.getP());
 			}
+			~iterator(){}
 	};
 		iterator begin()
 		{
