@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:52:32 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 18:07:00 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:34:24 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,6 @@ void		Span::addNumber(int n)
 	}
 }
 
-void		Span::addNumber(int temparr[5])
-{
-	try
-	{
-		int i = 0;
-		while(this->count < this->N && i < 5)
-		{
-			this->arr[count] = temparr[i];
-			this->count += 1;
-			i++;
-		}
-		if (this->count >= this->N && i < 5)
-			throw OutOfLimits();
-	}
-	catch (Span::OutOfLimits &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-}
-
 const char  * Span::OutOfLimits::what() const throw()
 {
 	return "Out Of Limits ! ";
@@ -113,29 +93,11 @@ const char  * Span::NotEnoughNumbers::what() const throw()
 
 int			Span::shortestSpan(void) const
 {
-	int num = 0;
-	int break1 = 0;
-	unsigned int i;
 	try
 	{
 		if (this->count < 2)
 			throw NotEnoughNumbers();
-		for (i = 0; i < this->N; i++)
-		{
-			break1 = 0;
-			num = this->arr[i];
-			for (unsigned int j = 0; j < this->N; j++)
-			{
-				if (num > this->arr[j])
-				{
-					break1 = 1;
-					break;
-				}
-			}
-			if (break1 == 0)
-				break;
-		}
-		return (this->arr[i]);
+		return (*std::min_element(this->arr, this->arr + this->N));
 	}
 	catch (Span::NotEnoughNumbers &e)
 	{
@@ -146,30 +108,11 @@ int			Span::shortestSpan(void) const
 
 int			Span::longestSpan(void) const
 {
-	int num = 0;
-	int break1 = 0;
-	unsigned int i;
-
 	try
 	{
 		if (this->count < 2)
 			throw NotEnoughNumbers();
-		for (i = 0; i < this->N; i++)
-		{
-			break1 = 0;
-			num = this->arr[i];
-			for (unsigned int j = 0; j < this->N; j++)
-			{
-				if (num < this->arr[j])
-				{
-					break1 = 1;
-					break;
-				}
-			}
-			if (break1 == 0)
-				break;
-		}
-		return (this->arr[i]);
+		return (*std::max_element(this->arr, this->arr + this->N));
 	}
 	catch (Span::NotEnoughNumbers &e)
 	{
@@ -178,6 +121,19 @@ int			Span::longestSpan(void) const
 	}
 }
 
+void		Span::fill()
+{
+	unsigned int j;
+	int n;
+	for (unsigned int i = 0; i < this->N; i++)
+	{
+		j = i + 1;
+		n = rand() % (i + 1);
+		std::fill(this->begin() + i, this->begin() + j, n);
+	}
+	this->count = this->N;
+
+}
 Span & Span::operator ++()
 {
 	(this->arr)++;
@@ -195,6 +151,16 @@ Span Span::operator++(int n)
 int & Span::operator *()
 {
 	return (*(this->arr));
+}
+
+int * Span::begin()
+{
+	return (this->arr);
+}
+
+int * Span::end()
+{
+	return (this->arr + (this->N - 1));
 }
 
 Span::~Span()

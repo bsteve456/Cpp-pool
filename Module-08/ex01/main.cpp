@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:21:54 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 18:07:17 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:32:48 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int main()
 	std::cout << "OUT OF LIMIT TEST END" << std::endl;
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+
 	Span res = Span(10000);
 	std::cout << "TEST WITH 10000 NUMBERS" << std::endl;
-	for(int i = 0; i < 10000; i++)
-		res.addNumber(rand() % 5000 + 1000);
+	res.fill();
 	std::cout << res.getCount() << std::endl;
 	std::cout << res.shortestSpan() << std::endl;
 	std::cout << res.longestSpan() << std::endl;

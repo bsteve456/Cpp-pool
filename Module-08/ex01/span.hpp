@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:46:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 17:53:19 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:23:20 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <time.h>
 # include <iterator>
+# include <algorithm>
 
 class Span : public std::iterator<std::input_iterator_tag, int>
 {
@@ -51,6 +52,9 @@ class Span : public std::iterator<std::input_iterator_tag, int>
 		unsigned int getN(void) const;
 		unsigned int getCount(void) const;
 		int			getElem(int i) const;
+		int * begin();
+		int * end();
+		void fill();
 };
 
 
