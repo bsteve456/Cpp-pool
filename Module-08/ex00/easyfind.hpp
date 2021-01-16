@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 11:49:50 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/14 13:04:16 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:47:37 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 # include <list>
 # include <vector>
 # include <iterator>
+# include <algorithm>
 
 template < typename T >
 int	easyfind(T & g, int o)
 {
 	typedef typename T::iterator it;
-	for (it p = g.begin(); p != g.end(); ++p)
-	{
-		if(*p == o)
-			return (1);
-	}
+	it p = find(g.begin(), g.end(), o);
+
+	if (p != g.end())
+		return (1);
 	return (-1);
 }
 
