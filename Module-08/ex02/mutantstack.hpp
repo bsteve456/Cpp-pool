@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/16 20:07:45 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 00:44:16 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,7 @@ class MutantStack : public std::stack<T>
 		dlist *lst;
 	public:
 		MutantStack() : lst(0)
-		{
-			std::string a;
-		}
+		{}
 
 		MutantStack<T>(MutantStack<T> const &m) : lst(0)
 		{
