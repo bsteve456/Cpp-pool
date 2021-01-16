@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/15 18:43:51 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/16 20:07:45 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class MutantStack : public std::stack<T>
 
 			lst = *alst;
 			if (!lst)
-				return (this->err);
+				throw std::out_of_range("Invalid pointer");
 			while (lst->next)
 				lst = lst->next;
 			return (lst->elem);
@@ -79,10 +79,11 @@ class MutantStack : public std::stack<T>
 		}
 	private:
 		dlist *lst;
-		T err;
 	public:
-		MutantStack() : lst(0), err(0)
-		{}
+		MutantStack() : lst(0)
+		{
+			std::string a;
+		}
 
 		MutantStack<T>(MutantStack<T> const &m) : lst(0)
 		{
@@ -100,10 +101,8 @@ class MutantStack : public std::stack<T>
 			}
 			return (*this);
 		}
-		int	getListElem(int n) const
+		T	getListElem(int n) const
 		{
-			if (n >= this->size())
-				return (-1);
 			dlist *tmp = this->lst;
 			for(int i = 0; i < n; i++)
 				tmp = tmp->next;
