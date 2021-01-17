@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/17 00:44:16 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 12:19:19 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <iostream>
 # include <stack>
+# include <deque>
 
-template < class T >
-class MutantStack : public std::stack<T>
+template < class T, class Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
 	public:
 		struct dlist
@@ -50,17 +51,6 @@ class MutantStack : public std::stack<T>
 				lst->next = new1;
 			}
 		}
-		T	& ft_lstop(dlist **alst)
-		{
-			dlist *lst;
-
-			lst = *alst;
-			if (!lst)
-				throw std::out_of_range("Invalid pointer");
-			while (lst->next)
-				lst = lst->next;
-			return (lst->elem);
-		}
 		void	ft_lstpop(dlist **alst)
 		{
 			dlist *lst;
@@ -77,13 +67,12 @@ class MutantStack : public std::stack<T>
 			if(prev != 0)
 				prev->next = 0;
 		}
-	private:
-		dlist *lst;
+		using std::stack<T, Container>::c;
 	public:
-		MutantStack() : lst(0)
+		MutantStack()
 		{}
 
-		MutantStack<T>(MutantStack<T> const &m) : lst(0)
+		MutantStack<T>(MutantStack<T> const &m)
 		{
 			*this = m;
 		}
@@ -92,87 +81,52 @@ class MutantStack : public std::stack<T>
 		{
 			if (this != &m)
 			{
-				while (!this->empty())
-					this->pop();
-				for (int i = 0; i < m.size(); i++)
-					this->push(m.getListElem(i));
+				while (!this->c.empty())
+					this->c.pop_back();
+				for (unsigned int i = 0; i < m.getC().size(); i++)
+					this->c.push_back(m.getC()[i]);
 			}
 			return (*this);
 		}
-		T	getListElem(int n) const
+		Container getC() const
 		{
-			dlist *tmp = this->lst;
-			for(int i = 0; i < n; i++)
-				tmp = tmp->next;
-			return (tmp->elem);
-		
-		}
-		int		size() const
-		{
-			int count = 0;
-			dlist *temp = this->lst;
-			if (!temp)
-				return (0);
-			while (temp)
-			{
-				temp = temp->next;
-				count++;
-			}
-			return (count);
-		}
-
-		bool	empty()
-		{
-			if (this->size() == 0)
-				return (true);
-			return (false);
-		}
-
-		T & top()
-		{
-			return (ft_lstop(&(this->lst)));
-		}
-		void push(T elem)
-		{
-			ft_lstadd_back(&lst, ft_lstnew(elem));
-		}
-
-		void pop()
-		{
-			if (this->size() == 1)
-			{
-				delete this->lst;
-				this->lst = 0;
-			}
-			else
-				ft_lstpop(&lst);
+			return (this->c);
 		}
 		~MutantStack()
 		{
-			while (!this->empty())
-				this->pop();
+			while (!this->c.empty())
+				this->c.pop_back();
 		}
-		class iterator: public std::iterator<std::input_iterator_tag, T>
+		class iterator: public std::iterator<std::input_iterator_tag, T>, public MutantStack<T>
 	{
 		private:
-			dlist *p;
+			dlist *it;
+			dlist *temp;
 		public:
-			iterator() : p(0) {}
-			iterator(dlist *p) : p(p) {}
-			iterator(const iterator &i) : p(i.getP()) {}
+			iterator() : it(0), temp(0) {}
+			iterator(Container p)
+			{
+				this->it = 0;
+				for (unsigned int i = 0; i < p.size(); i++)
+					ft_lstadd_back(&it, ft_lstnew(p[i]));
+				this->temp = this->it;
+			}
+			iterator(const iterator &i) : it(i.getP()), temp(it){
+			}
 			iterator & operator = (const iterator &i)
 			{
-				this->p = i.getP();
+				this->it = i.getP();
+				this->temp = it;
 				return (*this);
 			}
 			iterator & operator ++()
 			{
-				p = p->next;
+				it = it->next;
 				return (*this);
 			}
 			iterator & operator --()
 			{
-				p = p->prev;
+				it = it->prev;
 				return (*this);
 			}
 			iterator operator++(int n)
@@ -182,28 +136,46 @@ class MutantStack : public std::stack<T>
 					operator++();
 				return (tmp);
 			}
+			int	size(dlist *t)
+			{
+				int count = 0;
+				dlist *temp1 = t;
+				if (!temp1)
+					return (0);
+				while (temp1)
+				{
+					temp1 = temp1->next;
+					count++;
+				}
+				return (count);
+			}
 
 			T & operator * ()
 			{
-				return (p->elem);
+				return (it->elem);
 			}
 			dlist * getP() const
 			{
-				return (this->p);
+				return (this->it);
 			}
 			bool operator != (iterator & other) const
 			{
-				return (this->p != other.getP());
+				return (this->it != other.getP());
 			}
-			~iterator(){}
+			~iterator(){
+				while(this->size(this->temp) > 1)
+					ft_lstpop(&(this->temp));
+				delete this->temp;
+				this->temp = 0;
+			}
 	};
 		iterator begin()
 		{
-			return iterator(this->lst);
+			return iterator(c);
 		}
 		iterator end()
 		{
-			return 0;
+			return iterator();
 		}
 
 };

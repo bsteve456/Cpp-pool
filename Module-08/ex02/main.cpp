@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 21:33:18 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/16 20:08:44 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 12:19:07 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int main()
 {
 	std::cout << "       ---INT STACK---" << std::endl;
 	MutantStack<int> mstack;
+	std::cout << "Empty : " << mstack.empty() << std::endl;
 	mstack.push(5);
+	std::cout << "Empty : " << mstack.empty() << std::endl;
 	mstack.push(17);
 
 	std::cout <<"mstack top : " <<mstack.top() << std::endl;
@@ -45,9 +47,11 @@ int main()
 	}
 	std::stack<int> s(mstack);
 
-	std::cout << "       ---STD::STRING STACK---" << std::endl;
+std::cout << "       ---STD::STRING STACK---" << std::endl;
 	MutantStack<std::string> mstack2;
+	std::cout << "Empty : " << mstack2.empty() << std::endl;
 	mstack2.push("Hello");
+	std::cout << "Empty : " << mstack2.empty() << std::endl;
 	mstack2.push("World");
 
 	std::cout <<"mstack top : " <<mstack2.top() << std::endl;
@@ -75,6 +79,5 @@ int main()
 	++it1;
 	}
 	std::stack<std::string> r(mstack2);
-
 	return 0;
 }
