@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 13:46:12 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/16 18:23:20 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 12:33:45 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ class Span : public std::iterator<std::input_iterator_tag, int>
 		Span & operator = (const Span &S);
 		~Span(void);
 		void addNumber(int n);
-		void addNumber(int temparr[5]);
 		int	shortestSpan(void) const;
 		int	longestSpan(void) const;
 		int *getArr() const;
