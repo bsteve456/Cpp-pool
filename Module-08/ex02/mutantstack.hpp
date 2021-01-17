@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 20:11:42 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/17 12:19:19 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 12:26:14 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,25 +108,28 @@ class MutantStack : public std::stack<T, Container>
 			{
 				this->it = 0;
 				for (unsigned int i = 0; i < p.size(); i++)
-					ft_lstadd_back(&it, ft_lstnew(p[i]));
+					ft_lstadd_back(&(this->it), ft_lstnew(p[i]));
 				this->temp = this->it;
 			}
 			iterator(const iterator &i) : it(i.getP()), temp(it){
 			}
 			iterator & operator = (const iterator &i)
 			{
-				this->it = i.getP();
-				this->temp = it;
+				if (this != &i)
+				{
+					this->it = i.getP();
+					this->temp = this->it;
+				}
 				return (*this);
 			}
 			iterator & operator ++()
 			{
-				it = it->next;
+				this->it = this->it->next;
 				return (*this);
 			}
 			iterator & operator --()
 			{
-				it = it->prev;
+				this->it = this->it->prev;
 				return (*this);
 			}
 			iterator operator++(int n)
@@ -152,7 +155,7 @@ class MutantStack : public std::stack<T, Container>
 
 			T & operator * ()
 			{
-				return (it->elem);
+				return (this->it->elem);
 			}
 			dlist * getP() const
 			{
@@ -171,7 +174,7 @@ class MutantStack : public std::stack<T, Container>
 	};
 		iterator begin()
 		{
-			return iterator(c);
+			return iterator(this->c);
 		}
 		iterator end()
 		{
