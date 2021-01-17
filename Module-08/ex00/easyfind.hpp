@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 11:49:50 by stbaleba          #+#    #+#             */
-/*   Updated: 2021/01/16 17:47:37 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/17 16:45:58 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <list>
 # include <vector>
+# include <deque>
 # include <iterator>
 # include <algorithm>
 
