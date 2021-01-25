@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:28:45 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/05 16:51:43 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:11:34 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CLAP_TRAP_HPP
 
 #include <iostream>
+#include <cstdlib>
+
 
 class ClapTrap
 {

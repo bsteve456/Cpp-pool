@@ -6,14 +6,16 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:28:45 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 17:49:53 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:11:02 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef  CLAP_TRAP_HPP
 # define CLAP_TRAP_HPP
 
-#include <iostream>
+# include <iostream>
+# include <cstdlib>
+
 
 class ClapTrap
 {
