@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:05 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 15:06:04 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:06:27 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FRAG_TRAP_HPP
 
 # include <iostream>
+# include <cstdlib>
+
+
 
 class FragTrap
 {
