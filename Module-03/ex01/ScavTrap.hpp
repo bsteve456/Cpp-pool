@@ -6,7 +6,7 @@
 /*   By: stbaleba <stbaleba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 14:03:05 by stbaleba          #+#    #+#             */
-/*   Updated: 2020/12/04 16:12:29 by stbaleba         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:10:11 by stbaleba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define SCAV_TRAP_HPP
 
 # include <iostream>
+# include <cstdlib>
+
+
 
 class ScavTrap
 {
